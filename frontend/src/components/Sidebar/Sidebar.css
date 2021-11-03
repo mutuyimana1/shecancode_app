@@ -7,7 +7,7 @@
     align-items: center;
     margin:20px;
     padding-bottom: 30px;
-    background-color: #fdfbfb;
+    background-color: #fafafa;   
     
 
 }
@@ -39,10 +39,16 @@
 
  .sidebarItem > p {
     padding-left:30px;
+    font-family: "Roboto sans-serif";
+    color:#444;
+
+
     /* align-items: center; */
 }
 .sidebarList{
     text-decoration: none;
+    color:#444;
+
     /* background-color: teal; */
    
 }

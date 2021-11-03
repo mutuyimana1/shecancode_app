@@ -89,7 +89,8 @@
   }
   
   .nav__ul a {
-    color: #999;
+    /* color:red; */
+    color:#8b9a9b;  
   }
   
   .nav__ul--extra {
@@ -100,7 +101,7 @@
   .legal {
     display: flex;
     flex-wrap: wrap;
-    color: #999;
+    color: #333;
   }
     
   .legal__links {

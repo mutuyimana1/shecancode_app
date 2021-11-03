@@ -3,20 +3,23 @@ import "./Sidebar.css"
 import axios from "axios"
 import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { DropDownList } from "@progress/kendo-react-dropdowns";
+
 
 
 
 export default function Sidebar() {
     
-    const [cats, setCats] = useState([]);
+  const [cats, setCats] = useState([]);
 
-    useEffect(() => {
-      const getCats = async () => {
-        const res = await axios.get("/Category");
-        setCats(res.data);
-      };
-      getCats();
-    }, []);
+  useEffect(() => {
+    const getCats = async () => {
+      const res = await axios.get("/Category");
+      setCats(res.data);
+    };
+    getCats();
+  }, []);
+    
     return (
         <div className="sidebar">
             <div className="sidebarItem">
@@ -31,19 +34,27 @@ export default function Sidebar() {
             </div>
             <div className="sidebarItem">
             <div className="sidebarTitle">CATEGORIES</div>
-                <ul className="sidebarList">
+            <ul className="sidebarList">
                 {cats.map((c) => (
-                <Link to={`/?cat=${c.name}`} className="link">
-                 <li className="sidebarListItem">{c.name}</li>
+            <Link to={`/?Single=${c.name}`} className="link">
+            <li className="sidebarListItem">{c.name}</li>
             </Link>
+         
+            
           ))}
-                    
 
 
-                </ul>
+        </ul>
+        {/* <section className="k-my-8">
+          <form className="k-form k-mb-4">
+            <label className="k-label k-mb-3">Category</label>
+            <DropDownList data={cats.map(function(c) {return c.categories;})} />
+          </form>
+        </section> */}
+      
             </div>
             <div className="sidebarItem">
-                <div className="sidebarTitle">FOLLOERS/SOCIAL MEDIA</div>
+                <div className="sidebarTitle">FOLLOWERS/SOCIAL MEDIA</div>
                 <div className="sidebarosial">
                     <i className="sidebaricon fab fa-facebook-square"></i>
                     <i className="sidebaricon fab fa-twitter-square"></i>

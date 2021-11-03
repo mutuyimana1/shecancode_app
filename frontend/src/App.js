@@ -5,6 +5,7 @@ import Publish from "./Pages/Publish/Publish";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import Footer from "./components/Footer/Footer";
+import Cats from "./components/Cats/Cats";
 
 
 
@@ -32,6 +33,8 @@ function App() {
         <Route path="/Publish"><Publish/></Route>
         <Route path="/Login"><Login/></Route>
         <Route path="/Register"><Register/></Route>
+        <Route path="/Cats"><Cats/></Route>
+
 
 
       </Switch>

@@ -6,10 +6,14 @@ export default function Footer() {
         <div className="footerMain">
             <footer class="footer">
                 <div class="footer__addr">
-                    <h1 class="footer__logo">SheCanCODE</h1>
+                {/* <div className="left"> */}
+                <h2><img className="logo" src="https://www.shecancodeschool.org/uploads/logos1.png"/></h2>
+
+            {/* </div> */}
+                    {/* <h1 class="footer__logo">SheCanCODE</h1> */}
                     <h2>Contact</h2>
                     <address>
-                       5534 Somewhere In. The World 22193-10212
+                        KG 549 St 36 Kigali-Rwanda
                        <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
                     </address>
                 </div>
@@ -17,7 +21,7 @@ export default function Footer() {
                     <li class="nav__item">
                         <h2 class="nav__title">Media</h2>
                 <ul class="nav__ul">
-                    <li><a href="#">Online</a></li>
+                    <li><a href="#">Online-class</a></li>
                     <li><a href="#">Print</a></li><li>
                         <a href="#">Alternative Ads</a>
                     </li>
@@ -26,12 +30,12 @@ export default function Footer() {
                 <li class="nav__item nav__item--extra">
                   <h2 class="nav__title">Technology</h2>
                 <ul class="nav__ul nav__ul--extra">
-                    <li><a href="#">Hardware Design</a></li>
-                    <li><a href="#">Software Design</a></li>
-                    <li><a href="#">Digital Signage</a></li>
-                    <li><a href="#">Automation</a></li>
-                    <li><a href="#">Artificial Intelligence</a></li>
-                    <li><a href="#">IoT</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Technology </a></li>
+                    <li><a href="#">Language </a></li>
+                    <li><a href="#">ReactJS</a></li>
+                    <li><a href="#">NodeJS</a></li>
+                    <li><a href="#">Hackton</a></li>
                 </ul>
                 </li>
                 <li class="nav__item">
@@ -39,14 +43,14 @@ export default function Footer() {
                 <ul class="nav__ul"> 
                 <li><a href="#">Privacy Policy</a></li>
                 <li> <a href="#">Terms of Use</a></li>
-                <li><a href="#">Sitemap</a></li>
+                {/* <li><a href="#">Sitemap</a></li> */}
                 </ul>
                 </li>
                 </ul>
     <div class="legal">
-         <p>&copy; 2019 Something. All rights reserved.</p>
+         <p>&copy; 2021 SheCanCODE. All rights reserved.</p>
          <div class="legal__links">
-             <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
+             <span>Developed with<span class="heart">♥</span>by SheCan<span>CODE</span></span>
         
           </div>
     </div>

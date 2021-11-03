@@ -1,0 +1,21 @@
+.searchBar {  
+    max-width: 70rem;  
+    margin: 5rem auto; 
+  }  
+.searchOption{
+  background-color: #6fbeee;; 
+  border-radius:5px;
+  padding:8px;
+}
+.droplist{
+  margin-left: 250px;
+  width:350px;
+  height: 40px;
+}
+.categoryTitle{
+  margin-left:70px;
+  color:white;
+  font-size:30px;
+  font-weight: 500;
+  font-family: 'Josefin Sans', sans-serif;
+}

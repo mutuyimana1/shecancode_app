@@ -9,7 +9,7 @@ export default function Slider() {
                 <span className="largeTitle">Blog</span>
             </div>
             <img className="sliderImage"
-             src="https://www.superselected.com/wp-content/uploads/2014/09/Black-Women-Computer-Stock-Usage-500x333.jpg"/>
+             src="https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"/>
             
         </div>
     )

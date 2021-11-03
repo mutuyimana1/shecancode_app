@@ -15,7 +15,7 @@ const path = require("path");
 dotenv.config();
 app.use(express.json());
 // to make image displayed
-app.use("/images",express.static(path.join(__dirname,"/images")))
+app.use("/images", express.static(path.join(__dirname,"/images")))
 
 mongoose.connect(process.env.DATABASE_URL,{ 
     useNewUrlParser: true, 

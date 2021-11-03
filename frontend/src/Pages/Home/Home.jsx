@@ -1,29 +1,49 @@
 import { useEffect, useState } from "react";
 import Slider from "../../components/Slider/Slider";
-import Posts from "../../components/Posts/Posts";
+import Post from "../../components/Post/Post";
 import Sidebar from "../../components/Sidebar/Sidebar";
+import SearchBar from "../../components/SearchBar/SearchBar"
 import "./Home.css";
 import axios from "axios";
 import { useLocation } from "react-router";
+import "@progress/kendo-theme-default/dist/all.css"; 
 
 export default function Home() {
-  const [posts, setPosts] = useState([]);
-  const { search } = useLocation();
+  // const [posts, setPosts] = useState([]);
+  // const { search } = useLocation();
+  // const [visible,setVisible] = useState(2);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await axios.get("/posts" + search);
-      setPosts(res.data);
-    };
-    fetchPosts();
-  },[search]);
+
+  // const loadMore =() =>{
+  //   setVisible((prevValue) => prevValue = 3);
+
+  // };
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     const res = await axios.get("/posts" + search);
+  //     setPosts(res.data);
+  //   };
+  //   fetchPosts();
+  // },[search]);
   return (
         <>
          <Slider/>
-        <div className="home">
-        <Posts posts={posts} />
-        <Sidebar/>
+         <SearchBar/>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-8">
+            {/* <Post/> */}
+            <Post/>
+            
+            {/* <button onClick={loadMore} className="loadMoreButton"> RoadMore</button> */}
+
+            </div>     
+          <div className="col-md-4">
+               <Sidebar/>
+          </div>
+          </div>
         </div>
+
         </>
     );
 }

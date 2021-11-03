@@ -18,7 +18,7 @@ export default function Header() {
     return (
         <div className="top">
             <div className="left">
-                <img className="logo" src="https://www.shecancodeschool.org/uploads/logos1.png"/>
+                <img className="logo" src="https://www.shecancodeschool.org/uploads/logos1.png"/><h2>SheCan<span>CODE</span></h2>
 
             </div>
             <div className = "center">
@@ -26,8 +26,9 @@ export default function Header() {
                     <li className="topListItem"> 
                     <Link className="link" to="/">Home</Link></li>
                     <li className="topListItem"> <Link className="link" to="/">About</ Link></li>
-                    <li className="topListItem"><Link className="link" to="/">  Categories </Link></li>
+                    <li className="topListItem"><Link className="link" to="/Cats">  Categories </Link></li>
                     <li className="topListItem"> <Link className="link" to="/Publish">Publish</Link></li>
+                    {/* AddCats */}
                     <li className="topListItem" onClick={handleLogout}>
                       {user && "Logout"}
                     </li>
