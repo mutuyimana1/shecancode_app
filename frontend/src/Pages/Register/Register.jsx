@@ -30,7 +30,15 @@ export default function Register() {
   };
   
     return (
-        <div className="register">
+        <div classNme="container">
+          <div class="row">
+            <div class="col-sm-6">
+            <img src="https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"/>
+
+            </div>
+      <div class="col-sm-6">
+ 
+       <div className="register">
         <form className="registerForm" onSubmit={handleSubmit}>
             <h1 className="title">Register</h1>
                  <label>Username</label>
@@ -48,14 +56,22 @@ export default function Register() {
 
                 />
                 <button className="registersubmit" type="submit">Register</button>
-
-            </form>
-            <button className="registerLogin">
+                <p>If you Already have an Acaunt Please  
+                <button className="registerLogin">
               <Link className="link" to="/login">
                Login
               </Link>
             </button>
+            </p>
+
+            </form>
+           
                {error && <span style={{color:"red", marginTop:"10px"}}>Something went wrong with your Registration!</span>}
+       </div>
+       </div>
     </div>
+
+</div>
     )
+
 }

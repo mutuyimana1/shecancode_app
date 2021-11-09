@@ -19,7 +19,7 @@ app.use("/images", express.static(path.join(__dirname,"/images")))
 
 mongoose.connect(process.env.DATABASE_URL,{ 
     useNewUrlParser: true, 
-    useUnifiedTopology: true,
+    useUnifiedTopology: true,                                                                                                                                                                                     
     // useCreateIndex: true,
  }).then(console.log("database is runing"))
   .catch ((err) => console.log(err));

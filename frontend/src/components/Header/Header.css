@@ -3,8 +3,8 @@
     width:100%;
     height:75px;
     background-color:white;
-    color:#8b9a9b;
-    font-weight: 700;
+    color:#263e52;
+    font-weight: 900;
     position:sticky;
     align-items: center;
     border-bottom: 1px solid #84a7a8;
@@ -48,8 +48,14 @@
     width:100px;
     height:60px;
 }
+h2{
+    color:#263e52;
+    font-size:24px;
+    font-weight:700;
+}
 h2 span{
-    color:#6fbeee;
+    color: #1bb1dc;
+
 }
 .topicon{
     font-size:20px;
