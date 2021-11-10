@@ -22,7 +22,8 @@ export default function Post({post}) {
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get("/posts" + search);
-      setPosts(res.data);
+      console.log("<><<>",res);
+      setPosts(res.data.data);
     };
     fetchPosts();
   },[search]);
@@ -37,7 +38,7 @@ export default function Post({post}) {
         <div className="col-md-6  card">
 
       
-      {post.photo && <img className="postImage" src={PF + post.photo} alt="" />}
+      {post.photo && <img className="postImage" src={post.photo} alt="" />}
       <div className="postInfod">
         
         <Link to={`/Single/${post._id}`} className="link">

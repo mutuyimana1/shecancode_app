@@ -19,34 +19,36 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
+      console.log("bebbebe",path)
       const res = await axios.get("/posts/" + path);
-      setPost(res.data);
-      setTitle(res.data.title);
-      setDesc(res.data.desc);
+      console.log("laet",res)
+      setPost(res.data.data);
+      setTitle(res.data.data.title);
+      setDesc(res.data.data.desc);
     };
     getPost();
   }, [path]);
 
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`/posts/${post._id}`, {
-        data: { username: user.username },
-      });
-      window.location.replace("/");
-    } catch (err) {}
-  };
+  // const handleDelete = async () => {
+  //   try {
+  //     await axios.delete(`/posts/${post._id}`, {
+  //       data: { username: user.username },
+  //     });
+  //     window.location.replace("/");
+  //   } catch (err) {}
+  // };
 
-  const handleUpdate = async () => {
-    try {
-      await axios.put(`/posts/${post._id}`, {
-        username: user.username,
-        title,
-        desc,
-        categories,
-      });
-      setUpdateMode(false)
-    } catch (err) {}
-  };
+  // const handleUpdate = async () => {
+  //   try {
+  //     await axios.put(`/posts/${post._id}`, {
+  //       username: user.username,
+  //       title,
+  //       desc,
+  //       categories,
+  //     });
+  //     setUpdateMode(false)
+  //   } catch (err) {}
+  // };
 
 
 
@@ -55,7 +57,7 @@ export default function SinglePost() {
     <div className="singlePost">
       <div className="singlePostWrapper">
         {post.photo && (
-          <img src={PF + post.photo} alt="" className="singlePostImg" />
+          <img src={ post.photo} alt="" className="singlePostImg" />
         )}
         {updateMode ? (
           <input
@@ -67,10 +69,10 @@ export default function SinglePost() {
           />
         ) : (
           <h1 className="singlePostTitle">
-            {title}
-            {categories}
+            {post.title}
+            {/* {categories} */}
 
-            {post.categories}
+            {/* {post.categories} */}
             {post.username === user?.username && (
               <div className="singlePostEdit">
                 <i
@@ -79,7 +81,7 @@ export default function SinglePost() {
                 ></i>
                 <i
                   className="singlePostIcon far fa-trash-alt"
-                  onClick={handleDelete}
+                  // onClick={handleDelete}
                 ></i>
               </div>
             )}
@@ -106,7 +108,9 @@ export default function SinglePost() {
           <p className="singlePostDesc">{desc}</p>
         )}
         {updateMode && (
-          <button className="singlePostButton" onClick={handleUpdate}>
+          <button className="singlePostButton" 
+          // onClick={handleUpdate}
+          >
             Update
           </button>
         )}

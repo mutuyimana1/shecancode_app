@@ -1,30 +1,45 @@
 const mongoose = require("mongoose")
 
 const PostSchema = new mongoose.Schema({
-  title:{
-      type:String,
-      required:true,
-      unique: true
-  },
-  desc:{
-    type:String,
-    required:true,
-    unique: true
+    title: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    desc: {
+        type: String,
+        required: true,
+    },
+    photo: {
+        type: String,
+        required: false,
+
+    },
+    user: {
+        type: mongoose.Schema.ObjectId,
+        ref:"User"
+    },
+    category: {
+        type: mongoose.Schema.ObjectId,
+        ref:"Category"
+    },
+    visible:{
+        type:Boolean,
+        default:true
+    }
 },
-photo:{
-    type:String,
-    required:false,
-   
-},
-username:{
-    type:String,
-    required: true,   
-},
-categories: {
-    type:Array,
-    required:false,
-}
-},
-{ timestamps: true }
+    { timestamps: true }
 );
-module.exports = mongoose.model("Post", PostSchema); 
+
+
+PostSchema.pre(/^find/, function (next) {
+    this.populate({
+      path: "user",
+      select: "-_id username email role profilePic",
+    });
+    this.populate({
+        path:"category"
+    });
+    next();
+  });
+module.exports = mongoose.model("Post", PostSchema);

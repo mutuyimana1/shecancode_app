@@ -14,8 +14,8 @@ export default function SearchBar() {
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get("/posts");
-      setCats(res.data);
+      const res = await axios.get("/category/all");
+      setCats(res.data.data);
     };
     getCats();
 
@@ -33,7 +33,7 @@ export default function SearchBar() {
 
         <label className="categoryTitle"> Filter By Category</label>
       
-        <DropDownList className="droplist" data={cats.map(function(c) {return c.categories;})} />
+        <DropDownList className="droplist" data={cats.map(function(c) {return c.name;})} />
       
         </form>
 

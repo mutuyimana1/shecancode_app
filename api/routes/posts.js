@@ -7,9 +7,9 @@ router.post("/", async (req, res) => {
   const newPost = new Post(req.body);
   try {
     const savedPost = await newPost.save();
-    res.status(200).json(savedPost);
+    return res.status(200).json({ message: "post created success", data: savedPost });
   } catch (err) {
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 });
 
@@ -20,22 +20,22 @@ router.delete("/:id", async (req, res) => {
     if (post.username === req.body.username) {
       try {
         await post.delete();
-        res.status(200).json("Post has been deleted...");
+        return res.status(200).json({ message: "Post has been deleted..." });
       } catch (err) {
-        res.status(500).json(err);
+        return res.status(500).json(err);
       }
     } else {
-      res.status(401).json("You can delete only your post!");
+      return res.status(401).json({ message: "You can delete only your own post!" });
     }
   } catch (err) {
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 });
 
 // UPDATE DATE
 
 //UPDATE POST
-router.put("/:id", async (req, res) => {
+router.patch("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (post.username === req.body.username) {
@@ -47,15 +47,15 @@ router.put("/:id", async (req, res) => {
           },
           { new: true }
         );
-        res.status(200).json(updatedPost);
+        return res.status(200).json({ message: "post updated success", data: updatedPost });
       } catch (err) {
-        res.status(500).json(err);
+        return res.status(500).json(err);
       }
     } else {
-      res.status(401).json("You can update only your post!");
+      return res.status(401).json("You can update only your post!");
     }
   } catch (err) {
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 });
 
@@ -65,32 +65,28 @@ router.put("/:id", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    res.status(200).json(post);
+    return res.status(200).json({ message: "retrieved post success", data: post });
   } catch (err) {
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 });
 
 //GET ALL POSTS
 router.get("/", async (req, res) => {
-  const username = req.query.user;
+  const user = req.query.user;
   const catName = req.query.cat;
   try {
     let posts;
-    if (username) {
-      posts = await Post.find({ username });
+    if (user) {
+      posts = await Post.find({ user });
     } else if (catName) {
-      posts = await Post.find({
-        categories: {
-          $in: [catName],
-        },
-      });
+      posts = await Post.find({category:catName});
     } else {
       posts = await Post.find();
     }
-    res.status(200).json(posts);
+   return res.status(200).json({message:"success",data:posts});
   } catch (err) {
-    res.status(500).json(err);
+    return res.status(500).json(err);
   }
 });
 

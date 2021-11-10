@@ -1,27 +1,26 @@
-const express = require("express");
+import express from "express";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import authRoute from"./routes/auth";
+import userRoute from"./routes/users";
+import postRoute from"./routes/posts";
+import categoryRoute from"./routes/category";
+import multer from"multer";
+import path from"path";
+
+
 const app = express();
 
-const dotenv = require("dotenv");
-const mongoose =  require("mongoose");
-const authRoute = require("./routes/auth");
-const userRoute = require("./routes/users");
-const postRoute = require("./routes/posts");
-const categoryRoute = require ("./routes/category");
-const multer = require("multer");
-const path = require("path");
-
-
-
-dotenv.config();
+dotenv.config("./.env");
 app.use(express.json());
 // to make image displayed
 app.use("/images", express.static(path.join(__dirname,"/images")))
 
-mongoose.connect(process.env.DATABASE_URL,{ 
+mongoose.connect(process.env.DATABASE,{ 
     useNewUrlParser: true, 
     useUnifiedTopology: true,                                                                                                                                                                                     
     // useCreateIndex: true,
- }).then(console.log("database is runing"))
+ }).then(console.log("database is connected"))
   .catch ((err) => console.log(err));
 
 const storage = multer.diskStorage({
@@ -41,7 +40,13 @@ app.use("/api/users",userRoute),
 app.use("/api/posts",postRoute),
 app.use("/api/category",categoryRoute)
 
+app.use("/",(req,res)=>{
+    return res.status(202).json({
+        message:"welcome to shecancode blog"
+    })
+})
 
-app.listen("5000",() => {
-    console.log("backend is runing"); 
+const port =process.config.PORT || 4040;
+app.listen(port,() => {
+    console.log("backend is runing ON "+port); 
 });   
