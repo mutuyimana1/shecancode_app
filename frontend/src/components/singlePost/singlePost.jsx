@@ -29,26 +29,30 @@ export default function SinglePost() {
     getPost();
   }, [path]);
 
-  // const handleDelete = async () => {
-  //   try {
-  //     await axios.delete(`/posts/${post._id}`, {
-  //       data: { username: user.username },
-  //     });
-  //     window.location.replace("/");
-  //   } catch (err) {}
-  // };
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/posts/${post._id}`, {
+        data: { username: user.username },
+      });
+      window.location.replace("/");
+    } catch (err) {}
+  };
 
-  // const handleUpdate = async () => {
-  //   try {
-  //     await axios.put(`/posts/${post._id}`, {
-  //       username: user.username,
-  //       title,
-  //       desc,
-  //       categories,
-  //     });
-  //     setUpdateMode(false)
-  //   } catch (err) {}
-  // };
+  const handleUpdate = async () => {
+    
+    try {
+      console.log("username");
+      await axios.patch(`/posts/${post._id}`, {
+        username: user.user?.username,
+        title,
+        desc,
+        categories,
+      });
+      setUpdateMode(false)
+    } catch (err) {
+      console.log(err)
+    }
+  };
 
 
 
@@ -70,10 +74,10 @@ export default function SinglePost() {
         ) : (
           <h1 className="singlePostTitle">
             {post.title}
-            {/* {categories} */}
+            {}
 
             {/* {post.categories} */}
-            {post.username === user?.username && (
+            {post.user?.username === user?.username && (
               <div className="singlePostEdit">
                 <i
                   className="singlePostIcon far fa-edit"
@@ -81,7 +85,7 @@ export default function SinglePost() {
                 ></i>
                 <i
                   className="singlePostIcon far fa-trash-alt"
-                  // onClick={handleDelete}
+                  onClick={handleDelete}
                 ></i>
               </div>
             )}
@@ -90,8 +94,8 @@ export default function SinglePost() {
         <div className="singlePostInfo">
           <span className="singlePostAuthor">
             Author:
-            <Link to={`/?user=${post.username}`} className="link">
-              <b> {post.username}</b>
+            <Link to={`/?user=${post.user?.username}`} className="link">
+              <b> {post.user?.username}</b>
             </Link>
           </span>
           <span className="singlePostDate">
@@ -109,7 +113,7 @@ export default function SinglePost() {
         )}
         {updateMode && (
           <button className="singlePostButton" 
-          // onClick={handleUpdate}
+          onClick={handleUpdate}
           >
             Update
           </button>

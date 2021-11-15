@@ -29,11 +29,11 @@ function App() {
         <Route exact path="/">
           <Home/>
         </Route>
-        {/* <Route path="/Single"> <Single/></Route>
+       <Route path="/Single"> <Single/></Route>
         <Route path="/Publish"><Publish/></Route>
         <Route path="/Login"><Login/></Route>
         <Route path="/Register"><Register/></Route>
-        <Route path="/Cats"><Cats/></Route> */}
+        <Route path="/Cats"><Cats/></Route> 
 
 
 
