@@ -31,7 +31,7 @@ router.post("/register", async (req, res) => {
 //LOGIN
 router.post("/login", async (req, res) => {
   try {
-    const user = await User.findOne({ username: req.body.username });
+    const user = await User.findOne({$or:[{ username: req.body.username },{email:req.body.username}]});
     console.log(user);
     if (!user)
       return res.status(400).json({ message: "You are not Registered , Please First register" });

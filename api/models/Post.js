@@ -13,6 +13,7 @@ const PostSchema = new mongoose.Schema({
     photo: {
         type: String,
         required: false,
+        default:"https://images.pexels.com/photos/3861967/pexels-photo-3861967.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
 
     },
     user: {
@@ -35,7 +36,7 @@ const PostSchema = new mongoose.Schema({
 PostSchema.pre(/^find/, function (next) {
     this.populate({
       path: "user",
-      select: "-_id username email role profilePic",
+      select: "_id username email role profilePic",
     });
     this.populate({
         path:"category"

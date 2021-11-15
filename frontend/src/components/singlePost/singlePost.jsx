@@ -19,9 +19,9 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      console.log("bebbebe",path)
+      // console.log("bebbebe",path)
       const res = await axios.get("/posts/" + path);
-      console.log("laet",res)
+      // console.log("laet",res)
       setPost(res.data.data);
       setTitle(res.data.data.title);
       setDesc(res.data.data.desc);
@@ -32,7 +32,7 @@ export default function SinglePost() {
   const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${post._id}`, {
-        data: { username: user.username },
+        data: { username: user._id },
       });
       window.location.replace("/");
     } catch (err) {}
@@ -43,7 +43,7 @@ export default function SinglePost() {
     try {
       console.log("username");
       await axios.patch(`/posts/${post._id}`, {
-        username: user.user?.username,
+        username: user._id,
         title,
         desc,
         categories,

@@ -17,9 +17,10 @@ router.post("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    if (post.username === req.body.username) {
+    console.log(post.user._id.toString());
+    if (post.user._id.toString() === req.body.username) {
       try {
-        await post.delete();
+        await Post.findByIdAndDelete(req.params.id)
         return res.status(200).json({ message: "Post has been deleted..." });
       } catch (err) {
         return res.status(500).json(err);
@@ -38,7 +39,9 @@ router.delete("/:id", async (req, res) => {
 router.patch("/:id", async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
-    if (post.username === req.body.username) {
+
+    console.log(post.user._id.toString())
+    if (post.user._id.toString()  === req.body.username) {
       try {
         const updatedPost = await Post.findByIdAndUpdate(
           req.params.id,

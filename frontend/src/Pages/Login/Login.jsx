@@ -23,7 +23,7 @@ export default function Login()
         username: userRef.current.value,
         password: passwordRef.current.value,
       });
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data.data });
       window.location.replace("/");
       // res.data && window.location.replace("/");
     } catch (err) {
