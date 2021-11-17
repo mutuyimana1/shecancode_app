@@ -1,0 +1,25 @@
+.posts{
+    flex:9;
+    flex-wrap: wrap;
+    display: flex;
+    margin:10px;
+
+}
+.buttonMore{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  
+    
+}
+.more-news{
+    background-color: rgb(90, 176, 233);
+    color: white;
+    border:none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 15px;
+
+}
