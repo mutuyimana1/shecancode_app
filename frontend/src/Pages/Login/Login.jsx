@@ -23,7 +23,7 @@ export default function Login()
         username: userRef.current.value,
         password: passwordRef.current.value,
       });
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data.data });
       window.location.replace("/");
       // res.data && window.location.replace("/");
     } catch (err) {
@@ -35,6 +35,7 @@ export default function Login()
     <div class="containere">
       <div class="row">
         <div class="col-sm-6">
+        <img src="https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"/>
 
         </div>
         <div class="col-sm-6">

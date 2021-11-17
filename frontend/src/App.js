@@ -29,11 +29,19 @@ function App() {
         <Route exact path="/">
           <Home/>
         </Route>
+<<<<<<< HEAD
         <Route path="/Single"> <Single/></Route>
         <Route path="/Publish"><Publish/></Route>
         <Route path="/Login"><Login/></Route>
         <Route path="/Register"><Register/></Route>
         <Route path="/Cats"><Cats/></Route>
+=======
+       <Route path="/Single"> <Single/></Route>
+        <Route path="/Publish"><Publish/></Route>
+        <Route path="/Login"><Login/></Route>
+        <Route path="/Register"><Register/></Route>
+        <Route path="/Cats"><Cats/></Route> 
+>>>>>>> 9344f642762c9903386ceef2cc2a2f2abbbd046a
 
 
 

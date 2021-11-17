@@ -10,14 +10,15 @@ import { DropDownList } from "@progress/kendo-react-dropdowns";
 
 export default function Sidebar() {
     
-  const [posts, setPosts] = useState([]);
+  const [cats, setCats] = useState([]);
 
   useEffect(() => {
-    const getPosts = async () => {
-      const res = await axios.get("/posts");
-      setPosts(res.data);
+    const getCats = async () => {
+      const res = await axios.get("/category/all");
+      console.log("hhhdhdhhd",res)
+      setCats(res.data.data);
     };
-    getPosts();
+    getCats();
   }, []);
     
     return (
@@ -35,11 +36,17 @@ export default function Sidebar() {
             <div className="sidebarItem">
             <div className="sidebarTitle">CATEGORIES</div>
             <ul className="sidebarList">
+<<<<<<< HEAD
                 {posts.map((post) => (
             <Link to={`/?cat=${post.category} `} className="link">
             {/* <Link to={`/Post/${post.cat}`} className="link"> */}
 
             <li className="sidebarListItem">{post.category}</li>
+=======
+                {cats.map((c) => (
+            <Link to={`/?Single=${c.id}`} className="link">
+            <li className="sidebarListItem">{c.name}</li>
+>>>>>>> 9344f642762c9903386ceef2cc2a2f2abbbd046a
             </Link>
          
             
@@ -50,7 +57,11 @@ export default function Sidebar() {
         {/* <section className="k-my-8">
           <form className="k-form k-mb-4">
             <label className="k-label k-mb-3">Category</label>
+<<<<<<< HEAD
             <DropDownList data={posts.map(function(c) {return c.categories;})} />
+=======
+            <DropDownList data={cats.map(function(c) {return c.categories;})} />
+>>>>>>> 9344f642762c9903386ceef2cc2a2f2abbbd046a
           </form>
         </section> */}
       
