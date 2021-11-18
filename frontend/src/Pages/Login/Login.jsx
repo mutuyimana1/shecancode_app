@@ -32,14 +32,18 @@ export default function Login()
   };
 
   return (
-    <div class="containere">
-      <div class="row">
-        <div class="col-sm-6">
-        <img src="https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"/>
+    <div className="login">
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-6">
+          <div className="LoginImage">
+
+          </div>
+        {/* <img src="https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"/> */}
 
         </div>
         <div class="col-sm-6">
-          <div className="login">
+
             <form className="loginForm" onSubmit={handleSubmit}>
               <h1 className="loginTitle">Login</h1>
               <label>Username</label>

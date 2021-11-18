@@ -17,7 +17,7 @@ export default function AddCats() {
   
     
     try {
-      const res = await axios.post("/category", newPost);
+      const res = await axios.post("/post", newPost);
       window.location.replace("/");
     } catch (err) {}
   };

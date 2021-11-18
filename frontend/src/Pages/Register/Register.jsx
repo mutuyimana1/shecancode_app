@@ -30,15 +30,19 @@ export default function Register() {
   };
   
     return (
-        <div classNme="container">
+      <div className="register">
+        <div classNme="containere">
           <div class="row">
             <div class="col-sm-6">
-            <img src="https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"/>
+              <div className="RegisterImage">
+
+              </div>
+            {/* <img src="https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"/> */}
 
             </div>
       <div class="col-sm-6">
  
-       <div className="register">
+       
         <form className="registerForm" onSubmit={handleSubmit}>
             <h1 className="title">Register</h1>
                  <label>Username</label>

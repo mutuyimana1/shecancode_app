@@ -8,13 +8,8 @@
     margin:20px;
     padding-bottom: 30px;
     background-color: #fafafa;   
-<<<<<<< HEAD
-    
-
-=======
     /* max-width: 30%;   */
 float:right;
->>>>>>> 9344f642762c9903386ceef2cc2a2f2abbbd046a
 }
 .sidebarItem{
     display: flex;

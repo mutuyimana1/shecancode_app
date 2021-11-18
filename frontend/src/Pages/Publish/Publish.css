@@ -47,7 +47,6 @@ input[type=text], select, textarea {
     border-radius: 4px;
     resize: vertical;
   }
-<<<<<<< HEAD
   /* .droplist{
     width: 70%;
     padding: 12px;
@@ -56,8 +55,6 @@ input[type=text], select, textarea {
     background-color: transparent;
     resize: vertical;
   } */
-=======
->>>>>>> 9344f642762c9903386ceef2cc2a2f2abbbd046a
   
   label {
     padding: 12px 12px 12px 0;
