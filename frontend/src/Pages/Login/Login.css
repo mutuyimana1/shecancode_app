@@ -26,7 +26,7 @@
     width: 85%;
     padding: 30px;
     margin-left: -22px;
-    display: flex;
+    /* display: flex; */
 
     flex-direction:column ;
     position: relative;
