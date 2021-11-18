@@ -8,7 +8,7 @@ import { useContext } from "react";
 import"./Header.css"
 export default function Header() {
     const { user, dispatch } = useContext(Context);
-    // const PF = "http://localhost:5000/images/"
+    const PF = "http://localhost:5000/images/"
   
     const handleLogout = () => {
       dispatch({ type: "LOGOUT" });
@@ -42,20 +42,26 @@ export default function Header() {
                 </ul>
             </div>
             <div className = "right">
-            <i className="searchIcon fas fa-search"></i>
+            {/* <i className="searchIcon fas fa-search"></i> */}
             <i className="topicon fab fa-facebook-square"></i>
             <i className="topicon fab fa-twitter-square"></i>
             <i className="topicon fab fa-linkedin"></i>            
             <i className="topicon fab fa-instagram-square"></i>
+              {user ? (
+          <Link to="/settings">
+            <img className="topImg" src={PF+user.profilePic} alt="" />
+          </Link>
+        ) : (
+
             <ul className="topList">
             <li className="topListItem"> <Link className="link" to="/Register">Register</Link></li>
             <li className="topListItem"> <Link className="link" to="/Login">Login</Link></li>
             </ul>
 
-            
+        )}
             </div>  
             
                       
         </div>
     )
-}
+        }
