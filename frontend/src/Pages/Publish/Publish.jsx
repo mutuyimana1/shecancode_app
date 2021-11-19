@@ -1,13 +1,12 @@
-import React from "react"
+import React from "react";
 import { DropDownList } from "@progress/kendo-react-dropdowns";
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { useContext, useEffect, useState} from "react";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { useContext, useEffect, useState } from "react";
 
 import "./Publish.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
-
 
 export default function Publish() {
   const [cats, setCats] = useState([]);
@@ -18,15 +17,15 @@ export default function Publish() {
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
 
-  // const handleCkeditorState=(event,editor) =>{
-  //   const data = editor.getData();
-  //   this.setState({
-  //     content: data
-  //   })
-  // }
+  const handleCkeditorState = (event, editor) => {
+    const data = editor.getData();
+    this.setState({
+      content: data,
+    });
+  };
 
   const handleSubmit = async (e) => {
-    console.log("user:",user._id);
+    console.log("user:", user._id);
     e.preventDefault();
     const newPost = {
       user: user._id,
@@ -56,7 +55,6 @@ export default function Publish() {
     };
     getCats();
   }, []);
-    
 
   return (
     <div className="publish">
@@ -121,28 +119,24 @@ export default function Publish() {
             <label for="subject">Subject</label>
           </div>
           <div class="col-75">
-          <CKEditor
-                    editor={ ClassicEditor }
-                    data="<p>Hello from CKEditor 5!</p>"
-                    onReady={ editor => {
-                        // You can store the "editor" and use when it is needed.
-                        console.log( 'Editor is ready to use!', editor );
-                    } }
-                    // onChange={ ( event, editor ) => {
-                    //     const data = editor.getData();
-                    //     console.log( { event, editor, data } );
-                    // } }
-                    onBlur={ ( event, editor ) => {
-                        console.log( 'Blur.', editor );
-                    } }
-                    onFocus={ ( event, editor ) => {
-                        console.log( 'Focus.', editor );
-                    } }
-              // placeholder="tell your story...."
-              // type="text"
-              // className="write writeStory"
-              onChange={(e) => setDesc(e.target.value)}
-            // onChange={this.handleCkeditorState}
+            <CKEditor
+              editor={ClassicEditor}
+              data="<p>Hello from CKEditor 5!</p>"
+              onReady={(editor) => {
+                // You can store the "editor" and use when it is needed.
+                console.log("Editor is ready to use!", editor);
+              }}
+              onChange={ ( event, editor ) => {
+                  const data = editor.getData();
+                  setDesc(data)
+                  console.log( data );
+              } }
+              onBlur={(event, editor) => {
+                console.log("Blur.", editor);
+              }}
+              onFocus={(event, editor) => {
+                console.log("Focus.", editor);
+              }}
             />
 
             {/* </textarea> */}

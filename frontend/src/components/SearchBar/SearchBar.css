@@ -19,3 +19,9 @@
   font-weight: 500;
   font-family: 'Josefin Sans', sans-serif;
 }
+
+.catDescription{
+  padding-left: 50px;
+  font-size: 12px;
+  width: 300px;
+}

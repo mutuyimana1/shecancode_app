@@ -2,13 +2,16 @@ import { DropDownList } from "@progress/kendo-react-dropdowns";
 
 import axios from "axios";
 import { useContext, useEffect, useState,useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link ,useHistory} from "react-router-dom";
 import "./SearchBar.css";
+import {Space} from "antd"
 
 
 export default function SearchBar() {
+  const history = useHistory();
     
   const [cats, setCats] = useState([]);
+  const [catDesc, setCatDesc] = useState("");
 
   let categories=[];
 
@@ -30,11 +33,21 @@ export default function SearchBar() {
   return (
     <section className="searchBar">
       <form className="searchOption">
+ 
 
         <label className="categoryTitle"> Filter By Category</label>
       
-        <DropDownList className="droplist" data={cats.map(function(c) {return c.name;})} />
-      
+        
+ 
+        <DropDownList
+              className="droplist"
+              data={cats}
+              textField="name"
+              dataItemKey="_id"
+              onChange={(e) => {history.push(`/?cat=${e.target.value._id} `); setCatDesc(e.target.value.description)}}
+            />
+            <label className="catDescription"> {catDesc}</label>
+
         </form>
 
     

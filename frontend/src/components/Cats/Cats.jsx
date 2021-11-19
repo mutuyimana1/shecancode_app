@@ -7,19 +7,23 @@ import { Context } from "../../context/Context";
 
 export default function AddCats() {
   const [name, setName] = useState("");
+  const [ description,setDescription]= useState("")
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPost = {
-     name,
+     name,description
     };
   
     
     try {
-      const res = await axios.post("/post", newPost);
+      const res = await axios.post("/category/create", newPost);
       window.location.replace("/");
-    } catch (err) {}
+      // console.log(res)
+    } catch (err) { 
+      console.log(err);
+    }
   };
 
     return (
@@ -34,7 +38,7 @@ export default function AddCats() {
           <form className="publishForm" onSubmit={handleSubmit}>
             
              
-              <div class="row">
+          <div class="row">
                 <div class="col-25">
                   <label for="fname">Title</label>
                 </div>
@@ -42,6 +46,16 @@ export default function AddCats() {
                   <input type="text"  placeholder="Title..." className="write"
                       autoFocus={true}
                       onChange={e=>setName(e.target.value)}/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="fname">Description</label>
+                </div>
+                <div class="col-75">
+                  <input type="text"  placeholder="About category" className="write"
+                      autoFocus={true}
+                      onChange={e=>setDescription(e.target.value)}/>
                 </div>
               </div>
              

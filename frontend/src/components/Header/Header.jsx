@@ -2,16 +2,20 @@
 import {Link} from "react-router-dom";
 import { Context } from "../../context/Context";
 import { useContext } from "react";
+import {useHistory} from "react-router-dom";
 
 
 
 import"./Header.css"
 export default function Header() {
+  const history = useHistory();
     const { user, dispatch } = useContext(Context);
     const PF = "http://localhost:5000/images/"
   
     const handleLogout = () => {
       dispatch({ type: "LOGOUT" });
+      history.push("/")
+
     };
     // const user=true;
 
@@ -27,7 +31,7 @@ export default function Header() {
                     <Link className="link" to="/">Home</Link></li>
                     <li className="topListItem"> <Link className="link" to="/">About</ Link></li>
                     <li className="topListItem"><Link className="link" to="/Cats">  Categories </Link></li>
-                    <li className="topListItem"> <Link className="link" to="/Publish">Publish</Link></li>
+                    <li className="topListItem"> <Link className="link" to="/Publish"> {user && "Publish"}</Link></li>
                     {/* AddCats */}
                     <li className="topListItem" onClick={handleLogout}>
                       {user && "Logout"}

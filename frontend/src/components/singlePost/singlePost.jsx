@@ -4,6 +4,8 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./singlePost.css";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 export default function SinglePost() {
   const location = useLocation();
@@ -103,13 +105,27 @@ export default function SinglePost() {
           </span>
         </div>
         {updateMode ? (
-          <textarea
-            className="singlePostDescInput"
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
-          />
+          // <textarea
+          //   className="singlePostDescInput"
+          //   value={desc}
+          //   onChange={(e) => setDesc(e.target.value)}
+          // />
+
+          <CKEditor
+          editor={ClassicEditor}
+          data={desc}
+          onChange={ ( event, editor ) => {
+              const data = editor.getData();
+              setDesc(data)
+          } }
+        />
         ) : (
-          <p className="singlePostDesc">{desc}</p>
+          // <p className="singlePostDesc">{desc}</p>
+          <div
+              dangerouslySetInnerHTML={{
+                __html:desc
+              }}
+            />
         )}
         {updateMode && (
           <button className="singlePostButton" 

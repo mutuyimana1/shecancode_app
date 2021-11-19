@@ -50,7 +50,12 @@ export default function Post({post}) {
         <span className="postDate">
           {new Date(post.createdAt).toDateString()}
         </span>
-        <p className="postDesc">{post.desc}</p>
+        {/* <p className="postDesc">{post.desc}</p> */}
+        <div className="postDesc"
+              dangerouslySetInnerHTML={{
+                __html:post.desc
+              }}
+            />
         
 
       
