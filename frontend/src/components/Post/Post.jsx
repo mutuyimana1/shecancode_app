@@ -9,7 +9,7 @@ import { Context } from "../../context/Context";
 import { useContext, useEffect, useState } from "react";
 
 export default function Post({post}) {
-  const PF = "http://localhost:5000/images/";
+  const PF = "http://localhost:4040/images/";
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
   const [visible,setVisible] = useState(4);
@@ -38,7 +38,7 @@ export default function Post({post}) {
         <div className="col-md-6  card">
 
       
-      {post.photo && <img className="postImage" src={post.photo} alt="" />}
+       {post.photo && <img className="postImage" src={PF + post.photo} alt="" />}
       <div className="postInfod">
         
         <Link to={`/Single/${post._id}`} className="link">

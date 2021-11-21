@@ -11,10 +11,11 @@ export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  const PF = "http://localhost:5000/images/";
+  const PF = "http://localhost:4040/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
+  const [photo, setPhoto] = useState(null);
   const [categories, setCategories] = useState("");
 
   const [updateMode, setUpdateMode] = useState(false);
@@ -27,6 +28,7 @@ export default function SinglePost() {
       setPost(res.data.data);
       setTitle(res.data.data.title);
       setDesc(res.data.data.desc);
+      setPhoto(res.data.data.photo);
     };
     getPost();
   }, [path]);
@@ -48,7 +50,7 @@ export default function SinglePost() {
         username: user._id,
         title,
         desc,
-        categories,
+        photo,
       });
       setUpdateMode(false)
     } catch (err) {
@@ -62,8 +64,8 @@ export default function SinglePost() {
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
-        {post.photo && (
-          <img src={ post.photo} alt="" className="singlePostImg" />
+      {post.photo && (
+          <img src={PF + post.photo} alt="" className="singlePostImg" />
         )}
         {updateMode ? (
           <input

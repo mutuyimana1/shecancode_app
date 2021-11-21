@@ -15,7 +15,7 @@
 background: url("https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
 width:100%;
 background-size: cover;
-height: 510px;
+height: 610px;
 
 }
 .registerForm{
@@ -26,6 +26,8 @@ height: 510px;
     width:100%;
     padding:30px;
     margin-left: -22px;
+    height:610px ;
+
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
     
@@ -50,21 +52,24 @@ height: 510px;
     margin-top: 20px;
     padding: 10px;
     cursor:pointer;
-    background-color:teal ;
+    background-color: #4ab0f0; 
+    border-radius:5px;
+    width:120px;
     border:none;
     color:white;
+    font-size:20px;
 }
 .registerLogin{
-    /* position: absolute; */
-    /* top:80px; */
-    /* right:20px; */
-    background-color:tomato;
-    color:white;
-    cursor:pointer;
-    border:none;
-    /* padding:10px; */
-    margin-left:20px;
     border-radius:5px;
+    cursor:pointer;
+    background-color: lightcoral;
+    color:white;
+ 
+    border:none;
+    padding:10px;
+    font-size: 20px;
+    margin-left:20px;
+
     width: 100px;
     text-align: none;
 

@@ -1,7 +1,7 @@
 
 .login{
     width: 100%;
-    height: 700px;
+    height: 180vh;
     /* display: flex; */
     background-color:none;
     /* flex-direction: column; */
@@ -18,7 +18,7 @@
 }
 .LoginImage{
     background-image: url("https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-    height:510px;
+    height:610px;
     background-size: cover;
     width: 100%;
 }
@@ -26,8 +26,7 @@
     width: 85%;
     padding: 30px;
     margin-left: -22px;
-    /* display: flex; */
-
+    height:610px;
     flex-direction:column ;
     position: relative;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -65,7 +64,7 @@
 .registerLoginForm{
     /* position: absolute; */
     /* top:80px; */
-    background-color: teal;
+    background-color: #4ab0f0; 
     margin-left:20px;
     width:100px;
     border-radius:5px;

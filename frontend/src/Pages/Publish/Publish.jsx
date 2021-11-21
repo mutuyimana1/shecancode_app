@@ -45,7 +45,7 @@ export default function Publish() {
     }
     try {
       const res = await axios.post("/posts", newPost);
-      window.location.replace("/Single/" + res.data._id);
+      window.location.replace("/Single/" + res.data.data._id);
     } catch (err) {}
   };
   useEffect(() => {
@@ -66,17 +66,13 @@ export default function Publish() {
 
       <form className="publishForm" onSubmit={handleSubmit}>
         <div class="row">
-          <div class="col-25">
-            <label htmlFor="fileInput">
-              <i class=" plusicon fas fa-plus"></i>
-            </label>
-            <input
-              type="file"
-              id="fileInput"
-              style={{ display: "none" }}
-              onChange={(e) => setFile(e.target.files[0])}
-            />
-          </div>
+        <div class="col-25">
+                  <label htmlFor="fileInput">
+                        <i class=" plusicon fas fa-plus"></i>
+                  </label>
+                  <input type="file" id="fileInput" style={{ display: "none" }} 
+                    onChange={(e) => setFile(e.target.files[0])}/>
+                </div>
           <div class="col-75"></div>
         </div>
         <div class="row">
@@ -106,7 +102,8 @@ export default function Publish() {
               onChange={(e) => setCategory(e.target.value)}
             /> */}
             <DropDownList
-              className="droplist"
+              className="dropliste"
+              placeholder="Choose Category..."
               data={cats}
               textField="name"
               dataItemKey="_id"
@@ -118,10 +115,10 @@ export default function Publish() {
           <div class="col-25">
             <label for="subject">Subject</label>
           </div>
-          <div class="col-75">
+          <div class="col-75 ">
             <CKEditor
               editor={ClassicEditor}
-              data="<p>Hello from CKEditor 5!</p>"
+              data="<p> Story Description </p>"
               onReady={(editor) => {
                 // You can store the "editor" and use when it is needed.
                 console.log("Editor is ready to use!", editor);

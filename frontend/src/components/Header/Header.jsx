@@ -47,10 +47,10 @@ export default function Header() {
             </div>
             <div className = "right">
             {/* <i className="searchIcon fas fa-search"></i> */}
-            <i className="topicon fab fa-facebook-square"></i>
-            <i className="topicon fab fa-twitter-square"></i>
-            <i className="topicon fab fa-linkedin"></i>            
-            <i className="topicon fab fa-instagram-square"></i>
+           <a href="https://www.facebook.com/igirerwandaorganization/posts/shecancode-initiative-prepare-women-and-girls-to-enter-in-technology-industry-th/1913555692059845/" TARGET="blank"> <i className="topicon fab fa-facebook-square"></i></a>
+           <a href="https://www.facebook.com/igirerwandaorganization/posts/shecancode-initiative-prepare-women-and-girls-to-enter-in-technology-industry-th/1913555692059845/" TARGET="blank">  <i className="topicon fab fa-twitter-square"></i></a>
+           <a href="https://www.facebook.com/igirerwandaorganization/posts/shecancode-initiative-prepare-women-and-girls-to-enter-in-technology-industry-th/1913555692059845/" TARGET="blank">  <i className="topicon fab fa-linkedin"></i> </a>           
+           <a href="https://www.facebook.com/igirerwandaorganization/posts/shecancode-initiative-prepare-women-and-girls-to-enter-in-technology-industry-th/1913555692059845/" TARGET="blank">  <i className="topicon fab fa-instagram-square"></i></a>
               {user ? (
           <Link to="/settings">
             <img className="topImg" src={PF+user.profilePic} alt="" />
@@ -58,7 +58,8 @@ export default function Header() {
         ) : (
 
             <ul className="topList">
-            <li className="topListItem"> <Link className="link" to="/Register">Register</Link></li>
+                 
+            <li className="topListItem"><i className="fa fa-user"></i> <Link className="link" to="/Register">Register</Link></li>
             <li className="topListItem"> <Link className="link" to="/Login">Login</Link></li>
             </ul>
 

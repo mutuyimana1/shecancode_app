@@ -13,7 +13,7 @@
     display: flex;
     flex-flow: row wrap;
     padding: 30px 30px 20px 30px;
-    color: #2f2f2f;
+    color:rgba(41, 40, 40, 0.493);
     background-color: #fff;
     border-top: 1px solid #e5e5e5;
   }
@@ -42,12 +42,14 @@
   
   .nav__title {
     font-weight: 400;
-    font-size: 15px;
+    font-size: 20px;
+    color:#263e52;
+    font-weight: 500;
   }
   
   .footer address {
     font-style: normal;
-    color: #999;
+    color:rgba(41, 40, 40, 0.493);
   }
   
   .footer__btn {
@@ -56,9 +58,10 @@
     justify-content: center;
     height: 36px;
     max-width: max-content;
-    background-color: rgb(33, 33, 33, 0.07);
+    background-color: #4ab0f0; 
+
     border-radius: 100px;
-    color: #2f2f2f;
+    color:white;
     line-height: 0;
     margin: 0.6em 0;
     font-size: 1rem;
@@ -89,8 +92,8 @@
   }
   
   .nav__ul a {
-    /* color:red; */
-    color:#8b9a9b;  
+ 
+    color:rgba(34, 33, 33, 0.822);
   }
   
   .nav__ul--extra {
@@ -101,12 +104,15 @@
   .legal {
     display: flex;
     flex-wrap: wrap;
-    color: #333;
+    color:rgba(34, 33, 33, 0.822);
+
   }
     
   .legal__links {
     display: flex;
     align-items: center;
+    color:rgba(34, 33, 33, 0.822);
+
   }
   
   .heart {
