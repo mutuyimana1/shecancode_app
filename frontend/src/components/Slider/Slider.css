@@ -17,15 +17,18 @@
 .smallTitle{
     position:absolute;
     top:35%;
+    padding: 8px;
     color: #1bb1dc;
     border: 2px solid#1bb1dc;; 
     font-size:20px;
+    
 }
 .largeTitle{
     position:absolute;
     top:40%;
     font-size:30px;
     width:50%;
+    margin-top:40px;
 }
 .sliderImage{
  width:100% ;

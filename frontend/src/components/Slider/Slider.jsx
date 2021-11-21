@@ -7,6 +7,7 @@ export default function Slider() {
             <div class="sliderImage">
             <div className="sliderTitles">
                 <span className="smallTitle">FEATURED POST</span>
+              
                 <span className="largeTitle">
                 SheCanCode aims at creating a vibrant community of amazing young Rwanda women 
                 who are passionate about using technology to change Africa and beyond. 
