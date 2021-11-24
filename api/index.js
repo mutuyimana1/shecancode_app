@@ -46,7 +46,7 @@ app.use("/",(req,res)=>{
     })
 })
 
-const port =process.config.PORT || 4040;
+const port =process.env.PORT || 4048;
 app.listen(port,() => {
     console.log("backend is runing ON "+port); 
-});   
+}); 

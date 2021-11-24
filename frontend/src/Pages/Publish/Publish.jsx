@@ -7,15 +7,38 @@ import { useContext, useEffect, useState } from "react";
 import "./Publish.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
-
+   
 export default function Publish() {
   const [cats, setCats] = useState([]);
 
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [category, setCategory] = useState("");
-  const [file, setFile] = useState(null);
   const { user } = useContext(Context);
+  const [file, setFile] = useState(null);
+  // trying to upload to claudinary
+
+  const [fileInputState, setFileInputState] = useState('');
+    const [previewSource, setPreviewSource] = useState('');
+    const [selectedFile, setSelectedFile] = useState();
+    const [successMsg, setSuccessMsg] = useState('');
+    const [errMsg, setErrMsg] = useState('');
+    const handleFileInputChange = (e) => {
+        const file = e.target.files[0];
+        previewFile(file);
+        setSelectedFile(file);
+        setFileInputState(e.target.value);
+    };
+
+    const previewFile = (file) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setPreviewSource(reader.result);
+        };
+    };
+  // trying to upload to claudinary
+
 
   const handleCkeditorState = (event, editor) => {
     const data = editor.getData();
@@ -58,9 +81,10 @@ export default function Publish() {
 
   return (
     <div className="publish">
-      {file && (
+      {/* {file && (
         <img className="publishImage" src={URL.createObjectURL(file)} alt="" />
-      )}
+      )} */}
+     
 
       <h1 className="publishingPageTitle">Publish your Story Here</h1>
 
@@ -72,6 +96,12 @@ export default function Publish() {
                   </label>
                   <input type="file" id="fileInput" style={{ display: "none" }} 
                     onChange={(e) => setFile(e.target.files[0])}/>
+                {/* <input
+                type="file"
+                name="image"
+                onchange={handleFileInputChange}
+                value={fileInputState}
+                /> */}
                 </div>
           <div class="col-75"></div>
         </div>
@@ -147,6 +177,14 @@ export default function Publish() {
 
         {/* </div> */}
       </form>
+      {previewSource && (
+                <img
+                    src={previewSource}
+                    alt="chosen"
+                    style={{ height: '300px' }}
+                />
+      )}
+    
     </div>
   );
 }
