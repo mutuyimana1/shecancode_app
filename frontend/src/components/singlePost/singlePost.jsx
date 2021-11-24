@@ -4,6 +4,7 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./singlePost.css";
+import apiCall from "../../helpers/apiCall";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
@@ -11,7 +12,7 @@ export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  const PF = "http://localhost:4040/images/";
+  // const PF = "http://localhost:4040/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -23,7 +24,7 @@ export default function SinglePost() {
   useEffect(() => {
     const getPost = async () => {
       // console.log("bebbebe",path)
-      const res = await axios.get("/posts/" + path);
+      const res = await axios.get(apiCall+"/posts/" + path);
       // console.log("laet",res)
       setPost(res.data.data);
       setTitle(res.data.data.title);
@@ -35,7 +36,7 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/posts/${post._id}`, {
+      await axios.delete(apiCall+`/posts/${post._id}`, {
         data: { username: user._id },
       });
       window.location.replace("/");
@@ -46,7 +47,7 @@ export default function SinglePost() {
     
     try {
       console.log("username");
-      await axios.patch(`/posts/${post._id}`, {
+      await axios.patch(apiCall+`/posts/${post._id}`, {
         username: user._id,
         title,
         desc,
@@ -65,7 +66,7 @@ export default function SinglePost() {
     <div className="singlePost">
       <div className="singlePostWrapper">
       {post.photo && (
-          <img src={PF + post.photo} alt="" className="singlePostImg" />
+          <img src={post.photo} alt="" className="singlePostImg" />
         )}
         {updateMode ? (
           <input

@@ -3,6 +3,7 @@ import { DropDownList } from "@progress/kendo-react-dropdowns";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useContext, useEffect, useState } from "react";
+import apiCall from "../../helpers/apiCall";
 
 import "./Publish.css";
 import axios from "axios";
@@ -63,17 +64,17 @@ export default function Publish() {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("/upload", data);
+        await axios.post(apiCall+"/upload", data);
       } catch (err) {}
     }
     try {
-      const res = await axios.post("/posts", newPost);
+      const res = await axios.post(apiCall+"/posts", newPost);
       window.location.replace("/Single/" + res.data.data._id);
     } catch (err) {}
   };
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get("/category/all");
+      const res = await axios.get(apiCall+"/category/all");
       setCats(res.data.data);
     };
     getCats();

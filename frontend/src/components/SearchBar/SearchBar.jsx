@@ -5,6 +5,7 @@ import { useContext, useEffect, useState,useMemo } from "react";
 import { Link ,useHistory} from "react-router-dom";
 import "./SearchBar.css";
 import {Space} from "antd"
+import apiCall from "../../helpers/apiCall";
 
 
 export default function SearchBar() {
@@ -17,7 +18,7 @@ export default function SearchBar() {
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get("/category/all");
+      const res = await axios.get(apiCall+"/category/all");
       setCats(res.data.data);
     };
     getCats();
