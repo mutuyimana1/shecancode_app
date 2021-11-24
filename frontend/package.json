@@ -55,6 +55,5 @@
     ]
   },
   
-  "proxy" :"https://shecancode-blog.herokuapp.com/api"
-
+  "proxy" :"https://shecancode-blog.herokuapp.com/api/"
 }
