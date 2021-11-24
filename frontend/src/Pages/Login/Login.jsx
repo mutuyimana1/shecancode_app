@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
+import apiCall from "../../helpers/apiCall";
 
 import "./Login.css";
 
@@ -18,7 +19,7 @@ export default function Login()
     dispatch({ type: "LOGIN_START" });
     // CALL API
     try {
-      const res = await axios.post("/auth/login", {
+      const res = await axios.post(apiCall+"/auth/login", {
     //    PASSING MY DATA USERNAME AND PASSWORD
         username: userRef.current.value,
         password: passwordRef.current.value,

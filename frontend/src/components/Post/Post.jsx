@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useLocation } from "react-router";
 import { Context } from "../../context/Context";
-// import axios from "axios";
+import apiCall from "../../helpers/apiCall";
 // import { useContext, useEffect, useState } from "react";
 
 import { useContext, useEffect, useState } from "react";
 
 export default function Post({post}) {
-  const PF = "http://localhost:4040/images/";
+  // const PF = "http://localhost:4040/images/";
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
   const [visible,setVisible] = useState(4);
@@ -20,8 +20,9 @@ export default function Post({post}) {
 
   };
   useEffect(() => {
+    // console.log(apiCall);
     const fetchPosts = async () => {
-      const res = await axios.get("/posts" + search);
+      const res = await axios.get(apiCall+"/posts" + search);
       console.log("<><<>",res);
       setPosts(res.data.data);
     };
@@ -38,7 +39,7 @@ export default function Post({post}) {
         <div className="col-md-6  card">
 
       
-       {post.photo && <img className="postImage" src={PF + post.photo} alt="" />}
+       {post.photo && <img className="postImage" src={post.photo} alt="" />}
       <div className="postInfod">
         
         <Link to={`/Single/${post._id}`} className="link">

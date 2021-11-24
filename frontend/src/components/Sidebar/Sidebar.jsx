@@ -4,7 +4,7 @@ import axios from "axios"
 import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { DropDownList } from "@progress/kendo-react-dropdowns";
-
+import apiCall from '../../helpers/apiCall'
 
 
 
@@ -14,7 +14,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get("/category/all");
+      const res = await axios.get(apiCall+"/category/all");
       console.log("hhhdhdhhd",res)
       setCats(res.data.data);
     };

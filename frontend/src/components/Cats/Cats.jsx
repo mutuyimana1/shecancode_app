@@ -1,9 +1,7 @@
-
-   
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 // import "./Publish.css";
 import axios from "axios";
-import { Context } from "../../context/Context";
+import apiCall from "../../helpers/apiCall";
 
 export default function AddCats() {
   const [name, setName] = useState("");
@@ -18,7 +16,7 @@ export default function AddCats() {
   
     
     try {
-      const res = await axios.post("/category/create", newPost);
+      const res = await axios.post(apiCall+"/category/create", newPost);
       window.location.replace("/");
       // console.log(res)
     } catch (err) { 
