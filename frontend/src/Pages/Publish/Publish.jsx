@@ -38,7 +38,7 @@ export default function Publish() {
             setPreviewSource(reader.result);
         };
     };
-  // trying to upload to claudinary
+  // trying to upload to claudinary end  here
 
 
   const handleCkeditorState = (event, editor) => {
@@ -49,29 +49,66 @@ export default function Publish() {
   };
 
   const handleSubmit = async (e) => {
+    
     console.log("user:", user._id);
     e.preventDefault();
+    
+        // cloudnary data
     const newPost = {
       user: user._id,
       title,
       desc,
       category,
+      
     };
-    if (file) {
-      const data = new FormData();
-      const filename = Date.now() + file.name;
-      data.append("name", filename);
-      data.append("file", file);
-      newPost.photo = filename;
-      try {
-        await axios.post(apiCall+"/upload", data);
-      } catch (err) {}
-    }
+    // cloudnary data
+    if (!selectedFile) return;
+        const reader = new FileReader();
+        reader.readAsDataURL(selectedFile);
+        reader.onloadend = () => {
+            uploadImage(reader.result);
+        };
+        reader.onerror = () => {
+            console.error('AHHHHHHHH!!');
+            setErrMsg('something went wrong!');
+        };
+    // if (file) {
+    //   const data = new FormData();
+    //   const filename = Date.now() + file.name;
+    //   data.append("name", filename);
+    //   data.append("file", file);
+    //   newPost.photo = filename;
+    //   try {
+    //     await axios.post(apiCall+"/upload", data);
+    //   } catch (err) {}
+    // }
     try {
       const res = await axios.post(apiCall+"/posts", newPost);
       window.location.replace("/Single/" + res.data.data._id);
     } catch (err) {}
   };
+
+
+
+  const uploadImage = async (base64EncodedImage) => {
+    console.log(base64EncodedImage);
+    try {
+       const res= await fetch(apiCall+'/upload', {
+            method: 'POST',
+            body: JSON.stringify({data: base64EncodedImage }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        console.log("**************", res)
+        setFileInputState('');
+        setPreviewSource('');
+        setSuccessMsg('Image uploaded successfully');
+    } catch (err) {
+        console.error(err);
+        setErrMsg('Something went wrong in upload!');
+    }
+};
+
+
   useEffect(() => {
     const getCats = async () => {
       const res = await axios.get(apiCall+"/category/all");
@@ -85,6 +122,14 @@ export default function Publish() {
       {/* {file && (
         <img className="publishImage" src={URL.createObjectURL(file)} alt="" />
       )} */}
+       {previewSource && (
+                <img
+                    src={previewSource}
+                    alt="chosen"
+                    // style={{ height: '300px' }}
+                    className="publishImage" 
+                />
+      )}
      
 
       <h1 className="publishingPageTitle">Publish your Story Here</h1>
@@ -92,17 +137,19 @@ export default function Publish() {
       <form className="publishForm" onSubmit={handleSubmit}>
         <div class="row">
         <div class="col-25">
-                  <label htmlFor="fileInput">
+                 <label htmlFor="fileInput">
                         <i class=" plusicon fas fa-plus"></i>
                   </label>
-                  <input type="file" id="fileInput" style={{ display: "none" }} 
-                    onChange={(e) => setFile(e.target.files[0])}/>
-                {/* <input
-                type="file"
-                name="image"
-                onchange={handleFileInputChange}
-                value={fileInputState}
-                /> */}
+                  {/* <input type="file" id="fileInput" style={{ display: "none" }} 
+                    onChange={(e) => setFile(e.target.files[0])}/> */}
+                <input
+                    id="fileInput"
+                    type="file"
+                    name="image"
+                    onChange={handleFileInputChange}
+                    value={fileInputState}
+                    className="form-input"
+                />
                 </div>
           <div class="col-75"></div>
         </div>
@@ -178,13 +225,7 @@ export default function Publish() {
 
         {/* </div> */}
       </form>
-      {previewSource && (
-                <img
-                    src={previewSource}
-                    alt="chosen"
-                    style={{ height: '300px' }}
-                />
-      )}
+     
     
     </div>
   );
