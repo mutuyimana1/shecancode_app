@@ -57,18 +57,8 @@ export default function Post({post}) {
         <div className="col-md-6  card">
 
       
-       {/* {post.photo && <img className="postImage" src={post.photo} alt="" />} */}
-       {imageIds &&
-                    imageIds.map((imageId, index) => (
-                        <Image
-                            key={index}
-                            cloudName="dhzndcjtz"
-                            publicId={imageId}
-                            // width="300"
-                            // crop="scale"
-                            className="postImage"
-                        />
-                    ))}
+       {post.photo && <img className="postImage" src={post.photo} alt="" />}
+
      
 
       <div className="postInfod">
@@ -100,7 +90,7 @@ export default function Post({post}) {
         <div class="row">
           <div class="col-lg-4"></div>
           <div class="col-lg-4">
-          {/* <button onClick={loadMore} className="loadMoreButton"> RoadMore</button> */}
+          <button onClick={loadMore} className="loadMoreButton"> RoadMore</button>
           <div class="col-lg-4"></div>
 
 

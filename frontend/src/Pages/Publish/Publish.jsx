@@ -4,12 +4,14 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useContext, useEffect, useState } from "react";
 import apiCall from "../../helpers/apiCall";
+import cloudinary from "../../helpers/cloudinary";
 
 import "./Publish.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
-   
+
 export default function Publish() {
+
   const [cats, setCats] = useState([]);
 
   const [title, setTitle] = useState("");
@@ -19,27 +21,26 @@ export default function Publish() {
   const [file, setFile] = useState(null);
   // trying to upload to claudinary
 
-  const [fileInputState, setFileInputState] = useState('');
-    const [previewSource, setPreviewSource] = useState('');
-    const [selectedFile, setSelectedFile] = useState();
-    const [successMsg, setSuccessMsg] = useState('');
-    const [errMsg, setErrMsg] = useState('');
-    const handleFileInputChange = (e) => {
-        const file = e.target.files[0];
-        previewFile(file);
-        setSelectedFile(file);
-        setFileInputState(e.target.value);
-    };
+  const [fileInputState, setFileInputState] = useState("");
+  const [previewSource, setPreviewSource] = useState("");
+  const [selectedFile, setSelectedFile] = useState();
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errMsg, setErrMsg] = useState("");
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
+    previewFile(file);
+    setSelectedFile(file);
+    setFileInputState(e.target.value);
+  };
 
-    const previewFile = (file) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            setPreviewSource(reader.result);
-        };
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
     };
+  };
   // trying to upload to claudinary end  here
-
 
   const handleCkeditorState = (event, editor) => {
     const data = editor.getData();
@@ -48,70 +49,36 @@ export default function Publish() {
     });
   };
 
-  const handleSubmit = async (e) => {
-    
-    console.log("user:", user._id);
-    e.preventDefault();
-    
-        // cloudnary data
+  const handleSubmit = async () => {
+    // Blogpost data
     const newPost = {
       user: user._id,
       title,
       desc,
-      category,
-      
+      category
     };
-    // cloudnary data
-    if (!selectedFile) return;
-        const reader = new FileReader();
-        reader.readAsDataURL(selectedFile);
-        reader.onloadend = () => {
-            uploadImage(reader.result);
-        };
-        reader.onerror = () => {
-            console.error('AHHHHHHHH!!');
-            setErrMsg('something went wrong!');
-        };
-    // if (file) {
-    //   const data = new FormData();
-    //   const filename = Date.now() + file.name;
-    //   data.append("name", filename);
-    //   data.append("file", file);
-    //   newPost.photo = filename;
-    //   try {
-    //     await axios.post(apiCall+"/upload", data);
-    //   } catch (err) {}
-    // }
-    try {
-      const res = await axios.post(apiCall+"/posts", newPost);
-      window.location.replace("/Single/" + res.data.data._id);
-    } catch (err) {}
+      // const res = await axios.post(apiCall + "/posts", newPost);
+
+
+
+
+    fetch(apiCall+"/posts", {
+      method: "post",
+      body:JSON.stringify(newPost),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        // setUrl(data.url);
+
+      window.location.replace("/Single/" +data.data._id);
+      })
+
+
   };
-
-
-
-  const uploadImage = async (base64EncodedImage) => {
-    console.log(base64EncodedImage);
-    try {
-       const res= await fetch(apiCall+'/upload', {
-            method: 'POST',
-            body: JSON.stringify({data: base64EncodedImage }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-        console.log("**************", res)
-        setFileInputState('');
-        setPreviewSource('');
-        setSuccessMsg('Image uploaded successfully');
-    } catch (err) {
-        console.error(err);
-        setErrMsg('Something went wrong in upload!');
-    }
-};
-
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get(apiCall+"/category/all");
+      const res = await axios.get(apiCall + "/category/all");
       setCats(res.data.data);
     };
     getCats();
@@ -122,35 +89,42 @@ export default function Publish() {
       {/* {file && (
         <img className="publishImage" src={URL.createObjectURL(file)} alt="" />
       )} */}
-       {previewSource && (
-                <img
-                    src={previewSource}
-                    alt="chosen"
-                    // style={{ height: '300px' }}
-                    className="publishImage" 
-                />
+      {previewSource && (
+        <img
+          src={previewSource}
+          alt="chosen"
+          // style={{ height: '300px' }}
+          className="publishImage"
+        />
       )}
-     
 
       <h1 className="publishingPageTitle">Publish your Story Here</h1>
 
+      <input
+              type="file"
+              onChange={(e) => setImage(e.target.files[0])}
+            ></input>
+            <button onClick={uploadImage}>Upload</button>
+            <img src={url} width="35%" />
+
       <form className="publishForm" onSubmit={handleSubmit}>
         <div class="row">
-        <div class="col-25">
-                 <label htmlFor="fileInput">
-                        <i class=" plusicon fas fa-plus"></i>
-                  </label>
-                  {/* <input type="file" id="fileInput" style={{ display: "none" }} 
+          <div class="col-25">
+            <label htmlFor="fileInput">
+              <i class=" plusicon fas fa-plus"></i>
+            </label>
+            {/* <input type="file" id="fileInput" style={{ display: "none" }} 
                     onChange={(e) => setFile(e.target.files[0])}/> */}
-                <input
-                    id="fileInput"
-                    type="file"
-                    name="image"
-                    onChange={handleFileInputChange}
-                    value={fileInputState}
-                    className="form-input"
-                />
-                </div>
+            {/* <input
+              id="fileInput"
+              type="file"
+              name="image"
+              // onChange={handleFileInputChange}
+              onChange={(e) => setImage(e.target.files[0])}
+              value={fileInputState}
+              className="form-input"
+            /> */}
+          </div>
           <div class="col-75"></div>
         </div>
         <div class="row">
@@ -199,18 +173,18 @@ export default function Publish() {
               data="<p> Story Description </p>"
               onReady={(editor) => {
                 // You can store the "editor" and use when it is needed.
-                console.log("Editor is ready to use!", editor);
+                // console.log("Editor is ready to use!", editor);
               }}
-              onChange={ ( event, editor ) => {
-                  const data = editor.getData();
-                  setDesc(data)
-                  console.log( data );
-              } }
+              onChange={(event, editor) => {
+                const data = editor.getData();
+                setDesc(data);
+                // console.log(data);
+              }}
               onBlur={(event, editor) => {
-                console.log("Blur.", editor);
+                // console.log("Blur.", editor);
               }}
               onFocus={(event, editor) => {
-                console.log("Focus.", editor);
+                // console.log("Focus.", editor);
               }}
             />
 
@@ -225,8 +199,6 @@ export default function Publish() {
 
         {/* </div> */}
       </form>
-     
-    
     </div>
   );
 }
