@@ -57,18 +57,9 @@ export default function Post({post}) {
         <div className="col-md-6  card">
 
       
-       {/* {post.photo && <img className="postImage" src={post.photo} alt="" />} */}
-       {imageIds &&
-                    imageIds.map((imageId, index) => (
-                        <Image
-                            key={index}
-                            cloudName="dhzndcjtz"
-                            publicId={imageId}
-                            // width="300"
-                            // crop="scale"
-                            className="postImage"
-                        />
-                    ))}
+       {post.photo && <img className="postImage" src={post.photo} alt="" />}
+     
+  
      
 
       <div className="postInfod">
