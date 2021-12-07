@@ -11,43 +11,34 @@ import axios from "axios";
 import { Context } from "../../context/Context";
 
 export default function Publish() {
-
   const [cats, setCats] = useState([]);
 
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [category, setCategory] = useState("");
   const { user } = useContext(Context);
-  const [file, setFile] = useState(null);
+
   // trying to upload to claudinary
 
-  const [fileInputState, setFileInputState] = useState("");
-  const [previewSource, setPreviewSource] = useState("");
-  const [selectedFile, setSelectedFile] = useState();
-  const [successMsg, setSuccessMsg] = useState("");
-  const [errMsg, setErrMsg] = useState("");
-  const handleFileInputChange = (e) => {
-    const file = e.target.files[0];
-    previewFile(file);
-    setSelectedFile(file);
-    setFileInputState(e.target.value);
+  const [image, setImage] = useState("");
+  const [url, setUrl] = useState("");
+  const uploadImage = () => {
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "pwdcevhp");
+    data.append("cloud_name", "dhzndcjtz");
+    fetch("  https://api.cloudinary.com/v1_1/dhzndcjtz/image/upload", {
+      method: "post",
+      body: data,
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setUrl(data.url);
+      })
+      .catch((err) => console.log(err));
   };
 
-  const previewFile = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      setPreviewSource(reader.result);
-    };
-  };
   // trying to upload to claudinary end  here
-
-  const handleCkeditorState = (event, editor) => {
-    const data = editor.getData();
-    this.setState({
-      content: data,
-    });
-  };
 
   const handleSubmit = async () => {
     // Blogpost data
@@ -55,25 +46,30 @@ export default function Publish() {
       user: user._id,
       title,
       desc,
-      category
+      category,
+      photo: url,
     };
-      // const res = await axios.post(apiCall + "/posts", newPost);
+    // const res = await axios.post(apiCall + "/posts", newPost);
 
-
-
-
-    fetch(apiCall+"/posts", {
+    console.log("check my body:", newPost);
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    fetch(apiCall + "/posts", {
       method: "post",
-      body:JSON.stringify(newPost),
+      headers: myHeaders,
+      body: JSON.stringify(newPost),
     })
-      .then((resp) => resp.json())
+      .then((resp) => {
+        console.log("ppppppppppppeeeee:", resp);
+        resp.json();
+      })
       .then((data) => {
         // setUrl(data.url);
 
-      window.location.replace("/Single/" +data.data._id);
+        console.log("hhhhhhhhhhhhhheeeeeeeeeee:", data);
+        window.location.replace("/Single/" + data.data._id);
       })
-
-
+      .catch((error) => console.log("error", error));
   };
 
   useEffect(() => {
@@ -86,44 +82,26 @@ export default function Publish() {
 
   return (
     <div className="publish">
-      {/* {file && (
-        <img className="publishImage" src={URL.createObjectURL(file)} alt="" />
-      )} */}
-      {previewSource && (
-        <img
-          src={previewSource}
-          alt="chosen"
-          // style={{ height: '300px' }}
-          className="publishImage"
-        />
-      )}
-
       <h1 className="publishingPageTitle">Publish your Story Here</h1>
-
-      <input
-              type="file"
-              onChange={(e) => setImage(e.target.files[0])}
-            ></input>
-            <button onClick={uploadImage}>Upload</button>
-            <img src={url} width="35%" />
-
+      <div>
+        <div>
+          <input
+            type="file"
+            onChange={(e) => setImage(e.target.files[0])}
+          ></input>
+          <button onClick={uploadImage}>Upload</button>
+        </div>
+        <div>
+          <h1>Uploaded image will be displayed here</h1>
+          <img src={url} width="100%" />
+        </div>
+      </div>
       <form className="publishForm" onSubmit={handleSubmit}>
         <div class="row">
           <div class="col-25">
             <label htmlFor="fileInput">
               <i class=" plusicon fas fa-plus"></i>
             </label>
-            {/* <input type="file" id="fileInput" style={{ display: "none" }} 
-                    onChange={(e) => setFile(e.target.files[0])}/> */}
-            {/* <input
-              id="fileInput"
-              type="file"
-              name="image"
-              // onChange={handleFileInputChange}
-              onChange={(e) => setImage(e.target.files[0])}
-              value={fileInputState}
-              className="form-input"
-            /> */}
           </div>
           <div class="col-75"></div>
         </div>
@@ -146,13 +124,6 @@ export default function Publish() {
             <label for="lname">Category</label>
           </div>
           <div class="col-75">
-            {/* <input
-              type="text"
-              placeholder=" Enter the Category...."
-              className="writeCategory"
-              autoFocus={true}
-              onChange={(e) => setCategory(e.target.value)}
-            /> */}
             <DropDownList
               className="dropliste"
               placeholder="Choose Category..."
