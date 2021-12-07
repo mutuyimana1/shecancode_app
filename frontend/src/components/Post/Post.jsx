@@ -59,8 +59,6 @@ export default function Post({post}) {
       
        {post.photo && <img className="postImage" src={post.photo} alt="" />}
      
-  
-     
 
       <div className="postInfod">
         
@@ -91,7 +89,7 @@ export default function Post({post}) {
         <div class="row">
           <div class="col-lg-4"></div>
           <div class="col-lg-4">
-          {/* <button onClick={loadMore} className="loadMoreButton"> RoadMore</button> */}
+          <button onClick={loadMore} className="loadMoreButton"> RoadMore</button>
           <div class="col-lg-4"></div>
 
 
