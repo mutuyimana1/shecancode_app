@@ -40,38 +40,53 @@ export default function Publish() {
 
   // trying to upload to claudinary end  here
 
-  const handleSubmit = async () => {
-    // Blogpost data
+  // const handleSubmit = async () => {
+  //   const newPost = {
+  //     user: user._id,
+  //     title,
+  //     desc,
+  //     category,
+  //     photo:url,
+  //   };
+
+  //   console.log("check my body:", newPost);
+  //   var myHeaders = new Headers();
+  //   myHeaders.append("Content-Type", "application/json");
+  //   fetch(apiCall + "/posts", {
+  //     method: "post",
+  //     headers: myHeaders,
+  //     body: JSON.stringify(newPost),
+  //   })
+  //     .then((resp) => {
+  //       console.log("ppppppppppppeeeee:", resp);
+  //       resp.json();
+  //     })
+  //     .then((data) => {
+  //       // setUrl(data.url);
+
+  //       console.log("hhhhhhhhhhhhhheeeeeeeeeee:", data);
+  //       window.location.replace("/Single/" + data.data._id);
+  //     })
+  //     .catch((error) => console.log("error", error));
+  // };
+
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const newPost = {
-      user: user._id,
+      // username: user.username,
+      user:user._id,
       title,
       desc,
       category,
       photo:url,
     };
-    // const res = await axios.post(apiCall + "/posts", newPost);
-
-    console.log("check my body:", newPost);
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    fetch(apiCall + "/posts", {
-      method: "post",
-      headers: myHeaders,
-      body: JSON.stringify(newPost),
-    })
-      .then((resp) => {
-        console.log("ppppppppppppeeeee:", resp);
-        resp.json();
-      })
-      .then((data) => {
-        // setUrl(data.url);
-
-        console.log("hhhhhhhhhhhhhheeeeeeeeeee:", data);
-        window.location.replace("/Single/" + data.data._id);
-      })
-      .catch((error) => console.log("error", error));
+  
+    try {
+      const res = await axios.post(apiCall +"/posts", newPost);
+      window.location.replace("/Single/" + res.data._id);
+    } catch (err) {}
   };
-
   useEffect(() => {
     const getCats = async () => {
       const res = await axios.get(apiCall + "/category/all");
