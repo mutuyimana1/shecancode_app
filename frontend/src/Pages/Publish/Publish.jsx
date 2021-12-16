@@ -47,7 +47,7 @@ export default function Publish() {
       title,
       desc,
       category,
-      photo: url,
+      photo:url,
     };
     // const res = await axios.post(apiCall + "/posts", newPost);
 

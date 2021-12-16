@@ -4,16 +4,16 @@ import axios from "axios";
 import { useLocation } from "react-router";
 import { Context } from "../../context/Context";
 import apiCall from "../../helpers/apiCall";
-import { Image } from 'cloudinary-react';//CLOUDINARY IMAGE
+
 
 import { useContext, useEffect, useState } from "react";
 
 export default function Post({post}) {
-  // const PF = "http://localhost:4040/images/";
+ 
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
-  const [visible,setVisible] = useState(3);
-  const [imageIds, setImageIds] = useState(); //COUDINARY IMAGE
+  const [visible,setVisible] = useState(4);
+
 
 
 
@@ -21,18 +21,7 @@ export default function Post({post}) {
     setVisible((prevValue) => prevValue = 100);
 
   };
-  //COUDINARY
-  const loadImages = async () => {
-    try {
-        const res = await fetch(apiCall+'/images');
-        const data = await res.json();
-        setImageIds(data);
-    } catch (err) {
-        console.error(err);
-    }
-};
-
-
+ 
 
   useEffect(() => {
     // console.log(apiCall);
@@ -42,7 +31,7 @@ export default function Post({post}) {
       setPosts(res.data.data);
     };
     fetchPosts();
-    loadImages();
+    // loadImages();
 
   },[search]);
  
