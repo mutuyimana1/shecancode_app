@@ -22,15 +22,19 @@ export default function Header() {
     return (
         <div className="top">
             <div className="left">
-                <img className="logo" src="https://www.shecancodeschool.org/uploads/logos1.png"/><h2>SheCan<span>CODE</span></h2>
+               {/* <a href="" className="link">  */}
+               <img className="logo" src="https://www.shecancodeschool.org/uploads/logos1.png"/>
+               <h2>SheCan<span>CODE</span></h2>
+               {/* </a> */}
 
             </div>
             <div className = "center">
                 <ul className="topList">
-                    <li className="topListItem"> 
-                    <Link className="link" to="/">Home</Link></li>
-                    <li className="topListItem"> <Link className="link" to="/">About</ Link></li>
-                    <li className="topListItem"><Link className="link" to="/Cats">  Categories </Link></li>
+                     <a href="https://www.shecancodeschool.org/" className="link">
+                     <li className="topListItem"> Home </li></a>
+                    <li className="topListItem"><Link className="link" to="/">Blog</Link></li>
+                    {/* <li className="topListItem"> <Link className="link" to="/">About</ Link></li> */}
+                    <li className="topListItem"><Link className="link" to="/Cats"> {user && "Categories"}  </Link></li>
                     <li className="topListItem"> <Link className="link" to="/Publish"> {user && "Publish"}</Link></li>
                     {/* AddCats */}
                     <li className="topListItem" onClick={handleLogout}>

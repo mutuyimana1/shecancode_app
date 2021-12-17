@@ -84,7 +84,7 @@ export default function Publish() {
   
     try {
       const res = await axios.post(apiCall +"/posts", newPost);
-      window.location.replace("/Single/" + res.data._id);
+      window.location.replace("/");
     } catch (err) {}
   };
   useEffect(() => {
@@ -98,26 +98,33 @@ export default function Publish() {
   return (
     <div className="publish">
       <h1 className="publishingPageTitle">Publish your Story Here</h1>
-      <div>
-        <div>
-          <input
-            type="file"
-            onChange={(e) => setImage(e.target.files[0])}
-          ></input>
-          <button onClick={uploadImage}>Upload</button>
-        </div>
-        <div>
-          <h1>Uploaded image will be displayed here</h1>
-          <img src={url} width="100%" />
-        </div>
-      </div>
+     
       <form className="publishForm" onSubmit={handleSubmit}>
         <div class="row">
-          <div class="col-25">
-            <label htmlFor="fileInput">
-              <i class=" plusicon fas fa-plus"></i>
-            </label>
+        <div class="col-25">
+            <label for="image">Image</label>
           </div>
+          <div class="col-75">
+          <label htmlFor="fileInput">
+                        {/* <i class=" plusicon fas fa-plus"></i> */}
+                  </label>
+                  <input type="file" id="fileInput" className="inputImage" 
+                    onChange={(e) => setImage(e.target.files[0])}
+                    
+                    
+                    />
+                      <button onClick={uploadImage} className="uploadImage">Upload</button>
+                
+
+            <div>
+       
+        
+      </div>
+          </div>
+          <br/><br/><br/>
+          <div class="col-100">
+          <img src={url} width="100%" />
+        </div>
           <div class="col-75"></div>
         </div>
         <div class="row">
