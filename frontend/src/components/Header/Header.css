@@ -1,3 +1,74 @@
+
+.container-fluide {
+    background-color: #393939;
+}
+
+.left-top {
+    padding: 3px 0px;
+}
+
+.email-box {
+    display: inline-block;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.email-box a {
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.email-box a:hover {
+    color: #fd6802;
+}
+
+.email-box a i {
+    padding: 0px 5px;
+}
+
+.phone-box {
+    display: inline-block;
+}
+
+.phone-box a {
+    color:white;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.phone-box a:hover {
+    color: #fd6802;
+}
+
+.phone-box a i {
+    padding: 0px 5px;
+}
+
+.social-box {
+    /* float: right; */
+    margin-left: 200px;
+}
+
+.social-box ul li {
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.social-box ul li a {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.social-box ul li a:hover {
+    color: #fd6802;
+}
+
+.btn-lighte:hover {
+    background-color: #21759b;
+    color: white
+}
+
 .top{
    
     width:100%;
@@ -32,7 +103,7 @@
 }
 .topList{
     display:flex;
-    justify-content: center;
+    justify-content: left;
     margin: 0;
     padding: 0;
     list-style: none ;
