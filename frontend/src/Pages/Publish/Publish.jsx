@@ -4,7 +4,8 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { useContext, useEffect, useState } from "react";
 import apiCall from "../../helpers/apiCall";
-import cloudinary from "../../helpers/cloudinary";
+
+import postBlog from "../../helpers/postBlog";
 
 import "./Publish.css";
 import axios from "axios";
@@ -41,6 +42,7 @@ export default function Publish() {
   // trying to upload to claudinary end  here
 
   const handleSubmit = async () => {
+
     // Blogpost data
     const newPost = {
       user: user._id,
@@ -49,27 +51,9 @@ export default function Publish() {
       category,
       photo: url,
     };
-    // const res = await axios.post(apiCall + "/posts", newPost);
 
-    console.log("check my body:", newPost);
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    fetch(apiCall + "/posts", {
-      method: "post",
-      headers: myHeaders,
-      body: JSON.stringify(newPost),
-    })
-      .then((resp) => {
-        console.log("ppppppppppppeeeee:", resp);
-        resp.json();
-      })
-      .then((data) => {
-        // setUrl(data.url);
+    await postBlog(newPost);
 
-        console.log("hhhhhhhhhhhhhheeeeeeeeeee:", data);
-        window.location.replace("/Single/" + data.data._id);
-      })
-      .catch((error) => console.log("error", error));
   };
 
   useEffect(() => {
