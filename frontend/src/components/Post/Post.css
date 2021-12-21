@@ -76,3 +76,10 @@
     align-items: center;
 
 }
+.read-more{
+    border:2px solid #4ab0f0;
+    background-color:white;
+    border-radius:5px;
+    padding:5px;
+    color:#333;
+}
