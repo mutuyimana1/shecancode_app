@@ -26,11 +26,9 @@ export default function Sidebar() {
             <div className="sidebarItem">
                 <div className="sidebarTitle">ABOUT SHECANCODE</div>
                 <img className="sidebarImg" src="https://www.shecancodeschool.org/images/cases/case3.jpg"/>
-                <p>Lorem ipsum dolor sit amet 
-                     adipisicing elit. Vitae cum fuga 
-                     animi corrupti impedit ea. Quas 
-                     vitae, exercitationem saepe 
-                     accusantium tempora ducimus
+                <p>
+                SheCanCode School of coding, a project launched by Igire Rwanda Organization( IR0) in collaboration with USA Embassy Kigali aiming to bridge the digital skills gap by inspiring women to enter and remain in tech industry.
+
                 </p>
             </div>
             <div className="sidebarItem">
