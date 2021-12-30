@@ -26,7 +26,7 @@ export default function SinglePost() {
       // console.log("bebbebe",path)
       const res = await axios.get(apiCall+"/posts/" + path);
       // console.log("laet",res)
-      setPost(res.data.data);
+      setPost(res.data.data);   
       setTitle(res.data.data.title);
       setDesc(res.data.data.desc);
       setPhoto(res.data.data.photo);

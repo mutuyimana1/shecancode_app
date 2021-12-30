@@ -1,7 +1,20 @@
 import React from 'react'
 import "./Footer.css"
+import {Link} from "react-router-dom";
+import { Context } from "../../context/Context";
+import { useContext } from "react";
+import {useHistory} from "react-router-dom";
 
 export default function Footer() {
+    const history = useHistory();
+    const { user, dispatch } = useContext(Context);
+    const PF = "http://localhost:5000/images/"
+  
+    const handleLogout = () => {
+      dispatch({ type: "LOGOUT" });
+      history.push("/")
+
+    };
     return (
         <div className="footerMain">
             <footer class="footer">
@@ -45,6 +58,28 @@ export default function Footer() {
                 <li> <a href="#">Terms of Use</a></li>
                 {/* <li><a href="#">Sitemap</a></li> */}
                 </ul>
+                <div className = "righte">
+            {/* <i className="searchIcon fas fa-search"></i> */}
+           {/* <a href="https://www.facebook.com/igirerwandaorganization/posts/shecancode-initiative-prepare-women-and-girls-to-enter-in-technology-industry-th/1913555692059845/" TARGET="blank"> <i className="topicon fab fa-facebook-square"></i></a> */}
+           {/* <a href="https://www.facebook.com/igirerwandaorganization/posts/shecancode-initiative-prepare-women-and-girls-to-enter-in-technology-industry-th/1913555692059845/" TARGET="blank">  <i className="topicon fab fa-twitter-square"></i></a> */}
+           {/* <a href="https://www.facebook.com/igirerwandaorganization/posts/shecancode-initiative-prepare-women-and-girls-to-enter-in-technology-industry-th/1913555692059845/" TARGET="blank">  <i className="topicon fab fa-linkedin"></i> </a>            */}
+           {/* <a href="https://www.facebook.com/igirerwandaorganization/posts/shecancode-initiative-prepare-women-and-girls-to-enter-in-technology-industry-th/1913555692059845/" TARGET="blank">  <i className="topicon fab fa-instagram-square"></i></a> */}
+              {user ? (
+          <Link to="/settings">
+            <img className="topImg" src={PF+user.profilePic} alt="" />
+          </Link>
+        ) : (
+
+            <ul className="topListe">
+                 
+            <li className="topListIteme">
+                 {/* <i className="fa fa-user"> </i>  */}
+                <Link className="link" to="/Register">Register</Link></li>
+            <li className="topListIteme"> <Link className="link" to="/Login">Login</Link></li>
+            </ul>
+
+        )}
+            </div>  
                 </li>
                 </ul>
     <div class="legal">

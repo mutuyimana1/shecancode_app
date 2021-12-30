@@ -41,21 +41,53 @@ export default function Publish() {
 
   // trying to upload to claudinary end  here
 
-  const handleSubmit = async () => {
+  // const handleSubmit = async () => {
+  //   const newPost = {
+  //     user: user._id,
+  //     title,
+  //     desc,
+  //     category,
+  //     photo:url,
+  //   };
 
-    // Blogpost data
+  //   console.log("check my body:", newPost);
+  //   var myHeaders = new Headers();
+  //   myHeaders.append("Content-Type", "application/json");
+  //   fetch(apiCall + "/posts", {
+  //     method: "post",
+  //     headers: myHeaders,
+  //     body: JSON.stringify(newPost),
+  //   })
+  //     .then((resp) => {
+  //       console.log("ppppppppppppeeeee:", resp);
+  //       resp.json();
+  //     })
+  //     .then((data) => {
+  //       // setUrl(data.url);
+
+  //       console.log("hhhhhhhhhhhhhheeeeeeeeeee:", data);
+  //       window.location.replace("/Single/" + data.data._id);
+  //     })
+  //     .catch((error) => console.log("error", error));
+  // };
+
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const newPost = {
-      user: user._id,
+      // username: user.username,
+      user:user._id,
       title,
       desc,
       category,
-      photo: url,
+      photo:url,
     };
-
-    await postBlog(newPost);
-
+  
+    try {
+      const res = await axios.post(apiCall +"/posts", newPost);
+      window.location.replace("/");
+    } catch (err) {}
   };
-
   useEffect(() => {
     const getCats = async () => {
       const res = await axios.get(apiCall + "/category/all");
@@ -67,26 +99,33 @@ export default function Publish() {
   return (
     <div className="publish">
       <h1 className="publishingPageTitle">Publish your Story Here</h1>
-      <div>
-        <div>
-          <input
-            type="file"
-            onChange={(e) => setImage(e.target.files[0])}
-          ></input>
-          <button onClick={uploadImage}>Upload</button>
-        </div>
-        <div>
-          <h1>Uploaded image will be displayed here</h1>
-          <img src={url} width="100%" />
-        </div>
-      </div>
+     
       <form className="publishForm" onSubmit={handleSubmit}>
         <div class="row">
-          <div class="col-25">
-            <label htmlFor="fileInput">
-              <i class=" plusicon fas fa-plus"></i>
-            </label>
+        <div class="col-25">
+            <label for="image">Image</label>
           </div>
+          <div class="col-75">
+          <label htmlFor="fileInput">
+                        {/* <i class=" plusicon fas fa-plus"></i> */}
+                  </label>
+                  <input type="file" id="fileInput" className="inputImage" 
+                    onChange={(e) => setImage(e.target.files[0])}
+                    
+                    
+                    />
+                      <button onClick={uploadImage} className="uploadImage">Upload</button>
+                
+
+            <div>
+       
+        
+      </div>
+          </div>
+          <br/><br/><br/>
+          <div class="col-100">
+          <img src={url} width="100%" />
+        </div>
           <div class="col-75"></div>
         </div>
         <div class="row">

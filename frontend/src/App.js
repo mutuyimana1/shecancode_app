@@ -37,6 +37,7 @@ function App() {
 
 
 
+
       </Switch>
       {/* <Home/> */}
       <Footer/>
