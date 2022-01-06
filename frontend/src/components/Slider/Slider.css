@@ -1,7 +1,10 @@
 .slider{
-    margin-top:0px;
-    background-image:url("https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
-    background-size:cover;
+    /* margin-top:0px; */
+    /* background-image:url("https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"); */
+    /* background-size:cover; */
+    width:100%;
+    /* background-color: blue; */
+    height:85vh;
 
 }
 .sliderTitles{
@@ -17,11 +20,33 @@
 .smallTitle{
     position:absolute;
     top:35%;
-    padding: 8px;
+    /* padding: 8px; */
     color: #1bb1dc;
-    border: 2px solid#1bb1dc;; 
+    /* border: 2px solid#1bb1dc;;  */
     font-size:20px;
     
+}
+
+.smallParagraph{
+    position:absolute;
+    top:45%;
+    color: #333;
+    font-size:18px;
+
+}
+.smallButton{
+    position:absolute;
+    top:50%;
+    padding: 8px;
+    width:150px;
+    color: #333;
+    background-color:#1bb1dc; 
+    border: 2px solid#1bb1dc;; 
+    font-size:18px;
+    
+}
+.smallButton:hover{
+    background-color: darkblue;
 }
 .largeTitle{
     position:absolute;
