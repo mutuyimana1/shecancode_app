@@ -65,7 +65,7 @@ export default function Header() {
                {/* </a> */}
 
             </div>
-            <div className = "center">
+            <div className = "right">
                 <ul className="topList">
                      <a href="https://www.shecancodeschool.org/" className="link">
                      <li className="topListItem"> Home </li></a>
@@ -87,7 +87,7 @@ export default function Header() {
 
                 </ul>
             </div>
-            <div className = "right">
+            {/* <div className = "right">
             <i className="searchIcon fas fa-search"></i>
            <a href="https://www.facebook.com/igirerwandaorganization/posts/shecancode-initiative-prepare-women-and-girls-to-enter-in-technology-industry-th/1913555692059845/" TARGET="blank"> <i className="topicon fab fa-facebook-square"></i></a>
            <a href="https://www.facebook.com/igirerwandaorganization/posts/shecancode-initiative-prepare-women-and-girls-to-enter-in-technology-industry-th/1913555692059845/" TARGET="blank">  <i className="topicon fab fa-twitter-square"></i></a>
@@ -106,7 +106,7 @@ export default function Header() {
             </ul>
 
         )}
-            </div>  
+            </div>   */}
             </div>
            
                       

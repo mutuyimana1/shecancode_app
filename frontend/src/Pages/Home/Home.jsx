@@ -31,15 +31,17 @@ export default function Home() {
          <SearchBar/>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-8">
+
+          <div className="col-md-1"></div>
+            <div className="col-md-10">
             {/* <Post/> */}
             <Post/>
             
             {/* <button onClick={loadMore} className="loadMoreButton"> RoadMore</button> */}
 
             </div>     
-          <div className="col-md-4">
-               <Sidebar/>
+          <div className="col-md-1">
+               {/* <Sidebar/> */}
           </div>
           </div>
         </div>
