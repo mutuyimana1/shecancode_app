@@ -6,7 +6,9 @@ import { Carousel } from "antd";
 
 export default function Slider() {
   return (
+
     <Carousel autoplay>
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     <div className="slider">
       <div class="sliderImage">
         <div className="sliderTitles">

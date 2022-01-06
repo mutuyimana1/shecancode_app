@@ -18,7 +18,7 @@ export default function Post({post}) {
 
 
   const loadMore =() =>{
-    setVisible((prevValue) => prevValue = 100);
+    setVisible((prevValue) => prevValue = 10);
 
   };
  
