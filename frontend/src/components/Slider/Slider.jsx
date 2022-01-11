@@ -1,57 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Slider.css";
+import axios from "axios";
 
+import apiCall from "../../helpers/apiCall";
 import "antd/dist/antd.css";
 import { Carousel } from "antd";
 import {Link} from "react-router-dom";
 
 
 export default function Slider() {
-                  
+  const [posts, setPosts] = useState([]);
+  const search = "";
+
+  useEffect(() => {
+    console.log("apiCall");
+    const fetchPosts = async () => {
+      const res = await axios.get(apiCall + "/posts" + search);
+
+      setPosts(res.data.data.slice(0, 3));
+      console.log("9999999", posts);
+    };
+    fetchPosts();
+    
+    // loadImages();
+  }, []);
+
   return (
-
     <Carousel autoplay effect="fade">
+     {(posts.map((post)=>( 
+     <div className="slider" >
+        <div class="sliderImage" style={{background:`url(${post?.photo})`,backgroundSize:"cover"}} >
+          <div className="sliderTitles">
+            <span className="largeTitle">{post?.title}</span>
 
-    <div className="slider">
-      <div class="sliderImage">
-        <div className="sliderTitles">
-          <span className="smallTitle">FEATURED POST</span>
-
-          {/* <span className="largeTitle">
+            {/* <span className="largeTitle">
             SheCanCode aims at creating a vibrant community of amazing young
             Rwanda women who are passionate about using technology to change
             Africa and beyond.
           </span> */}
-          <p className="smallParagraph">24 JAN 2022</p>
-          <button className="smallButton">READ</button>
-
-        </div>
-         <img className="sliderImage" 
-            src="https://images.pexels.com/photos/459654/pexels-photo-459654.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"/>
-           
-      </div>
-    </div>
-      <div className="slider">
-        <div class="sliderImage">
-          <div className="sliderTitles">
-            <span className="smallTitle">FEATURED POST</span>
-
-            {/* <span className="largeTitle">
-              SheCanCode aims at creating a vibrant community of amazing young
-              Rwanda women who are passionate about using technology to change
-              Africa and beyond.
-            </span> */}
-           <p className="smallParagraph">24 JAN 2022</p>
-           <Link to={`/Single/${post._id}`} className="link">
-                  <button className="smallButton">READ</button>
-                </Link>
-          <button className="smallButton">READ</button>
+            <p className="smallParagraph">{new Date(post?.createdAt).toDateString()}</p>
+            <Link to={`/Single/${post._id}`} className="link">
+            <button className="smallButton">READ</button>
+            </Link>
           </div>
-          <img className="sliderImage" 
-              src="https://pbs.twimg.com/media/FGF_CEAXsAUxVeV?format=jpg&name=large"/>
-            
+      
         </div>
-      </div>
+      </div>)))}
     </Carousel>
   );
 }

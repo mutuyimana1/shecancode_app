@@ -34,7 +34,8 @@ export default function Post({ post }) {
     <Carousel autoplay effect="fade">
     <div className="post">
       <div className="containerposts">
-        <div className="row">
+        <div className="row" >
+
           <List
            grid={{
             column:2,gutter:16
