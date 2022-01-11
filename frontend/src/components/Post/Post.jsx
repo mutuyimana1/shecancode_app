@@ -48,11 +48,11 @@ export default function Post({ post }) {
               pageSize: 4,
             }}
             dataSource={posts}
-            footer={
-              <div>
-                <b>SheCanCODE Blogs List</b> 
-              </div>
-            }
+            // footer={
+              // <div>
+              //   <b>SheCanCODE Blogs List</b> 
+              // </div>
+            // }
             renderItem={(post) => (
             
               <div className="col-md-11  card">
