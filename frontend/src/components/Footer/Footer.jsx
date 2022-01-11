@@ -47,7 +47,7 @@ export default function Footer() {
                 </div>
                 <ul class="footer__nav">
                     <li class="nav__item">
-                        <h2 class="nav__title">Media</h2>
+                        <h2 class="nav__title">Categories</h2>
                 <ul class="nav__ul">
                 <ul className="sidebarList">
                 {cats.map((c) => (

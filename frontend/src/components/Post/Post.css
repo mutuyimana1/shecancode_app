@@ -1,8 +1,10 @@
+
 .postImage{
-  width:100% ;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 7px;
+    width:100% ;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 7px;
+
 }
 .post{
     /* width:420px; */
@@ -12,6 +14,8 @@
     padding: 30px;
     background-color:white;
     margin-top: 20px;
+    background-color: #4ab0f0;
+    max-height: 120vh;
     border: 1px solid rgba(187, 186, 186, 0.445);
 
 }
@@ -46,16 +50,16 @@
 }
 .postDesc{
     font-family: "Roboto sans-serif";
-    font-size:14px;
+    font-size:18px;
     color:#444;
     line-height: 24px;
-    padding:10px 20px 18px 10px;
+    padding:10px 10px 18px 10px;
     font-weight: 500;
     overflow:hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     /* //to make 5 lines */
-    -webkit-line-clamp:5; 
+    -webkit-line-clamp:3; 
     -webkit-box-orient: vertical;
    
 

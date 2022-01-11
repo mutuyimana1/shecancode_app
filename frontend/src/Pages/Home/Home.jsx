@@ -30,13 +30,16 @@ export default function Home() {
         <div className="row">
           <div className="col-lg-1"></div>
           <div className="col-lg-10">
-            <div className="col-lg-1"></div>
+            {/* <div className="col-lg-1"></div> */}
 
             <Slider />
           </div>
         </div>
       </div>
+      <div className="search">
       <SearchBar />
+      </div>
+    
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-1"></div>

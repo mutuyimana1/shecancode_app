@@ -60,7 +60,7 @@ export default function Post({ post }) {
                 <img className="postImage" src={post.photo} alt="" />
               )}
 
-              <div className="postInfod">
+              <div className="postInfo">
                 <Link to={`/Single/${post._id}`} className="link">
                   <span className="postTitle">{post.title}</span>
                   {/* <span className="postTitle">{post.categories}</span> */}
