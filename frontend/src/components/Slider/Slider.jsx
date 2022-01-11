@@ -3,8 +3,11 @@ import "./Slider.css";
 
 import "antd/dist/antd.css";
 import { Carousel } from "antd";
+import {Link} from "react-router-dom";
+
 
 export default function Slider() {
+                  
   return (
 
     <Carousel autoplay effect="fade">
@@ -39,6 +42,9 @@ export default function Slider() {
               Africa and beyond.
             </span> */}
            <p className="smallParagraph">24 JAN 2022</p>
+           <Link to={`/Single/${post._id}`} className="link">
+                  <button className="smallButton">READ</button>
+                </Link>
           <button className="smallButton">READ</button>
           </div>
           <img className="sliderImage" 
@@ -49,3 +55,4 @@ export default function Slider() {
     </Carousel>
   );
 }
+  

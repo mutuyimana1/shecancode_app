@@ -7,6 +7,8 @@ import apiCall from "../../helpers/apiCall";
 
 import { useContext, useEffect, useState } from "react";
 import { List } from "antd";
+import { Carousel } from "antd";
+
 
 export default function Post({ post }) {
   const [posts, setPosts] = useState([]);
@@ -29,6 +31,7 @@ export default function Post({ post }) {
   }, [search]);
 
   return (
+    <Carousel autoplay effect="fade">
     <div className="post">
       <div className="containerposts">
         <div className="row">
@@ -97,5 +100,6 @@ export default function Post({ post }) {
         </div>
       </div>
     </div>
+    </Carousel>
   );
 }

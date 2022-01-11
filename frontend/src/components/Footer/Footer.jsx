@@ -2,10 +2,25 @@ import React from 'react'
 import "./Footer.css"
 import {Link} from "react-router-dom";
 import { Context } from "../../context/Context";
-import { useContext } from "react";
 import {useHistory} from "react-router-dom";
+import axios from "axios"
+import { useContext, useEffect, useState } from "react"
+
+// import { DropDownList } from "@progress/kendo-react-dropdowns";
+import apiCall from '../../helpers/apiCall'
 
 export default function Footer() {
+    const [cats, setCats] = useState([]);
+
+    useEffect(() => {
+      const getCats = async () => {
+        const res = await axios.get(apiCall+"/category/all");
+        console.log("hhhdhdhhd",res)
+        setCats(res.data.data);
+      };
+      getCats();
+    }, []);
+      
     const history = useHistory();
     const { user, dispatch } = useContext(Context);
     const PF = "http://localhost:5000/images/"
@@ -34,10 +49,18 @@ export default function Footer() {
                     <li class="nav__item">
                         <h2 class="nav__title">Media</h2>
                 <ul class="nav__ul">
-                    <li><a href="#">Online-class</a></li>
-                    <li><a href="#">Print</a></li><li>
-                        <a href="#">Alternative Ads</a>
-                    </li>
+                <ul className="sidebarList">
+                {cats.map((c) => (
+           
+            <Link to={`/?cat=${c._id} `} className="link">
+            <li className="sidebarListItem">{c.name}</li>
+            </Link>
+         
+            
+          ))}
+
+
+        </ul>
                 </ul>
                 </li>
                 <li class="nav__item nav__item--extra">
