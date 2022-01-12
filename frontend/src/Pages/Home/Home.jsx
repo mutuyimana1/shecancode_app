@@ -43,7 +43,7 @@ export default function Home() {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-1"></div>
-          <div className="col-md-10">
+          <div className="col-md-11">
             {/* <Post/> */}
             <Post />
 

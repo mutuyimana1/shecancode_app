@@ -31,9 +31,9 @@ export default function Post({ post }) {
   }, [search]);
 
   return (
-    <Carousel autoplay effect="fade">
+    
     <div className="post">
-      <div className="containerposts">
+      <div className="container-fluidgit ">
         <div className="row" >
 
           <List
@@ -55,7 +55,7 @@ export default function Post({ post }) {
             // }
             renderItem={(post) => (
             
-              <div className="col-md-11  card">
+              <div className="col-md-11 card">
               {post.photo && (
                 <img className="postImage" src={post.photo} alt="" />
               )}
@@ -101,6 +101,6 @@ export default function Post({ post }) {
         </div>
       </div>
     </div>
-    </Carousel>
+   
   );
 }
