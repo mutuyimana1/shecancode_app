@@ -40,16 +40,14 @@ export default function Home() {
       <SearchBar />
       </div>
     
-      <div className="container-fluid">
+      <div className="container">
         <div className="row">
-          <div className="col-md-1"></div>
-          <div className="col-md-11">
-            {/* <Post/> */}
+          <div className="col-md-12">
             <Post />
-
-            {/* <button onClick={loadMore} className="loadMoreButton"> RoadMore</button> */}
           </div>
-          <div className="col-md-1">{/* <Sidebar/> */}</div>
+          {/* <div className="col-md-1"> */}
+            {/* <Sidebar/> */}
+            {/* </div> */}
         </div>
       </div>
     </>
