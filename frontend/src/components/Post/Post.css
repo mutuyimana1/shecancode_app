@@ -24,7 +24,7 @@
     align-items: center;
     cursor: pointer;
 }
-.postCat{
+/* .postCat{
     font-family: 'Roboto', sans-serif;  
     font-size:12px;
     color:#be9656;
@@ -32,20 +32,24 @@
     margin-top: 10px; 
     margin-right: 10px;
     cursor: pointer; 
-}
+} */
 .postTitle{
     font-family:'josefin sans sans-serif';
     font-size:24px;
     font-weight: 700;
     cursor: pointer;
-    color:#333;
+    /* color:#333; */
+    color:#263e52;
+   
 }
 .postDate{
     font-size:13px;
     font-family:'lora serif';
     text-transform: uppercase;
-    /* font-style:italic; */
-    color:rgb(139, 138, 138)
+    font-style:italic;
+    margin:-10px -10px -10px -10px;
+    color:rgb(139, 138, 138);
+    float:left;
 }
 .postDesc{
     font-family: "Roboto sans-serif";
