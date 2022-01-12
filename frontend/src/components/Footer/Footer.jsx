@@ -95,9 +95,9 @@ export default function Footer() {
 
             <ul className="topListe">
                  
-            <li className="topListIteme">
-                 {/* <i className="fa fa-user"> </i>  */}
-                <Link className="link" to="/Register">Register</Link></li>
+            {/* <li className="topListIteme">
+             
+                <Link className="link" to="/Register">Register</Link></li> */}
             <li className="topListIteme"> <Link className="link" to="/Login">Login</Link></li>
             </ul>
 

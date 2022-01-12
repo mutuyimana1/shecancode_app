@@ -33,7 +33,7 @@ export default function Post({ post }) {
   return (
     
     <div className="post">
-      <div className="container-fluidgit ">
+      <div className="container-fluid">
         <div className="row" >
 
           <List
@@ -55,7 +55,7 @@ export default function Post({ post }) {
             // }
             renderItem={(post) => (
             
-              <div className="col-md-11 card">
+              <div className="col-lg-11 card">
               {post.photo && (
                 <img className="postImage" src={post.photo} alt="" />
               )}

@@ -36,20 +36,21 @@ export default function SearchBar() {
       <form className="searchOption">
  
 
-        <label className="categoryTitle"> Filter By Category</label>
+        <label className="categoryTitle">The Latest From Our Blog </label>
       
         
  
         <DropDownList
-              className="droplist"
+              className="droplist "style={{background:"red"}}
               data={cats}
               textField="name"
               dataItemKey="_id"
+              view by
               onChange={(e) => {history.push(`/?cat=${e.target.value._id} `); setCatDesc(e.target.value.description)}}
             />
             <label className="catDescription"> {catDesc}</label>
 
-        </form>
+      </form>
 
     
     </section>

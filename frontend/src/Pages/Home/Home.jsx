@@ -30,24 +30,35 @@ export default function Home() {
         <div className="row">
           <div className="col-lg-1"></div>
           <div className="col-lg-10">
-            {/* <div className="col-lg-1"></div> */}
 
             <Slider />
           </div>
+          <div className="col-lg-1"></div>
+
         </div>
       </div>
-      <div className="search">
-      <SearchBar />
+      <div className="backgroundblue">
+      </div>
+      <div className="container-fluid">
+        <div className="row">
+        <div className="col-lg-1"></div>
+          <div className="col-lg-10 search">
+            <SearchBar />
+          </div>
+          <div className="col-lg-1"></div>
+      </div>
       </div>
     
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
-          <div className="col-md-12">
+        <div className="col-lg-1"></div>
+
+          <div className="col-lg-11">
             <Post />
           </div>
-          {/* <div className="col-md-1"> */}
+          <div className="col-lg-1">
             {/* <Sidebar/> */}
-            {/* </div> */}
+            </div>
         </div>
       </div>
     </>

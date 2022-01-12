@@ -1,6 +1,12 @@
 .container-fluid{
     background-color:white;
+    /* margin-top:-20px; */
 }
 .search{
-    margin-top: -20px;
+    margin-top:-10px;
+}
+.backgroundblue{
+    background-color:#263e52;
+    height:120px;
+    margin-top:-70px;
 }

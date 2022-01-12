@@ -73,6 +73,8 @@ export default function Header() {
                     {/* <li className="topListItem"> <Link className="link" to="/">About</ Link></li> */}
                     <li className="topListItem"><Link className="link" to="/Cats"> {user && "Categories"}  </Link></li>
                     <li className="topListItem"> <Link className="link" to="/Publish"> {user && "Publish"}</Link></li>
+                    <li className="topListItem"> <Link className="link" to="/register"> {user && "Register"}</Link></li>
+
                     {/* AddCats */}
                     <li className="topListItem" onClick={handleLogout}>
                       {user && "Logout"}

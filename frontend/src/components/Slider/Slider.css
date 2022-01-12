@@ -15,7 +15,7 @@
    height:100%;
    padding: 100px;
    font-family: 'Lora',serif;
-   background:rgba(0, 0, 0, 0.692);
+   background:rgba(2, 2, 2, 0.692);
    color:rgba(255, 255, 255, 0.979);
 
 }
@@ -42,7 +42,10 @@
     
 }
 .smallButton:hover{
-    background-color: #30b0ff;
+    background-color:#263e52;
+    color:white;
+    border: 2px solid #263e52;
+
 }
 .largeTitle{
     font-size:40px;
