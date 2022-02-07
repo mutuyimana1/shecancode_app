@@ -31,3 +31,19 @@
   font-size: 12px;
   width: 300px;
 }
+@media screen and (max-width: 600px) {
+  .searchBar {  
+    max-width: 20rem;  
+    margin: 5rem auto; 
+  
+  
+  }
+ 
+  .droplist{
+    margin-left:80px;
+    width:250px;
+    height: 40px;
+ 
+  
+  }
+}

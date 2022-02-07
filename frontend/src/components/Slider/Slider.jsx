@@ -5,8 +5,7 @@ import axios from "axios";
 import apiCall from "../../helpers/apiCall";
 import "antd/dist/antd.css";
 import { Carousel } from "antd";
-import {Link} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 export default function Slider() {
   const [posts, setPosts] = useState([]);
@@ -21,32 +20,37 @@ export default function Slider() {
       console.log("9999999", posts);
     };
     fetchPosts();
-    
+
     // loadImages();
   }, []);
 
   return (
     <Carousel autoplay effect="fade">
-     {(posts.map((post)=>( 
-     <div className="slider" >
-        <div class="sliderImage" style={{background:`url(${post?.photo})`,backgroundSize:"cover"}} >
-          <div className="sliderTitles">
-            <span className="largeTitle">{post?.title}</span>
+      {posts.map((post) => (
+        <div className="slider">
+          <div
+            class="sliderImage"
+            style={{
+              background: `url(${post?.photo})`,
+              backgroundSize: "cover",
+              width:"100%",
+              backgroundPosition: "center center",
 
-            {/* <span className="largeTitle">
-            SheCanCode aims at creating a vibrant community of amazing young
-            Rwanda women who are passionate about using technology to change
-            Africa and beyond.
-          </span> */}
-            <p className="smallParagraph">{new Date(post?.createdAt).toDateString()}</p>
-            <Link to={`/Single/${post._id}`} className="link">
-            <button className="smallButton">READ</button>
-            </Link>
+            }}
+          >
+            <div className="sliderTitles">
+              <span className="largeTitle">{post?.title}</span>
+
+              <p className="smallParagraph">
+                {new Date(post?.createdAt).toDateString()}
+              </p>
+              <Link to={`/Single/${post._id}`} className="link">
+                <button className="smallButton">READ</button>
+              </Link>
+            </div>
           </div>
-      
         </div>
-      </div>)))}
+      ))}
     </Carousel>
   );
 }
-  

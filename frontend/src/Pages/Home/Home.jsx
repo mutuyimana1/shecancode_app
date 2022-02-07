@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";   
 import Slider from "../../components/Slider/Slider";
 import Post from "../../components/Post/Post";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -7,6 +7,8 @@ import "./Home.css";
 import axios from "axios";
 import { useLocation } from "react-router";
 import "@progress/kendo-theme-default/dist/all.css";
+
+
 
 export default function Home() {
   // const [posts, setPosts] = useState([]);

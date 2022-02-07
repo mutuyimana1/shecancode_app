@@ -102,3 +102,23 @@
     border: 2px solid #263e52;
 
 }
+
+@media screen and (max-width: 600px) {
+
+    .read-more{
+        border:2px solid #4ab0f0;
+        background-color:#4ab0f0;
+        padding:5px;
+        width:100px;
+        color:white;
+        margin-left:10px;  
+        margin-top: 15px;
+        
+    }
+    .postTitle{
+        
+        font-size:14px;
+       
+    }
+    
+  }
