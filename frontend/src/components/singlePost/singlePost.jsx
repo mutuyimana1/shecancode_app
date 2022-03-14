@@ -65,8 +65,8 @@ export default function SinglePost() {
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
-      {post.photo && (
-          <img src={post.photo} alt="" className="singlePostImg" />
+      {post?.photo && (
+          <img src={post?.photo} alt="" className="singlePostImg" />
         )}
         {updateMode ? (
           <input
@@ -78,7 +78,7 @@ export default function SinglePost() {
           />
         ) : (
           <h1 className="singlePostTitle">
-            {post.title}
+            {post?.title}
             {}
 
             {/* {post.categories} */}
@@ -104,7 +104,7 @@ export default function SinglePost() {
             </Link>
           </span>
           <span className="singlePostDate">
-            {new Date(post.createdAt).toDateString()}
+            {new Date(post?.createdAt).toDateString()}
           </span>
         </div>
         {updateMode ? (
