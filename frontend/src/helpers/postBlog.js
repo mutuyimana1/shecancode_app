@@ -4,7 +4,7 @@ import {notification} from "antd";
 
 const registerPost = async(data) => {
 
-console.log("XXXXXXXXXXXXXXXXXXXXXXXXXX")
+// console.log("XXXXXXXXXXXXXXXXXXXXXXXXXX")
 var config = {
   method: "post",
   url: "http://localhost:4048/api/posts",

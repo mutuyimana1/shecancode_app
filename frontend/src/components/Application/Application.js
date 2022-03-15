@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import ReactDOM from "react-dom";
 import "./Application.css";
 import Stepper from "@mui/material/Stepper";
@@ -12,11 +13,18 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
+import LoadingButton from "@mui/lab/LoadingButton";
 // import SendIcon from "@mui/icons-material/Send";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import MenuItem from "@mui/material/MenuItem";
 
-const steps = ["Personel Details", "Education Details", "questions", "Address"];
+import apiCall from "../../helpers/apiCall";
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+const steps = ["Personel Details", "Education Details", "Carreer Questions", "Response"];
 const occupations = [
   {
     value: "student",
@@ -102,28 +110,40 @@ const Application = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [occupation, setOccupation] = useState("");
-  const [hears, setHears] = useState("");
+  const [hearsFrom, setHearsFrom] = useState("");
   const [scholarship, setScholarship] = useState("");
   const [dream, setDream] = useState("");
   const [sector, setSector] = useState("");
+  const [gender, setGender] = useState("");
+  const [experience, setExperience] = useState("");
+  const [laptop, setLaptop] = useState("");
+  const [commitment, setCommitment] = useState();
+  const [pay, setPay] = useState();
+  const [district, setDistrict] = useState();
+  const [loading, setLoading] = useState(false);
+
+  const [job, setJob] = useState("");
+  const [hours, setHours] = useState("");
+
   // const [location, setLocation] = useState("Location");
   const studentApplictionData = {
     fistName: firstName,
     lastName: lastName,
     email: email,
-    gender: "Female",
     phone: phone,
-    experience: "yes",
-    laptop: "yes",
-    job: "student",
-    hours: "more than 5",
-    commitment: "yes",
-    pay: "no",
-    hears: hears,
+    gender: gender,
+    experience: experience,
+    laptop: laptop,
+    job: job,
+    hours: hours,
+    commitment: commitment,
+    pay: pay,
+    hears: hearsFrom,
     scholarship: scholarship,
     dream: dream,
     sector: sector,
-    district: "other",
+    district,
+    occupation,
   };
 
   // PersonalForm
@@ -140,6 +160,7 @@ const Application = () => {
         autoComplete="off"
       >
         <TextField
+          required
           id="outlined-basic"
           label="FirstName"
           variant="outlined"
@@ -179,6 +200,8 @@ const Application = () => {
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group"
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
         >
           <FormControlLabel value="female" control={<Radio />} label="Female" />
           <FormControlLabel value="male" control={<Radio />} label="Male" />
@@ -215,10 +238,22 @@ const Application = () => {
         <RadioGroup
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
-          name="row-radio-buttons-group"
+          name="row-radio-buttons-group-education"
+          onChange={(e) => setExperience(e.target.value)}
+          value={experience}
         >
-          <FormControlLabel value="yes" control={<Radio />} label=" Yes" />
-          <FormControlLabel value="no" control={<Radio />} label="No" />
+          <FormControlLabel
+            key="1"
+            value="true"
+            control={<Radio />}
+            label="Yes"
+          />
+          <FormControlLabel
+            key="2"
+            value="false"
+            control={<Radio />}
+            label="No"
+          />
         </RadioGroup>
       </FormControl>
       <div>
@@ -227,10 +262,12 @@ const Application = () => {
           <RadioGroup
             row
             aria-labelledby="demo-row-radio-buttons-group-label"
-            name="row-radio-buttons-group"
+            name="row-radio-buttons-group-laptop"
+            value={laptop}
+            onChange={(e) => setLaptop(e.target.value)}
           >
-            <FormControlLabel value="yes" control={<Radio />} label=" Yes" />
-            <FormControlLabel value="no" control={<Radio />} label="No" />
+            <FormControlLabel value={true} control={<Radio />} label="Yes" />
+            <FormControlLabel value={false} control={<Radio />} label="No" />
           </RadioGroup>
         </FormControl>
       </div>
@@ -261,8 +298,8 @@ const Application = () => {
           id="outlined-select-hours"
           select
           label="Select Hours spend coding"
-          // value={hourSpend}
-          // onChange={handleChanges}
+          value={hours}
+          onChange={(e) => setHours(e.target.value)}
           helperText="hours you spend doing coding"
         >
           {hourSpends.map((option) => (
@@ -285,9 +322,11 @@ const Application = () => {
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group"
+          value={commitment}
+          onChange={(e) => setCommitment(e.target.value)}
         >
-          <FormControlLabel value="yes" control={<Radio />} label=" Yes" />
-          <FormControlLabel value="no" control={<Radio />} label="No" />
+          <FormControlLabel value="true" control={<Radio />} label=" Yes" />
+          <FormControlLabel value="false" control={<Radio />} label="No" />
         </RadioGroup>
       </FormControl>
       <FormControl>
@@ -299,9 +338,11 @@ const Application = () => {
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group"
+          value={pay}
+          onChange={(e) => setPay(e.target.value)}
         >
-          <FormControlLabel value="yes" control={<Radio />} label=" Yes" />
-          <FormControlLabel value="no" control={<Radio />} label="No" />
+          <FormControlLabel value="true" control={<Radio />} label=" Yes" />
+          <FormControlLabel value="false" control={<Radio />} label="No" />
         </RadioGroup>
       </FormControl>
       <Box
@@ -317,8 +358,8 @@ const Application = () => {
           select
           label="How did you hear about us?"
           helperText="How did you hear about us?"
-          value={hears}
-          onChange={(e) => setHears(e.target.value)}
+          value={hearsFrom}
+          onChange={(e) => setHearsFrom(e.target.value)}
         >
           {hears.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -406,8 +447,8 @@ const Application = () => {
           id="outlined-select-occupation"
           select
           label="Where are you from?"
-          // value={location}
-          // onChange={handleChangezi}
+          value={district}
+          onChange={(e) => setDistrict(e.target.value)}
         >
           {locations.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -455,14 +496,38 @@ const Application = () => {
     setActiveStep(step);
   };
 
-  const handleComplete = () => {
+  const handleComplete = async () => {
     const newCompleted = completed;
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
     console.log(studentApplictionData);
     handleNext();
   };
-
+const handleSubmitApplication=async () => {
+  setLoading(true);
+  try {
+    const response = await axios.post(
+      apiCall + "/application/apply",
+      studentApplictionData
+    );
+    console.log("@@@@@@:", response.data);
+    if (response.status === 200) {
+      setLoading(false);
+      if (!loading) {
+        handleComplete();
+      }
+    }
+   else{
+    <Alert severity="error">Failed to submit</Alert>
+    setLoading(false)
+    handleReset()}
+  } catch (e) {
+    setLoading(false);
+    <Alert severity="error">Failed to submit</Alert>
+    handleReset()
+    console.log("error:", e);
+  }
+};
   const handleReset = () => {
     setActiveStep(0);
     setCompleted({});
@@ -489,7 +554,7 @@ const Application = () => {
 
                 <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                   <Box sx={{ flex: "1 1 auto" }} />
-                  <Button onClick={handleReset}>Reset</Button>
+                  <Button onClick={()=>window.location.reload()}>Thank You</Button>
                 </Box>
               </React.Fragment>
             ) : (
@@ -511,11 +576,25 @@ const Application = () => {
                         Step {activeStep + 1} already completed
                       </Typography>
                     ) : (
-                      <Button onClick={handleComplete}>
-                        {completedSteps() === totalSteps() - 1
-                          ? "Finish"
-                          : "NEXT"}
-                      </Button>
+                      <>
+                        {completedSteps() === totalSteps() - 1 ? (
+                          <LoadingButton
+                            loading={loading}
+                            onClick={handleSubmitApplication}
+                          >
+                            Send Application
+                          </LoadingButton>
+                        ) : (
+                          <Button onClick={handleComplete} htmlType="submit">
+                            Save
+                          </Button>
+                        )}
+                        {/* <Button onClick={handleComplete} htmlType="submit">
+                          {completedSteps() === totalSteps() - 1
+                            ? "Finish"
+                            : "NEXT"}
+                        </Button> */}
+                      </>
                     ))}
                   <Button
                     color="inherit"

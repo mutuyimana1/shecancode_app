@@ -8,6 +8,7 @@
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.0",
+    "@mui/lab": "^5.0.0-alpha.73",
     "@mui/material": "^5.5.0",
     "@progress/kendo-data-query": "^1.5.5",
     "@progress/kendo-drawing": "^1.16.0",
@@ -38,7 +39,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
     "build": "react-scripts build && echo '/* /index.html  200' | cat >build/_redirects",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
