@@ -13,7 +13,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 // import SendIcon from "@mui/icons-material/Send";
-import BorderColorIcon from '@mui/icons-material/BorderColor'
+import BorderColorIcon from "@mui/icons-material/BorderColor";
 import MenuItem from "@mui/material/MenuItem";
 
 const steps = ["Personel Details", "Education Details", "questions", "Address"];
@@ -100,23 +100,30 @@ const Application = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [occupation, setOccupation] = useState("");
+  const [hears, setHears] = useState("");
+  const [scholarship, setScholarship] = useState("");
+  const [dream, setDream] = useState("");
+  const [sector, setSector] = useState("");
   // const [location, setLocation] = useState("Location");
   const studentApplictionData = {
-    name: "MacKenzie Burch",
-    email: "ruda@mailinator.com",
-    phoneNumber: "+1 (175) 866-8201",
-    gender: "prefer not to say",
-    programFee: "yes",
+    fistName: firstName,
+    lastName: lastName,
+    email: email,
+    gender: "Female",
+    phone: phone,
+    experience: "yes",
+    laptop: "yes",
+    job: "student",
+    hours: "more than 5",
+    commitment: "yes",
+    pay: "no",
+    hears: hears,
+    scholarship: scholarship,
+    dream: dream,
+    sector: sector,
     district: "other",
-    location: "Qui nihil rerum ex e",
-    education: "Masters",
-    ownAlaptop: "no",
-    careerGoals: "Molestiae consequatu",
-    inpersonoronline: "Yes",
-    howdidyouhearaboutus: "Website",
-    registrationFee: "4hrs",
-    accessToInternet: "no",
-    scholarship: "Et suscipit cupidita",
   };
 
   // PersonalForm
@@ -127,25 +134,43 @@ const Application = () => {
         className="form__box"
         component="form"
         sx={{
-          "& > :not(style)": { m: 1, width: "39ch" },
+          "& > :not(style)": { m: 1, width: "44%" },
         }}
         noValidate
         autoComplete="off"
       >
-        <TextField id="outlined-basic" label="FirstName" variant="outlined" value={firstName} onChange={(e)=> setFirstName(e.target.value)} />
-        <TextField id="outlined-basic" label="LaststName" variant="outlined" value={lastName} onChange={(e)=> setLastName(e.target.value)} />
+        <TextField
+          id="outlined-basic"
+          label="FirstName"
+          variant="outlined"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <TextField
+          id="outlined-basic"
+          label="LaststName"
+          variant="outlined"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
       </Box>
       <h6>Email</h6>
       <Box
         className="form__box"
         component="form"
         sx={{
-          "& > :not(style)": { m: 1, width: "80ch" },
+          "& > :not(style)": { m: 1, width: "90%" },
         }}
         noValidate
         autoComplete="off"
       >
-        <TextField id="outlined-basic" label="Email" variant="outlined" />
+        <TextField
+          id="outlined-basic"
+          label="Email"
+          variant="outlined"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
       </Box>
       <FormControl>
         <h6>Gender</h6>
@@ -166,7 +191,7 @@ const Application = () => {
         className="form__box"
         component="form"
         sx={{
-          "& > :not(style)": { m: 1, width: "80ch" },
+          "& > :not(style)": { m: 1, width: "90%" },
         }}
         noValidate
         autoComplete="off"
@@ -175,6 +200,8 @@ const Application = () => {
           id="outlined-basic"
           label="Phone Number"
           variant="outlined"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
         />
       </Box>
     </div>
@@ -211,7 +238,7 @@ const Application = () => {
       <Box
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: "39ch" },
+          "& .MuiTextField-root": { m: 1, width: "44%" },
         }}
         noValidate
         autoComplete="off"
@@ -220,8 +247,8 @@ const Application = () => {
           id="outlined-select-occupation"
           select
           label="Select occupation"
-          // value={occupation}
-          // onChange={handleChange}
+          value={occupation}
+          onChange={(e) => setOccupation(e.target.value)}
           helperText="Please select your occupation"
         >
           {occupations.map((option) => (
@@ -280,7 +307,7 @@ const Application = () => {
       <Box
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: "80ch" },
+          "& .MuiTextField-root": { m: 1, width: "90%" },
         }}
         noValidate
         autoComplete="off"
@@ -289,9 +316,9 @@ const Application = () => {
           id="outlined-select-hear"
           select
           label="How did you hear about us?"
-          // value={hear}
-          // onChange={handleChangez}
           helperText="How did you hear about us?"
+          value={hears}
+          onChange={(e) => setHears(e.target.value)}
         >
           {hears.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -310,7 +337,7 @@ const Application = () => {
       <Box
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: "80ch" },
+          "& .MuiTextField-root": { m: 1, width: "90%" },
         }}
         noValidate
         autoComplete="off"
@@ -320,6 +347,8 @@ const Application = () => {
           label="Type your text here....."
           multiline
           rows={4}
+          value={scholarship}
+          onChange={(e) => setScholarship(e.target.value)}
         />
       </Box>
       <br />
@@ -327,7 +356,7 @@ const Application = () => {
       <Box
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: "80ch" },
+          "& .MuiTextField-root": { m: 1, width: "90%" },
         }}
         noValidate
         autoComplete="off"
@@ -337,6 +366,8 @@ const Application = () => {
           label="Type your text here....."
           multiline
           rows={4}
+          value={dream}
+          onChange={(e) => setDream(e.target.value)}
         />
       </Box>
     </div>
@@ -348,19 +379,25 @@ const Application = () => {
         className="form__box"
         component="form"
         sx={{
-          "& > :not(style)": { m: 1, width: "80ch" },
+          "& > :not(style)": { m: 1, width: "90%" },
         }}
         noValidate
         autoComplete="off"
       >
-        <TextField id="outlined-basic" label="Sector" variant="outlined" />
+        <TextField
+          id="outlined-basic"
+          label="Sector"
+          variant="outlined"
+          value={sector}
+          onChange={(e) => setSector(e.target.value)}
+        />
       </Box>
       <br />
       <h6>Where are you from?</h6>
       <Box
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: "80ch" },
+          "& .MuiTextField-root": { m: 1, width: "90%" },
         }}
         noValidate
         autoComplete="off"
@@ -379,7 +416,6 @@ const Application = () => {
           ))}
         </TextField>
       </Box>
-     
     </div>
   );
   const FormComponent = [personal(), education(), question(), address()];
@@ -423,6 +459,7 @@ const Application = () => {
     const newCompleted = completed;
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
+    console.log(studentApplictionData);
     handleNext();
   };
 
@@ -447,7 +484,7 @@ const Application = () => {
             {allStepsCompleted() ? (
               <React.Fragment>
                 <Typography sx={{ mt: 2, mb: 1 }}>
-                 Thanks for Applying to SheCanCode Cohort 6
+                  Thanks for Applying to SheCanCode Cohort 6
                 </Typography>
 
                 <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
@@ -460,7 +497,6 @@ const Application = () => {
                 <div>{FormComponent[activeStep]}</div>
 
                 <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-                 
                   <Box sx={{ flex: "1 1 auto" }} />
                   {/* <Button onClick={} sx={{ mr: 1 }}>
                     Nextz
@@ -481,13 +517,13 @@ const Application = () => {
                           : "NEXT"}
                       </Button>
                     ))}
-                     <Button
+                  <Button
                     color="inherit"
                     disabled={activeStep === 0}
                     onClick={handleReset}
                     sx={{ mr: 1 }}
                   >
-                    Edit <BorderColorIcon/>
+                    Edit <BorderColorIcon />
                   </Button>
                 </Box>
               </React.Fragment>
