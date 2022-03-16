@@ -1,162 +1,161 @@
-
-
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .left-top {
-    padding: 3px 0px;
+  padding: 3px 0px;
 }
 
 .email-box {
-    display: inline-block;
-    margin-right: 20px;
-    text-decoration: none;
+  display: inline-block;
+  margin-right: 20px;
+  text-decoration: none;
 }
 
 .email-box a {
-    color: #ffffff;
-    font-size: 16px;
-    text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 .email-box a:hover {
-    color: #fd6802;
+  color: #fd6802;
 }
 
 .email-box a i {
-    padding: 0px 5px;
+  padding: 0px 5px;
 }
 
 .phone-box {
-    display: inline-block;
+  display: inline-block;
 }
 
 .phone-box a {
-    color:white;
-    font-size: 16px;
-    text-decoration: none;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 .phone-box a:hover {
-    color: #fd6802;
+  color: #fd6802;
 }
 
 .phone-box a i {
-    padding: 0px 5px;
+  padding: 0px 5px;
 }
 
 .social-box {
-    /* float: right; */
-    margin-left: 200px;
+  /* float: right; */
+  margin-left: 200px;
 }
 
 .social-box ul li {
-    display: inline-block;
-    padding-left: 10px;
+  display: inline-block;
+  padding-left: 10px;
 }
 
 .social-box ul li a {
-    color: #ffffff;
-    font-size: 20px;
+  color: #ffffff;
+  font-size: 20px;
 }
 
 .social-box ul li a:hover {
-    color: #fd6802;
+  color: #fd6802;
 }
 
 .btn-lighte:hover {
-    background-color: #21759b;
-    color: white
+  background-color: #21759b;
+  color: white;
 }
 
-.top{
-   
-    width:100%;
-    height:75px;
-    background-color:white;
-    color:#263e52;
-    font-weight: 900;
-    position:sticky;
-    align-items: center;
-    border-bottom: 1px solid #84a7a8;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+.top {
+  width: 100%;
+  height: 75px;
+  background-color: white;
+  color: #263e52;
+  font-weight: 900;
+  position: sticky;
+  align-items: center;
+  border-bottom: 1px solid #84a7a8;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 
-
-    /* box-shadow: 5px 10px 18px grey; */
-    top:0;
-    font-family: 'Josefin Sans', sans-serif;
-    display:flex;
-    z-index:999;
+  /* box-shadow: 5px 10px 18px grey; */
+  top: 0;
+  font-family: "Josefin Sans", sans-serif;
+  display: flex;
+  z-index: 999;
 }
 
-.left,.right{
-    flex:4;
-    display:flex;
-    align-items: center;
-    justify-content:center;
-    margin-left:30px;
-
+.left,
+.right {
+  flex: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 30px;
 }
-.center{
-    flex:6;
-
+.center {
+  flex: 6;
 }
-.topList{
-    display:flex;
-    justify-content: left;
-    margin: 0;
-    padding: 0;
-    list-style: none ;
+.topList {
+  display: flex;
+  justify-content: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .topListItem {
-    margin-right:20px;
-    font-size:20px;
-    font-weight: 500;
-    text-decoration: none;
-    cursor: pointer;
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
 }
-.topList li:hover{
-    color: #1bb1dc;
+.topList li:hover {
+  color: #1bb1dc;
 }
-.searchIcon{
-     font-size:16px;
-     color: #1bb1dc;
-     font-weight: bold;
-     margin-left: 15px;
+.searchIcon {
+  font-size: 16px;
+  color: #1bb1dc;
+  font-weight: bold;
+  margin-left: 15px;
 }
-.logo{
-    width:100px;
-    height:60px;
+.logo {
+  width: 100px;
+  height: 60px;
 }
-h2{
-    color:#263e52;
-    font-size:24px;
-    font-weight:700;
+h2 {
+  color: #263e52;
+  font-size: 24px;
+  font-weight: 700;
 }
-h2 span{
-    color: #1bb1dc;
-
+h2 span {
+  color: #1bb1dc;
 }
-.topicon{
-    font-size:20px;
-    margin-right:10px;
-    color:#263e52;
-    cursor: pointer;
+.topicon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #263e52;
+  cursor: pointer;
 }
 @media screen and (max-width: 600px) {
-    .logo{
-        width:80%;
-        height:60px;
-    }
-    h2{
-        color:#263e52;
-    
-        font-size:20px;
-        font-weight:700;
+  .logo {
+    width: 80%;
+    height: 60px;
+    padding: 10px;
+  }
+  h2 {
+    color: #263e52;
 
-    }
-    h2 span{
-        color: #1bb1dc;
-     
-    
-    }
-   
-    }
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .right {
+    margin-top: 40px;
+    margin-right: 2px;
+  }
+  h2 span {
+    color: #1bb1dc;
+  }
+}

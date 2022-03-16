@@ -19,12 +19,17 @@ import BorderColorIcon from "@mui/icons-material/BorderColor";
 import MenuItem from "@mui/material/MenuItem";
 
 import apiCall from "../../helpers/apiCall";
-import MuiAlert from '@mui/material/Alert';
+import MuiAlert from "@mui/material/Alert";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
-const steps = ["Personel Details", "Education Details", "Carreer Questions", "Response"];
+const steps = [
+  "Personel Details",
+  "Education Details",
+  "Carreer Questions",
+  "Response",
+];
 const occupations = [
   {
     value: "student",
@@ -151,13 +156,13 @@ const Application = () => {
     <div className="form">
       <h6>Name</h6>
       <Box
-        className="form__box"
         component="form"
         sx={{
           "& > :not(style)": { m: 1, width: "44%" },
         }}
         noValidate
         autoComplete="off"
+        className="form__box"
       >
         <TextField
           required
@@ -165,6 +170,8 @@ const Application = () => {
           label="FirstName"
           variant="outlined"
           value={firstName}
+          // InputProps={{ style: { fontSize: 18 } }}
+          // InputLabelProps={{ style: { fontSize: 18 } }}
           onChange={(e) => setFirstName(e.target.value)}
         />
         <TextField
@@ -503,31 +510,31 @@ const Application = () => {
     console.log(studentApplictionData);
     handleNext();
   };
-const handleSubmitApplication=async () => {
-  setLoading(true);
-  try {
-    const response = await axios.post(
-      apiCall + "/application/apply",
-      studentApplictionData
-    );
-    console.log("@@@@@@:", response.data);
-    if (response.status === 200) {
-      setLoading(false);
-      if (!loading) {
-        handleComplete();
+  const handleSubmitApplication = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        apiCall + "/application/apply",
+        studentApplictionData
+      );
+      console.log("@@@@@@:", response.data);
+      if (response.status === 200) {
+        setLoading(false);
+        if (!loading) {
+          handleComplete();
+        }
+      } else {
+        <Alert severity="error">Failed to submit</Alert>;
+        setLoading(false);
+        handleReset();
       }
+    } catch (e) {
+      setLoading(false);
+      <Alert severity="error">Failed to submit</Alert>;
+      handleReset();
+      console.log("error:", e);
     }
-   else{
-    <Alert severity="error">Failed to submit</Alert>
-    setLoading(false)
-    handleReset()}
-  } catch (e) {
-    setLoading(false);
-    <Alert severity="error">Failed to submit</Alert>
-    handleReset()
-    console.log("error:", e);
-  }
-};
+  };
   const handleReset = () => {
     setActiveStep(0);
     setCompleted({});
@@ -535,10 +542,21 @@ const handleSubmitApplication=async () => {
   return (
     <>
       <div className="application-form">
+        <h2 className="application-title">
+          SheCan<span>Code</span>&nbsp; Cohort6 Application
+        </h2>
         <Box sx={{ width: "95%" }} className="box">
-          <Stepper nonLinear activeStep={activeStep}>
+          <Stepper
+            nonLinear
+            activeStep={activeStep}
+            className="stepperResponsive "
+          >
             {steps.map((label, index) => (
-              <Step key={label} completed={completed[index]}>
+              <Step
+                key={label}
+                completed={completed[index]}
+                className="stepResponsive "
+              >
                 <StepButton color="inherit" onClick={handleStep(index)}>
                   {label}
                 </StepButton>
@@ -554,7 +572,9 @@ const handleSubmitApplication=async () => {
 
                 <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                   <Box sx={{ flex: "1 1 auto" }} />
-                  <Button onClick={()=>window.location.reload()}>Thank You</Button>
+                  <Button onClick={() => window.location.reload()}>
+                    Thank You
+                  </Button>
                 </Box>
               </React.Fragment>
             ) : (
