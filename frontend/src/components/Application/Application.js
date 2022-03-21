@@ -158,7 +158,7 @@ const Application = () => {
       <Box
         component="form"
         sx={{
-          "& > :not(style)": { m: 1, width: "44%" },
+          "& > :not(style)": { m: 1,  width: ['90%', '90%', '44%']},
         }}
         noValidate
         autoComplete="off"
@@ -170,8 +170,8 @@ const Application = () => {
           label="FirstName"
           variant="outlined"
           value={firstName}
-          // InputProps={{ style: { fontSize: 18 } }}
-          // InputLabelProps={{ style: { fontSize: 18 } }}
+          InputProps={{ style: { fontSize: 18 } }}
+          InputLabelProps={{ style: { fontSize: 18 } }}
           onChange={(e) => setFirstName(e.target.value)}
         />
         <TextField
@@ -282,7 +282,7 @@ const Application = () => {
       <Box
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: "44%" },
+          "& .MuiTextField-root": { m: 1,  width: ['90%', '90%', '44%']},
         }}
         noValidate
         autoComplete="off"
@@ -539,17 +539,18 @@ const Application = () => {
     setActiveStep(0);
     setCompleted({});
   };
+  // style={{margin:"0",padding:"0",boxSizing:"border-box"}}
   return (
     <>
-      <div className="application-form">
+      <div className="application-form" >
         <h2 className="application-title">
-          SheCan<span>Code</span>&nbsp; Cohort6 Application
+          SheCan<span>Code</span>&nbsp; Cohort 6 Application
         </h2>
-        <Box sx={{ width: "95%" }} className="box">
+        <Box sx={{ width: ["100%","95%","95%" ]}} className="box">
           <Stepper
             nonLinear
             activeStep={activeStep}
-            className="stepperResponsive "
+            className="stepperResponsive"
           >
             {steps.map((label, index) => (
               <Step
@@ -558,7 +559,7 @@ const Application = () => {
                 className="stepResponsive "
               >
                 <StepButton color="inherit" onClick={handleStep(index)}>
-                  {label}
+                 <span className="stepTitle"> {label}</span>
                 </StepButton>
               </Step>
             ))}

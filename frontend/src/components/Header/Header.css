@@ -151,9 +151,13 @@ h2 span {
     font-size: 20px;
     font-weight: 700;
   }
+  .left{
+    padding:15px
+  }
   .right {
-    margin-top: 40px;
-    margin-right: 2px;
+    display: none;
+    /* margin-top: 40px;
+    margin-right: 2px; */
   }
   h2 span {
     color: #1bb1dc;

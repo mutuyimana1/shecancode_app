@@ -15,7 +15,7 @@ import { Context } from "./context/Context";
 function App() {
   const { user } = useContext(Context);
   return (
-    <div className="App">
+    <div className="App" style={{margin:"0",padding:"0",boxSizing:"border-box"}}>
       {/* ShecanCode Blog */}
       <Router>
         <Header />

@@ -64,7 +64,7 @@ export default function Header() {
                {/* </a> */}
 
             </div>
-            <div className = "right">
+            <div className = "right" >
                 <ul className="topList">
                      <a href="https://www.shecancodeschool.org/" className="link">
                      <li className="topListItem"> Home </li></a>
