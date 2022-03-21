@@ -16,6 +16,7 @@
     "@progress/kendo-licensing": "^1.2.1",
     "@progress/kendo-react-all": "^4.10.0",
     "@progress/kendo-react-animation": "^4.10.0",
+    "@progress/kendo-react-buttons": "^5.1.0",
     "@progress/kendo-react-data-tools": "^4.10.0",
     "@progress/kendo-react-dateinputs": "^4.10.0",
     "@progress/kendo-react-dropdowns": "^4.10.0",
