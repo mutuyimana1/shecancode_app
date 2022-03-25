@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ReactDOM from "react-dom";
 import "./Application.css";
 import Stepper from "@mui/material/Stepper";
@@ -107,8 +109,11 @@ const locations = [
     label: "Other",
   },
 ];
-
+toast.configure();
 const Application = () => {
+  const notify = () => {
+    toast("basic notification!", { position: toast.POSITION. });
+  };
   const [studentAppliction, setStudentAppliction] = useState({});
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -158,7 +163,7 @@ const Application = () => {
       <Box
         component="form"
         sx={{
-          "& > :not(style)": { m: 1,  width: ['90%', '90%', '44%']},
+          "& > :not(style)": { m: 1, width: ["90%", "90%", "44%"] },
         }}
         noValidate
         autoComplete="off"
@@ -211,7 +216,13 @@ const Application = () => {
           onChange={(e) => setGender(e.target.value)}
         >
           <FormControlLabel value="female" control={<Radio />} label="Female" />
-          <FormControlLabel value="male" control={<Radio />} label="Male" />
+          <FormControlLabel
+            value="male"
+            control={<Radio />}
+            onClick={notify}
+            label="Male"
+          />
+
           <FormControlLabel value="other" control={<Radio />} label="Other" />
         </RadioGroup>
       </FormControl>
@@ -282,7 +293,7 @@ const Application = () => {
       <Box
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 1,  width: ['90%', '90%', '44%']},
+          "& .MuiTextField-root": { m: 1, width: ["90%", "90%", "44%"] },
         }}
         noValidate
         autoComplete="off"
@@ -336,22 +347,6 @@ const Application = () => {
           <FormControlLabel value="false" control={<Radio />} label="No" />
         </RadioGroup>
       </FormControl>
-      <FormControl>
-        <h6>
-          Do you understand and accept to pay the registration and access to
-          technology fees?
-        </h6>
-        <RadioGroup
-          row
-          aria-labelledby="demo-row-radio-buttons-group-label"
-          name="row-radio-buttons-group"
-          value={pay}
-          onChange={(e) => setPay(e.target.value)}
-        >
-          <FormControlLabel value="true" control={<Radio />} label=" Yes" />
-          <FormControlLabel value="false" control={<Radio />} label="No" />
-        </RadioGroup>
-      </FormControl>
       <Box
         component="form"
         sx={{
@@ -377,9 +372,8 @@ const Application = () => {
         <br />
       </Box>
       <h6>
-        SheCanCode is working with partners to provide partial scholarship.
-        Please explain how this scholarship would help you to achieve your
-        career gaols
+        SheCanCode provides a scholarship. Please explain how this scholarship
+        would help you to achieve your career gaols
       </h6>
 
       <Box
@@ -542,11 +536,13 @@ const Application = () => {
   // style={{margin:"0",padding:"0",boxSizing:"border-box"}}
   return (
     <>
-      <div className="application-form" >
+      <button onClick={notify}>Notify</button>
+      <div className="application-form">
         <h2 className="application-title">
           SheCan<span>Code</span>&nbsp; Cohort 6 Application
         </h2>
-        <Box sx={{ width: ["100%","95%","95%" ]}} className="box">
+
+        <Box sx={{ width: ["100%", "95%", "95%"] }} className="box">
           <Stepper
             nonLinear
             activeStep={activeStep}
@@ -559,7 +555,7 @@ const Application = () => {
                 className="stepResponsive "
               >
                 <StepButton color="inherit" onClick={handleStep(index)}>
-                 <span className="stepTitle"> {label}</span>
+                  <span className="stepTitle"> {label}</span>
                 </StepButton>
               </Step>
             ))}
