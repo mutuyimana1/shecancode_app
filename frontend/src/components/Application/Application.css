@@ -1,9 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Rubik:wght@400;500;600;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
 .application-form {
   width: 85%;
@@ -30,6 +30,27 @@
 }
 .application-form .box {
   margin: 20px auto;
+}
+.shecancodeParagaph {
+  color: #263e52;
+  font-size: 24px;
+  font-weight: 700;
+}
+.shecancodeContent {
+  padding: 0 1.5rem;
+  text-align: center;
+  align-items: center;
+  margin-top: 0px;
+}
+.shecancodeContent p {
+  font-size: 1rem;
+  line-height: 1.5;
+
+  font-weight: 700;
+  color: #333;
+}
+.shecancodeParagaph span {
+  color: #1bb1dc;
 }
 .form {
   width: 80%;
@@ -67,8 +88,8 @@
     width: 100%;
     padding: 35px;
   }
-  .stepTitle{
-    display: none
+  .stepTitle {
+    display: none;
   }
   .application-title {
     font-size: 20px;
@@ -90,11 +111,11 @@
   .box {
     width: 100%;
     /* background:rgb(175, 88, 88); */
-    padding:0px;
+    padding: 0px;
   }
-  .form  {
+  .form {
     /* background:red; */
-    width:100%;
+    width: 100%;
     padding: 10px;
   }
 }
