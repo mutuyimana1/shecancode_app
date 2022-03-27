@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
+import "antd/dist/antd.css";
+import { Modal } from "antd";
 import "react-toastify/dist/ReactToastify.css";
 import ReactDOM from "react-dom";
 import "./Application.css";
@@ -109,11 +110,8 @@ const locations = [
     label: "Other",
   },
 ];
-toast.configure();
+
 const Application = () => {
-  const notify = () => {
-    toast("basic notification!", { position: toast.POSITION. });
-  };
   const [studentAppliction, setStudentAppliction] = useState({});
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -170,18 +168,17 @@ const Application = () => {
         className="form__box"
       >
         <TextField
-          required
+          value={firstName}
           id="outlined-basic"
           label="FirstName"
           variant="outlined"
-          value={firstName}
           InputProps={{ style: { fontSize: 18 } }}
           InputLabelProps={{ style: { fontSize: 18 } }}
           onChange={(e) => setFirstName(e.target.value)}
         />
         <TextField
           id="outlined-basic"
-          label="LaststName"
+          label="LastName"
           variant="outlined"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
@@ -219,11 +216,16 @@ const Application = () => {
           <FormControlLabel
             value="male"
             control={<Radio />}
-            onClick={notify}
             label="Male"
+            disabled
           />
 
-          <FormControlLabel value="other" control={<Radio />} label="Other" />
+          <FormControlLabel
+            value="other"
+            control={<Radio />}
+            label="Other"
+            disabled
+          />
         </RadioGroup>
       </FormControl>
 
@@ -274,6 +276,30 @@ const Application = () => {
           />
         </RadioGroup>
       </FormControl>
+      <h6>if Yes,How many Hours do you Spend coding </h6>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "90%" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="outlined-select-hours"
+          select
+          label="Select Hours spend coding"
+          value={hours}
+          onChange={(e) => setHours(e.target.value)}
+          helperText="hours you spend doing coding"
+        >
+          {hourSpends.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+      </Box>
       <div>
         <FormControl>
           <h6>Do you own/have laptop?</h6>
@@ -293,7 +319,7 @@ const Application = () => {
       <Box
         component="form"
         sx={{
-          "& .MuiTextField-root": { m: 1, width: ["90%", "90%", "44%"] },
+          "& .MuiTextField-root": { m: 1, width: "90%" },
         }}
         noValidate
         autoComplete="off"
@@ -307,20 +333,6 @@ const Application = () => {
           helperText="Please select your occupation"
         >
           {occupations.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          id="outlined-select-hours"
-          select
-          label="Select Hours spend coding"
-          value={hours}
-          onChange={(e) => setHours(e.target.value)}
-          helperText="hours you spend doing coding"
-        >
-          {hourSpends.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
@@ -416,25 +428,6 @@ const Application = () => {
   );
   const address = () => (
     <div className="form">
-      <h6>Location(Sector)</h6>
-      <Box
-        className="form__box"
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "90%" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <TextField
-          id="outlined-basic"
-          label="Sector"
-          variant="outlined"
-          value={sector}
-          onChange={(e) => setSector(e.target.value)}
-        />
-      </Box>
-      <br />
       <h6>Where are you from?</h6>
       <Box
         component="form"
@@ -457,12 +450,44 @@ const Application = () => {
             </MenuItem>
           ))}
         </TextField>
+      </Box>{" "}
+      <br />
+      <h6>Location(Sector)</h6>
+      <Box
+        className="form__box"
+        component="form"
+        sx={{
+          "& > :not(style)": { m: 1, width: "90%" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="outlined-basic"
+          label="Sector"
+          variant="outlined"
+          value={sector}
+          onChange={(e) => setSector(e.target.value)}
+        />
       </Box>
     </div>
   );
   const FormComponent = [personal(), education(), question(), address()];
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
+  const [isModalVisible, setIsModalVisible] = useState(true);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   const totalSteps = () => {
     return steps.length;
   };
@@ -536,7 +561,49 @@ const Application = () => {
   // style={{margin:"0",padding:"0",boxSizing:"border-box"}}
   return (
     <>
-      <button onClick={notify}>Notify</button>
+      <Modal
+        title={
+          <h2 style={{ textAlign: "right", marginRight: "4rem" }}>
+            <img
+              className="logo"
+              src="https://www.shecancodeschool.org/uploads/logos1.png"
+            />
+            SheCan<span>CODE</span>
+          </h2>
+        }
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        width="65%"
+        // bodyStyle={{ maxHeight: 300 }}
+        okText="Accept"
+        cancelText="Decline"
+      >
+        <div className="shecancodeContent">
+          <p>
+            Are university graduate or are you in your final year at the
+            university and Ready to launch your career in the tech industry?
+          </p>
+          <p style={{ fontWeight: "bold", margin: "2rem 0" }}>
+            APPLY TO ATTEND{" "}
+            <span className="shecancodeParagaph">
+              SheCan<span>CODE</span>
+            </span>{" "}
+            BOOTCAMP.
+          </p>
+          <p>
+            <span className="shecancodeParagaph">
+              SheCan<span>CODE</span>
+            </span>{" "}
+            offers a full-time intensive coding Bootcamp for women in Rwanda and
+            supports graduates to search for job placement after graduation.
+            Before you apply, understand that when you are admitted to the
+            program, you will attend Monday to Friday from 9: am to 3:30 PM. You
+            will also be responsible for your transportation cost and lunch
+            cost. You will also be responsible to own a laptop. .
+          </p>
+        </div>
+      </Modal>
       <div className="application-form">
         <h2 className="application-title">
           SheCan<span>Code</span>&nbsp; Cohort 6 Application
