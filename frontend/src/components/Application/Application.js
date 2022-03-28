@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "antd/dist/antd.css";
-import { Modal } from "antd";
+import { Modal, notification } from "antd";
 import "react-toastify/dist/ReactToastify.css";
+import { useHistory } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "./Application.css";
 import Stepper from "@mui/material/Stepper";
@@ -29,9 +30,9 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 const steps = [
   "Personel Details",
-  "Education Details",
+  "Education/Work Details",
   "Carreer Questions",
-  "Response",
+  "Interview",
 ];
 const occupations = [
   {
@@ -112,26 +113,30 @@ const locations = [
 ];
 
 const Application = () => {
+  const history = useHistory();
   const [studentAppliction, setStudentAppliction] = useState({});
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [occupation, setOccupation] = useState("");
-  const [hearsFrom, setHearsFrom] = useState("");
-  const [scholarship, setScholarship] = useState("");
-  const [dream, setDream] = useState("");
-  const [sector, setSector] = useState("");
-  const [gender, setGender] = useState("");
-  const [experience, setExperience] = useState("");
-  const [laptop, setLaptop] = useState("");
-  const [commitment, setCommitment] = useState();
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [phone, setPhone] = useState(null);
+  const [occupation, setOccupation] = useState("none");
+  const [hearsFrom, setHearsFrom] = useState(null);
+  const [scholarship, setScholarship] = useState(null);
+  const [dream, setDream] = useState(null);
+  const [sector, setSector] = useState(null);
+  const [gender, setGender] = useState(null);
+  const [experience, setExperience] = useState(null);
+  const [laptop, setLaptop] = useState(null);
+  const [commitment, setCommitment] = useState(null);
   const [pay, setPay] = useState();
-  const [district, setDistrict] = useState();
+  const [district, setDistrict] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [schoolName, setSchoolName] = useState(null);
+  const [hourFrom, setHourFrom] = useState(null);
+  const [hourTo, setHourTo] = useState(null);
 
-  const [job, setJob] = useState("");
-  const [hours, setHours] = useState("");
+  const [job, setJob] = useState(null);
+  const [hours, setHours] = useState(null);
 
   // const [location, setLocation] = useState("Location");
   const studentApplictionData = {
@@ -152,63 +157,69 @@ const Application = () => {
     sector: sector,
     district,
     occupation,
+    schoolName,
+    hourFrom,
+    hourTo,
   };
 
   // PersonalForm
   const personal = () => (
     <div className="form">
-      <h6>Name</h6>
-      <Box
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: ["90%", "90%", "44%"] },
-        }}
-        noValidate
-        autoComplete="off"
-        className="form__box"
-      >
-        <TextField
-          value={firstName}
-          id="outlined-basic"
-          label="FirstName"
-          variant="outlined"
-          InputProps={{ style: { fontSize: 18 } }}
-          InputLabelProps={{ style: { fontSize: 18 } }}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <TextField
-          id="outlined-basic"
-          label="LastName"
-          variant="outlined"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-      </Box>
-      <h6>Email</h6>
-      <Box
-        className="form__box"
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "90%" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <TextField
-          id="outlined-basic"
-          label="Email"
-          variant="outlined"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </Box>
-      <FormControl>
+      <form fullWidth={true}>
+        <h6>Name</h6>
+        <Box
+          sx={{
+            "& > :not(style)": { m: 1, width: ["90%", "90%", "44%"] },
+          }}
+          noValidate
+          autoComplete="off"
+          className="form__box"
+        >
+          <TextField
+            required
+            value={firstName}
+            id="outlined-basic"
+            label="FirstName"
+            variant="outlined"
+            InputProps={{ style: { fontSize: 18 } }}
+            InputLabelProps={{ style: { fontSize: 18 } }}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <TextField
+            required
+            id="outlined-basic"
+            label="LastName"
+            variant="outlined"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </Box>
+        <h6>Email</h6>
+        <Box
+          className="form__box"
+          sx={{
+            "& > :not(style)": { m: 1, width: "90%" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            required
+            id="outlined-basic"
+            label="Email"
+            variant="outlined"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </Box>
         <h6>Gender</h6>
         <RadioGroup
           className="form__box"
           row
+          required
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group"
+          defaultValue="female"
           value={gender}
           onChange={(e) => setGender(e.target.value)}
         >
@@ -227,26 +238,26 @@ const Application = () => {
             disabled
           />
         </RadioGroup>
-      </FormControl>
 
-      <h6>Phone Number</h6>
-      <Box
-        className="form__box"
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "90%" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <TextField
-          id="outlined-basic"
-          label="Phone Number"
-          variant="outlined"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-      </Box>
+        <h6>Phone Number</h6>
+        <Box
+          className="form__box"
+          sx={{
+            "& > :not(style)": { m: 1, width: "90%" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            required
+            id="outlined-basic"
+            label="Phone Number"
+            variant="outlined"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+        </Box>
+      </form>
     </div>
   );
 
@@ -257,25 +268,26 @@ const Application = () => {
         <h6>Do you have experience with Software Development?</h6>
         <RadioGroup
           row
+          required
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group-education"
-          onChange={(e) => setExperience(e.target.value)}
+          // onChange={(e) => setExperience(e.target.value)}
           value={experience}
         >
           <FormControlLabel
             key="1"
-            value="true"
-            control={<Radio />}
+            value={true}
+            control={<Radio onClick={() => setExperience(true)} />}
             label="Yes"
           />
           <FormControlLabel
             key="2"
-            value="false"
-            control={<Radio />}
+            value={false}
+            control={<Radio onClick={() => setExperience(false)} />}
             label="No"
           />
         </RadioGroup>
-      </FormControl>
+      </FormControl>{" "}
       <h6>if Yes,How many Hours do you Spend coding </h6>
       <Box
         component="form"
@@ -286,8 +298,10 @@ const Application = () => {
         autoComplete="off"
       >
         <TextField
+          disabled={!experience}
           id="outlined-select-hours"
           select
+          required
           label="Select Hours spend coding"
           value={hours}
           onChange={(e) => setHours(e.target.value)}
@@ -305,6 +319,7 @@ const Application = () => {
           <h6>Do you own/have laptop?</h6>
           <RadioGroup
             row
+            required
             aria-labelledby="demo-row-radio-buttons-group-label"
             name="row-radio-buttons-group-laptop"
             value={laptop}
@@ -315,7 +330,6 @@ const Application = () => {
           </RadioGroup>
         </FormControl>
       </div>
-
       <Box
         component="form"
         sx={{
@@ -327,17 +341,54 @@ const Application = () => {
         <TextField
           id="outlined-select-occupation"
           select
+          required
           label="Select occupation"
           value={occupation}
-          onChange={(e) => setOccupation(e.target.value)}
+          // onChange={(e) => setOccupation(e.target.value)}
           helperText="Please select your occupation"
         >
           {occupations.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
+            <MenuItem
+              key={option.value}
+              value={option.value}
+              onClick={() => setOccupation(option?.value)}
+            >
               {option.label}
             </MenuItem>
           ))}
         </TextField>
+        {occupation === "none" ? (
+          <></>
+        ) : (
+          <>
+            <TextField
+              required
+              value={schoolName}
+              id="outlined-basic"
+              label={occupation === "student" ? "School Name" : "Company Name"}
+              variant="outlined"
+              InputProps={{ style: { fontSize: 18 } }}
+              InputLabelProps={{ style: { fontSize: 18 } }}
+              onChange={(e) => setSchoolName(e.target.value)}
+            />
+            <TextField
+              required
+              id="outlined-basic"
+              label="Start At"
+              variant="outlined"
+              value={hourFrom}
+              onChange={(e) => setHourFrom(e.target.value)}
+            />
+            <TextField
+              required
+              id="outlined-basic"
+              label="End At"
+              variant="outlined"
+              value={hourTo}
+              onChange={(e) => setHourTo(e.target.value)}
+            />
+          </>
+        )}
       </Box>
     </div>
   );
@@ -350,6 +401,7 @@ const Application = () => {
         </h6>
         <RadioGroup
           row
+          required
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group"
           value={commitment}
@@ -400,6 +452,7 @@ const Application = () => {
           id="outlined-multiline-static"
           label="Type your text here....."
           multiline
+          required
           rows={4}
           value={scholarship}
           onChange={(e) => setScholarship(e.target.value)}
@@ -419,6 +472,7 @@ const Application = () => {
           id="outlined-multiline-static"
           label="Type your text here....."
           multiline
+          required
           rows={4}
           value={dream}
           onChange={(e) => setDream(e.target.value)}
@@ -486,7 +540,8 @@ const Application = () => {
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false);
+    window.location.replace("https://www.shecancodeschool.org");
+    // setIsModalVisible(false);
   };
   const totalSteps = () => {
     return steps.length;
@@ -519,15 +574,50 @@ const Application = () => {
   };
 
   const handleStep = (step) => () => {
+
     setActiveStep(step);
   };
 
+  const checkValidationsData = (stepIndex) => {
+    if (stepIndex === 0) {
+      if (!firstName || !lastName || !email || !phone || gender === null) {
+        notification.error({ message: "Kindly fill the form correctly!" });
+        return false;
+      } else {
+        return true;
+      }
+    } else if (stepIndex === 1) {
+      if (experience === null || laptop === null || !occupation) {
+        notification.error({ message: "Kindly fill the form correctly!" });
+        return false;
+      } else {
+        return true;
+      }
+    } else if (stepIndex === 2) {
+      if (commitment === null || hearsFrom === null || !scholarship || !dream) {
+        notification.error({ message: "Kindly fill the form correctly!" });
+        return false;
+      } else {
+        return true;
+      }
+    }else{
+      if (district === null || !sector) {
+        notification.error({ message: "Kindly fill the form correctly!" });
+        return false;
+      } else {
+        return true;
+      }
+    }
+  };
+
   const handleComplete = async () => {
-    const newCompleted = completed;
-    newCompleted[activeStep] = true;
-    setCompleted(newCompleted);
-    console.log(studentApplictionData);
-    handleNext();
+    if (checkValidationsData(activeStep)) {
+      const newCompleted = completed;
+      newCompleted[activeStep] = true;
+      setCompleted(newCompleted);
+      console.log(studentApplictionData);
+      handleNext();
+    }
   };
   const handleSubmitApplication = async () => {
     setLoading(true);
@@ -609,90 +699,93 @@ const Application = () => {
           SheCan<span>Code</span>&nbsp; Cohort 6 Application
         </h2>
 
-        <Box sx={{ width: ["100%", "95%", "95%"] }} className="box">
-          <Stepper
-            nonLinear
-            activeStep={activeStep}
-            className="stepperResponsive"
-          >
-            {steps.map((label, index) => (
-              <Step
-                key={label}
-                completed={completed[index]}
-                className="stepResponsive "
-              >
-                <StepButton color="inherit" onClick={handleStep(index)}>
-                  <span className="stepTitle"> {label}</span>
-                </StepButton>
-              </Step>
-            ))}
-          </Stepper>
-          <div>
-            {allStepsCompleted() ? (
-              <React.Fragment>
-                <Typography sx={{ mt: 2, mb: 1 }}>
-                  Thanks for Applying to SheCanCode Cohort 6
-                </Typography>
+        <FormControl fullWidth={true}>
+          <Box sx={{ width: ["100%", "95%", "95%"] }} className="box">
+            <Stepper
+              nonLinear
+              activeStep={activeStep}
+              className="stepperResponsive"
+            >
+              {steps.map((label, index) => (
+                <Step
+                  key={label}
+                  completed={completed[index]}
+                  className="stepResponsive "
+                >
+                  <StepButton color="inherit" onClick={ handleStep(index)}>
+                    <span className="stepTitle"> {label}</span>
+                  </StepButton>
+                </Step>
+              ))}
+            </Stepper>
+            <div>
+              {allStepsCompleted() ? (
+                <React.Fragment>
+                  <Typography sx={{ mt: 2, mb: 1 }}>
+                    Thanks for Applying to SheCanCode Cohort 6. <br/>
+                  </Typography>
+                  <a href="https://calendly.com/clairenkamushaba/shecancode-cohort-6-interviews" target="_blank" style={{fontSize: "20px"}}>{"=>> "}Click here to Schedule for interview</a>
 
-                <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-                  <Box sx={{ flex: "1 1 auto" }} />
-                  <Button onClick={() => window.location.reload()}>
-                    Thank You
-                  </Button>
-                </Box>
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                <div>{FormComponent[activeStep]}</div>
+                  <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+                    <Box sx={{ flex: "1 1 auto" }} />
+                    <Button onClick={() => window.location.reload()}>
+                      Thank You
+                    </Button>
+                  </Box>
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  <div>{FormComponent[activeStep]}</div>
 
-                <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-                  <Box sx={{ flex: "1 1 auto" }} />
-                  {/* <Button onClick={} sx={{ mr: 1 }}>
+                  <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+                    <Box sx={{ flex: "1 1 auto" }} />
+                    {/* <Button onClick={} sx={{ mr: 1 }}>
                     Nextz
                   </Button> */}
 
-                  {activeStep !== steps.length &&
-                    (completed[activeStep] ? (
-                      <Typography
-                        variant="caption"
-                        sx={{ display: "inline-block" }}
-                      >
-                        Step {activeStep + 1} already completed
-                      </Typography>
-                    ) : (
-                      <>
-                        {completedSteps() === totalSteps() - 1 ? (
-                          <LoadingButton
-                            loading={loading}
-                            onClick={handleSubmitApplication}
-                          >
-                            Send Application
-                          </LoadingButton>
-                        ) : (
-                          <Button onClick={handleComplete} htmlType="submit">
-                            Save
-                          </Button>
-                        )}
-                        {/* <Button onClick={handleComplete} htmlType="submit">
+                    {activeStep !== steps.length &&
+                      (completed[activeStep] ? (
+                        <Typography
+                          variant="caption"
+                          sx={{ display: "inline-block" }}
+                        >
+                          Step {activeStep + 1} already completed
+                        </Typography>
+                      ) : (
+                        <>
+                          {completedSteps() === totalSteps() - 1 ? (
+                            <LoadingButton
+                              loading={loading}
+                              onClick={handleSubmitApplication}
+                            >
+                              Send Application
+                            </LoadingButton>
+                          ) : (
+                            <Button onClick={handleComplete} type="submit">
+                              Save
+                            </Button>
+                          )}
+                          {/* <Button onClick={handleComplete} htmlType="submit">
                           {completedSteps() === totalSteps() - 1
                             ? "Finish"
                             : "NEXT"}
                         </Button> */}
-                      </>
-                    ))}
-                  <Button
-                    color="inherit"
-                    disabled={activeStep === 0}
-                    onClick={handleReset}
-                    sx={{ mr: 1 }}
-                  >
-                    Edit <BorderColorIcon />
-                  </Button>
-                </Box>
-              </React.Fragment>
-            )}
-          </div>
-        </Box>
+                        </>
+                      ))}
+                    <Button
+                      color="inherit"
+                      disabled={activeStep === 0}
+                      onClick={handleReset}
+                      sx={{ mr: 1 }}
+                    >
+                      Edit <BorderColorIcon />
+                    </Button>
+                  </Box>
+                </React.Fragment>
+              )}
+            </div>
+          </Box>
+        </FormControl>
       </div>
     </>
   );
