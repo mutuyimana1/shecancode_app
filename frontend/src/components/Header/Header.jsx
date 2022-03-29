@@ -69,7 +69,9 @@ export default function Header() {
                      <a href="https://www.shecancodeschool.org/" className="link">
                      <li className="topListItem"> Home </li></a>
                      
-                    <li className="topListItem"><Link className="link" to="/">Blog</Link></li>
+                     <li className="topListItem"><Link className="link" to="/">Blog</Link></li>
+                     
+                     <li className="topListItem"><Link className="link" to="/application">Apply</Link></li>
                     {/* <li className="topListItem"> <Link className="link" to="/">About</ Link></li> */}
                     <li className="topListItem"><Link className="link" to="/Cats"> {user && "Categories"}  </Link></li>
                     <li className="topListItem"> <Link className="link" to="/Publish"> {user && "Publish"}</Link></li>
