@@ -646,7 +646,7 @@ const Application = () => {
       }
     } else {
       if (district === null || !sector) {
-        notification.error({ message: "Kindly fill the form correctly!" });
+        notification.warn({ message: "Kindly fill the form correctly!" });
         return false;
       } else {
         return true;
