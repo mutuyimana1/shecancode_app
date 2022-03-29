@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "antd/dist/antd.css";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import { Modal, notification } from "antd";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router-dom";
@@ -21,7 +23,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 // import SendIcon from "@mui/icons-material/Send";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import MenuItem from "@mui/material/MenuItem";
-
+import validator from "validator";
 import apiCall from "../../helpers/apiCall";
 import MuiAlert from "@mui/material/Alert";
 
@@ -245,16 +247,31 @@ const Application = () => {
           sx={{
             "& > :not(style)": { m: 1, width: "90%" },
           }}
-          noValidate
+          noValidate={false}
           autoComplete="off"
         >
-          <TextField
+          {/* <TextField
             required
             id="outlined-basic"
             label="Phone Number"
             variant="outlined"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+          /> */}
+
+          <PhoneInput
+            country={"rw"}
+            required
+            containerClass="phone-container"
+            inputStyle={{
+              width: "100%",
+              height: "40px",
+              borderRadius: "2px",
+              border: "1px solid #dedede",
+            }}
+            value={phone}
+            onChange={(e) => setPhone(e)}
+            placeholder="+250 78* 000 000"
           />
         </Box>
       </form>
@@ -600,21 +617,29 @@ const Application = () => {
   const checkValidationsData = (stepIndex) => {
     if (stepIndex === 0) {
       if (!firstName || !lastName || !email || !phone || gender === null) {
-        notification.error({ message: "Kindly fill the form correctly!" });
+        notification.warn({ message: "Kindly fill the form correctly!" });
         return false;
       } else {
+        if (!validator.isEmail(email)) {
+          notification.warn({ message: "Your email should be valid!" });
+          return false;
+        }
+        if (phone.length !== 12) {
+          notification.warn({ message: "Your Phone should be valid!" });
+          return false;
+        }
         return true;
       }
     } else if (stepIndex === 1) {
       if (experience === null || laptop === null || !occupation) {
-        notification.error({ message: "Kindly fill the form correctly!" });
+        notification.warn({ message: "Kindly fill the form correctly!" });
         return false;
       } else {
         return true;
       }
     } else if (stepIndex === 2) {
       if (commitment === null || hearsFrom === null || !scholarship || !dream) {
-        notification.error({ message: "Kindly fill the form correctly!" });
+        notification.warn({ message: "Kindly fill the form correctly!" });
         return false;
       } else {
         return true;
@@ -645,7 +670,7 @@ const Application = () => {
         apiCall + "/application/apply",
         studentApplictionData
       );
-      console.log("@@@@@@:", response.data);
+      // console.log("@@@@@@:", response.data);
       if (response.status === 200) {
         setLoading(false);
         if (!loading) {
