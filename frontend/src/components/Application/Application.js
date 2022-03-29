@@ -683,7 +683,7 @@ const Application = () => {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
-        width="65%"
+        width="95%"
         // bodyStyle={{ maxHeight: 300 }}
         okText="Accept"
         cancelText="Decline"
