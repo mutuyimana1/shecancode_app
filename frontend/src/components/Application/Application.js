@@ -357,20 +357,40 @@ const Application = () => {
             </MenuItem>
           ))}
         </TextField>
-        {occupation === "none" ? (
-          <></>
-        ) : (
-          <>
+      </Box>
+      {occupation === "none" ? (
+        <></>
+      ) : (
+        <>
+          <h6>{occupation === "student" ? "School Name" : "Company Name"}</h6>
+          <Box
+            component="form"
+            sx={{
+              "& .MuiTextField-root": { m: 1, width: "90%" },
+            }}
+            noValidate
+            autoComplete="off"
+          >
             <TextField
               required
               value={schoolName}
               id="outlined-basic"
               label={occupation === "student" ? "School Name" : "Company Name"}
               variant="outlined"
-              InputProps={{ style: { fontSize: 18 } }}
-              InputLabelProps={{ style: { fontSize: 18 } }}
+              InputProps={{ style: { fontSize: 16 } }}
+              InputLabelProps={{ style: { fontSize: 16 } }}
               onChange={(e) => setSchoolName(e.target.value)}
             />
+          </Box>
+
+          <Box
+            sx={{
+              "& > :not(style)": { m: 1, width: ["90%", "90%", "44%"] },
+            }}
+            noValidate
+            autoComplete="off"
+            className="form__box"
+          >
             <TextField
               required
               id="outlined-basic"
@@ -387,9 +407,9 @@ const Application = () => {
               value={hourTo}
               onChange={(e) => setHourTo(e.target.value)}
             />
-          </>
-        )}
-      </Box>
+          </Box>
+        </>
+      )}
     </div>
   );
   const question = () => (
@@ -574,7 +594,6 @@ const Application = () => {
   };
 
   const handleStep = (step) => () => {
-
     setActiveStep(step);
   };
 
@@ -600,7 +619,7 @@ const Application = () => {
       } else {
         return true;
       }
-    }else{
+    } else {
       if (district === null || !sector) {
         notification.error({ message: "Kindly fill the form correctly!" });
         return false;
@@ -653,7 +672,7 @@ const Application = () => {
     <>
       <Modal
         title={
-          <h2 style={{ textAlign: "right", marginRight: "4rem" }}>
+          <h2>
             <img
               className="logo"
               src="https://www.shecancodeschool.org/uploads/logos1.png"
@@ -712,7 +731,7 @@ const Application = () => {
                   completed={completed[index]}
                   className="stepResponsive "
                 >
-                  <StepButton color="inherit" onClick={ handleStep(index)}>
+                  <StepButton color="inherit" onClick={handleStep(index)}>
                     <span className="stepTitle"> {label}</span>
                   </StepButton>
                 </Step>
@@ -722,9 +741,15 @@ const Application = () => {
               {allStepsCompleted() ? (
                 <React.Fragment>
                   <Typography sx={{ mt: 2, mb: 1 }}>
-                    Thanks for Applying to SheCanCode Cohort 6. <br/>
+                    Thanks for Applying to SheCanCode Cohort 6. <br />
                   </Typography>
-                  <a href="https://calendly.com/clairenkamushaba/shecancode-cohort-6-interviews" target="_blank" style={{fontSize: "20px"}}>{"=>> "}Click here to Schedule for interview</a>
+                  <a
+                    href="https://calendly.com/clairenkamushaba/shecancode-cohort-6-interviews"
+                    target="_blank"
+                    style={{ fontSize: "20px" }}
+                  >
+                    {"=>> "}Click here to Schedule for interview
+                  </a>
 
                   <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                     <Box sx={{ flex: "1 1 auto" }} />
