@@ -734,7 +734,13 @@ const Application = () => {
               Are you a university graduate or in your final year and Ready to
               launch your career in tech industry?
             </p>
-            <p style={{ fontWeight: "bold", textAlign: "center" }}>
+            <p
+              style={{
+                fontWeight: "bold",
+                textAlign: "center",
+                margin: "2rem 0",
+              }}
+            >
               APPLY TO ATTEND{" "}
               <span className="shecancodeParagaph">
                 SheCan<span>CODE</span>
