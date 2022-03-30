@@ -124,6 +124,7 @@
 .logo {
   width: 100px;
   height: 60px;
+  object-fit: cover;
 }
 h2 {
   color: #263e52;
@@ -141,8 +142,9 @@ h2 span {
 }
 @media screen and (max-width: 600px) {
   .logo {
-    width: 80%;
-    height: 60px;
+    width: 100%;
+    /* max-height: 60px; */
+    object-fit: contain;
     padding: 10px;
   }
   h2 {
@@ -151,8 +153,8 @@ h2 span {
     font-size: 20px;
     font-weight: 700;
   }
-  .left{
-    padding:15px
+  .left {
+    padding: 15px;
   }
   .right {
     display: none;

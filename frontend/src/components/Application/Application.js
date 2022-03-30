@@ -7,6 +7,7 @@ import { Modal, notification } from "antd";
 import "react-toastify/dist/ReactToastify.css";
 import { useHistory } from "react-router-dom";
 import ReactDOM from "react-dom";
+import studentImg from "../../assets/img/shecancode.jpeg";
 import "./Application.css";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -696,15 +697,15 @@ const Application = () => {
   return (
     <>
       <Modal
-        title={
-          <h2>
-            <img
-              className="logo"
-              src="https://www.shecancodeschool.org/uploads/logos1.png"
-            />
-            SheCan<span>CODE</span>
-          </h2>
-        }
+        // title={
+        //   <h2>
+        //     <img
+        //       className="logo"
+        //       src="https://www.shecancodeschool.org/uploads/logos1.png"
+        //     />
+        //     SheCan<span>CODE</span>
+        //   </h2>
+        // }
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
@@ -714,28 +715,49 @@ const Application = () => {
         cancelText="Decline"
       >
         <div className="shecancodeContent">
-          <p>
-            Are university graduate or are you in your final year at the
-            university and Ready to launch your career in the tech industry?
-          </p>
-          <p style={{ fontWeight: "bold", margin: "2rem 0" }}>
-            APPLY TO ATTEND{" "}
-            <span className="shecancodeParagaph">
+          <img src={studentImg} className="left-student-img" />
+          <div className="paragraph-right">
+            <h2 style={{ textAlign: "center" }}>
+              <img
+                className="logo"
+                src="https://www.shecancodeschool.org/uploads/logos1.png"
+              />
               SheCan<span>CODE</span>
-            </span>{" "}
-            BOOTCAMP.
-          </p>
-          <p>
-            <span className="shecancodeParagaph">
-              SheCan<span>CODE</span>
-            </span>{" "}
-            offers a full-time intensive coding Bootcamp for women in Rwanda and
-            supports graduates to search for job placement after graduation.
-            Before you apply, understand that when you are admitted to the
-            program, you will attend Monday to Friday from 9: am to 3:30 PM. You
-            will also be responsible for your transportation cost and lunch
-            cost. You will also be responsible to own a laptop. .
-          </p>
+            </h2>
+            <p
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+                marginTop: "2rem",
+              }}
+            >
+              Are you a university graduate or in your final year and Ready to
+              launch your career in tech industry?
+            </p>
+            <p style={{ fontWeight: "bold", textAlign: "center" }}>
+              APPLY TO ATTEND{" "}
+              <span className="shecancodeParagaph">
+                SheCan<span>CODE</span>
+              </span>{" "}
+              BOOTCAMP!
+            </p>
+            <p
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+              }}
+            >
+              <span className="shecancodeParagaph">
+                SheCan<span>CODE</span>
+              </span>{" "}
+              offers a full-time intensive coding Bootcamp for women in Rwanda
+              and supports graduates search for job placement after graduation.
+              Before you apply, understand that when you are admitted to the
+              program, you will attend Monday to Friday from 9: am to 3:30
+              PM.You'll responsible for your own transportation, lunch and
+              laptop.
+            </p>
+          </div>
         </div>
       </Modal>
       <div className="application-form">

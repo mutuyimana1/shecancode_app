@@ -33,20 +33,23 @@
 }
 .shecancodeParagaph {
   color: #263e52;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
 }
 .shecancodeContent {
-  padding: 0 1.5rem;
-  text-align: center;
-  align-items: center;
-  margin-top: 0px;
+  padding: 1rem 1rem 0 0.5rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  font-family: "Lato", sans-serif;
+}
+.left-student-img {
+  width: 100%;
+  height: 100%;
 }
 .shecancodeContent p {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.5;
-
-  font-weight: 700;
   color: #333;
 }
 .shecancodeParagaph span {
@@ -73,6 +76,7 @@
 .form__btn {
   float: right;
 }
+
 @media (min-width: 768px) and (max-width: 991px) {
   .application-form {
     width: 90%;
@@ -81,6 +85,10 @@
   }
   .application-title {
     font-size: 38px;
+  }
+  .left-student-img {
+    object-fit: cover;
+    width: 100%;
   }
 }
 @media (max-width: 767px) {
@@ -117,5 +125,8 @@
     /* background:red; */
     width: 100%;
     padding: 10px;
+  }
+  .shecancodeContent {
+    display: block;
   }
 }
