@@ -714,13 +714,14 @@ const Application = () => {
         //   </h2>
         // }
         visible={isModalVisible}
+        footer={null}
         // onOk={handleOk}
-        onOk={handleCancel}
-        onCancel={handleCancel}
+        // onOk={handleCancel}
+        // onCancel={handleCancel}
         width="95%"
         // bodyStyle={{ maxHeight: 300 }}
-        okText="Accept"
-        cancelText="Decline"
+        // okText="Accept"
+        // cancelText="Decline"
       >
         <div className="shecancodeContent">
           <img src={studentImg} className="left-student-img" />
@@ -747,11 +748,12 @@ const Application = () => {
                 fontWeight: "bold",
                 textAlign: "center",
                 margin: "2rem 0",
+                color: "red",
               }}
             >
-              Thank you for showing interest in the
+              Thank you for showing interest in the &nbsp;
               <span className="shecancodeParagaph">
-                SheCan<span>CODE</span>
+                SheCan<span>CODE </span>
               </span>{" "}
               BOOTCAMP!
             </p>
@@ -759,6 +761,7 @@ const Application = () => {
               style={{
                 textAlign: "center",
                 fontWeight: "bold",
+                color: "red",
               }}
             >
               {/* <span className="shecancodeParagaph">
