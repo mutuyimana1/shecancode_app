@@ -707,7 +707,7 @@ const Application = () => {
         //   </h2>
         // }
         visible={isModalVisible}
-        onOk={handleOk}
+        onOk={handleCancel}
         onCancel={handleCancel}
         width="95%"
         // bodyStyle={{ maxHeight: 300 }}
@@ -741,6 +741,30 @@ const Application = () => {
                 margin: "2rem 0",
               }}
             >
+              Thank you for showing interest in the
+              <span className="shecancodeParagaph">
+                SheCan<span>CODE</span>
+              </span>{" "}
+              BOOTCAMP!
+            </p>
+            <p
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+              }}
+            >
+              {/* <span className="shecancodeParagaph">
+                SheCan<span>CODE</span>
+              </span>{" "} */}
+              The application process for the program has been closed.
+            </p>
+            {/* <p
+              style={{
+                fontWeight: "bold",
+                textAlign: "center",
+                margin: "2rem 0",
+              }}
+            >
               APPLY TO ATTEND{" "}
               <span className="shecancodeParagaph">
                 SheCan<span>CODE</span>
@@ -762,7 +786,7 @@ const Application = () => {
               program, you will attend Monday to Friday from 9: am to 3:30
               PM.You'll responsible for your own transportation, lunch and
               laptop.
-            </p>
+            </p> */}
           </div>
         </div>
       </Modal>
