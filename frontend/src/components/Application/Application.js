@@ -707,6 +707,7 @@ const Application = () => {
         //   </h2>
         // }
         visible={isModalVisible}
+        // onOk={handleOk}
         onOk={handleCancel}
         onCancel={handleCancel}
         width="95%"
