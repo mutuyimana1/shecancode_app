@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import Select from "react-select";
+import Rating from "react-rating-scale";
+import countryList from "react-select-country-list";
 import axios from "axios";
 import "antd/dist/antd.css";
 import PhoneInput from "react-phone-input-2";
@@ -16,10 +19,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
 import LoadingButton from "@mui/lab/LoadingButton";
 // import SendIcon from "@mui/icons-material/Send";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
@@ -37,6 +42,32 @@ const steps = [
   "Carreer Questions",
   "Interview",
 ];
+const educations = [
+  {
+    value: "Secondary",
+    label: "Secondary",
+  },
+  {
+    value: "High Secondary",
+    label: "High Secondary",
+  },
+  {
+    value: "Diploma",
+    label: "Diploma",
+  },
+  {
+    value: "Undergraduate",
+    label: "Undergraduate",
+  },
+  {
+    value: "Bachelor's Degree",
+    label: "Bachelor's Degree",
+  },
+  {
+    value: "Master's Degree",
+    label: "Master's Degree",
+  },
+];
 const occupations = [
   {
     value: "student",
@@ -47,8 +78,8 @@ const occupations = [
     label: "Job",
   },
   {
-    value: "none",
-    label: "None",
+    value: "Unemployed",
+    label: "Unemployed",
   },
 ];
 const hourSpends = [
@@ -75,24 +106,29 @@ const hourSpends = [
 ];
 const hears = [
   {
-    value: "Facebook",
-    label: "Facebook",
+    value: "University",
+    label: "University",
   },
   {
-    value: "Instagram",
-    label: "Instagram",
+    value: "Newspaper",
+    label: "Newspaper",
   },
   {
-    value: "YouTube",
-    label: "YouTube",
+    value: "Social media",
+    label: "Social media",
   },
   {
-    value: "Website",
-    label: "Website",
+    value: "Colleagues and friends",
+    label: "Colleagues and friends",
   },
   {
-    value: "friend referral",
-    label: "friend referral",
+    value: "Government agencies",
+    label: "Government agencies",
+  },
+  ,
+  {
+    value: "Other",
+    label: "Other",
   },
 ];
 const locations = [
@@ -114,29 +150,84 @@ const locations = [
     label: "Other",
   },
 ];
+const provinces = [
+  {
+    value: "Kigali",
+    label: "Kigali",
+  },
+  {
+    value: "Western",
+    label: "Western",
+  },
+  {
+    value: "Northern",
+    label: "Northern",
+  },
+  {
+    value: "Eastern",
+    label: "Eastern",
+  },
+  {
+    value: "Southern",
+    label: "Southern",
+  },
+];
+const competencies = [
+  {
+    value: "Fair",
+    label: "Fair",
+  },
+  {
+    value: "Good",
+    label: "Good",
+  },
+  {
+    value: "Excellent",
+    label: "Excellent",
+  },
+  {
+    value: "None",
+    label: "None",
+  },
+];
 
 const Application = () => {
+  const [country, setCountry] = useState("");
+  const options = useMemo(() => countryList().getData(), []);
+
+  const changeHandler = (value) => {
+    setCountry(value);
+  };
   const history = useHistory();
   const [studentAppliction, setStudentAppliction] = useState({});
   const [firstName, setFirstName] = useState(null);
   const [lastName, setLastName] = useState(null);
   const [email, setEmail] = useState(null);
   const [phone, setPhone] = useState(null);
+  const [edication, setEdication] = useState(null);
+  const [obtainLaptop, setObtainLaptop] = useState(null);
   const [occupation, setOccupation] = useState("none");
   const [hearsFrom, setHearsFrom] = useState(null);
   const [scholarship, setScholarship] = useState(null);
   const [dream, setDream] = useState(null);
   const [sector, setSector] = useState(null);
   const [gender, setGender] = useState(null);
+  const [age, setAge] = useState(null);
+  const [ubudehe, setUbudehe] = useState(null);
   const [experience, setExperience] = useState(null);
   const [laptop, setLaptop] = useState(null);
   const [commitment, setCommitment] = useState(null);
-  const [pay, setPay] = useState();
+  const [github, setGithub] = useState(null);
+  const [githubLink, setGithubLink] = useState(null);
+
   const [district, setDistrict] = useState(null);
+  const [province, setProvince] = useState("none");
   const [loading, setLoading] = useState(false);
   const [schoolName, setSchoolName] = useState(null);
   const [hourFrom, setHourFrom] = useState(null);
   const [hourTo, setHourTo] = useState(null);
+  const [competency, setCompetency] = useState(null);
+  const [wishJoin, setWishJoin] = useState(null);
 
   const [job, setJob] = useState(null);
   const [hours, setHours] = useState(null);
@@ -148,21 +239,34 @@ const Application = () => {
     email: email,
     phone: phone,
     gender: gender,
+    age: age,
+
+    education: edication,
     experience: experience,
-    laptop: laptop,
-    job: job,
     hours: hours,
-    commitment: commitment,
-    pay: pay,
-    hears: hearsFrom,
-    scholarship: scholarship,
-    dream: dream,
-    sector: sector,
-    district,
+    github: github,
+    githubLink: githubLink,
+    competency: competency,
     occupation,
     schoolName,
     hourFrom,
     hourTo,
+
+    laptop: laptop,
+    obtainLaptop: obtainLaptop,
+    commitment: commitment,
+    wishJoin: wishJoin,
+    hears: hearsFrom,
+    scholarship: scholarship,
+    dream: dream,
+
+    ubudehe: ubudehe,
+    sector: sector,
+    district: district,
+    province: province,
+    country: country,
+
+    job: job,
   };
 
   // PersonalForm
@@ -215,33 +319,6 @@ const Application = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Box>
-        <h6>Gender</h6>
-        <RadioGroup
-          className="form__box"
-          row
-          required
-          aria-labelledby="demo-row-radio-buttons-group-label"
-          name="row-radio-buttons-group"
-          defaultValue="female"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-        >
-          <FormControlLabel value="female" control={<Radio />} label="Female" />
-          <FormControlLabel
-            value="male"
-            control={<Radio />}
-            label="Male"
-            disabled
-          />
-
-          <FormControlLabel
-            value="other"
-            control={<Radio />}
-            label="Other"
-            disabled
-          />
-        </RadioGroup>
-
         <h6>Phone Number</h6>
         <Box
           className="form__box"
@@ -275,6 +352,56 @@ const Application = () => {
             placeholder="+250 78* 000 000"
           />
         </Box>
+        <h6>Gender</h6>
+        <RadioGroup
+          className="form__box"
+          row
+          required
+          aria-labelledby="demo-row-radio-buttons-group-label"
+          name="row-radio-buttons-group"
+          defaultValue="female"
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
+        >
+          <FormControlLabel value="female" control={<Radio />} label="Female" />
+          <FormControlLabel
+            value="male"
+            control={<Radio />}
+            label="Male"
+            disabled
+          />
+
+          <FormControlLabel
+            value="other"
+            control={<Radio />}
+            label="Other"
+            disabled
+          />
+        </RadioGroup>
+
+        <FormControl>
+          <h6> Your Age</h6>
+
+          <RadioGroup
+            aria-labelledby="demo-controlled-radio-buttons-group"
+            row
+            name="controlled-radio-buttons-group"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          >
+            <FormControlLabel
+              value="below 18"
+              control={<Radio />}
+              label="Below 18"
+            />
+            <FormControlLabel value="18-35" control={<Radio />} label="18-35" />
+            <FormControlLabel
+              value="36-above"
+              control={<Radio />}
+              label="36-above"
+            />
+          </RadioGroup>
+        </FormControl>
       </form>
     </div>
   );
@@ -282,6 +409,29 @@ const Application = () => {
   //EducationForm
   const education = () => (
     <div className="form">
+      <h6>Education Qualification</h6>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "90%" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="outlined-select-occupation"
+          select
+          label="Your Education"
+          value={edication}
+          onChange={(e) => setEdication(e.target.value)}
+        >
+          {educations.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+      </Box>{" "}
       <FormControl>
         <h6>Do you have experience with Software Development?</h6>
         <RadioGroup
@@ -332,22 +482,62 @@ const Application = () => {
           ))}
         </TextField>
       </Box>
-      <div>
-        <FormControl>
-          <h6>Do you own/have laptop?</h6>
-          <RadioGroup
-            row
-            required
-            aria-labelledby="demo-row-radio-buttons-group-label"
-            name="row-radio-buttons-group-laptop"
-            value={laptop}
-            onChange={(e) => setLaptop(e.target.value)}
-          >
-            <FormControlLabel value={true} control={<Radio />} label="Yes" />
-            <FormControlLabel value={false} control={<Radio />} label="No" />
-          </RadioGroup>
-        </FormControl>
-      </div>
+      <FormControl>
+        <h6>Do you have GitHub Account?</h6>
+        <RadioGroup
+          row
+          required
+          aria-labelledby="demo-row-radio-buttons-group-label"
+          name="row-radio-buttons-group-laptop"
+          value={github}
+          onChange={(e) => setGithub(e.target.value)}
+        >
+          <FormControlLabel value={true} control={<Radio />} label="Yes" />
+          <FormControlLabel value={false} control={<Radio />} label="No" />
+        </RadioGroup>
+      </FormControl>
+      <h6>if so, please include your GitHub link.</h6>
+      <Box
+        className="form__box"
+        component="form"
+        sx={{
+          "& > :not(style)": { m: 1, width: "90%" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="outlined-basic"
+          label="Sector"
+          variant="outlined"
+          value={githubLink}
+          onChange={(e) => setGithubLink(e.target.value)}
+        />
+      </Box>
+      <h6>Your competency in ICT/digital skills:</h6>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "90%" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="outlined-select-occupation"
+          select
+          label="Your IT Competency"
+          value={competency}
+          onChange={(e) => setCompetency(e.target.value)}
+        >
+          {competencies.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+      </Box>{" "}
+      <h6>Your occupation</h6>
       <Box
         component="form"
         sx={{
@@ -432,10 +622,45 @@ const Application = () => {
   );
   const question = () => (
     <div className="form">
+      <div>
+        <FormControl>
+          <h6>Do you own/have laptop?</h6>
+          <RadioGroup
+            row
+            required
+            aria-labelledby="demo-row-radio-buttons-group-label"
+            name="row-radio-buttons-group-laptop"
+            value={laptop}
+            onChange={(e) => setLaptop(e.target.value)}
+          >
+            <FormControlLabel value={true} control={<Radio />} label="Yes" />
+            <FormControlLabel value={false} control={<Radio />} label="No" />
+          </RadioGroup>
+        </FormControl>
+      </div>
+      <h6>If not, could you obtain one! How?</h6>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "90%" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="outlined-multiline-static"
+          label="Type your text here....."
+          multiline
+          required
+          rows={3}
+          value={obtainLaptop}
+          onChange={(e) => setObtainLaptop(e.target.value)}
+        />
+      </Box>
       <FormControl>
         <h6>
-          Are you commited to attend full-time on campus class from Monday to
-          Friday ?
+          Would you be able to participate in the SheCanCODE program for three
+          months full-time in person?(Monday - Friday; 08:00 AM - 05:00 PM)
         </h6>
         <RadioGroup
           row
@@ -449,6 +674,29 @@ const Application = () => {
           <FormControlLabel value="false" control={<Radio />} label="No" />
         </RadioGroup>
       </FormControl>
+      <h6>
+        Why do you wish to join SheCanCODE program? Please write in max 100
+        words:
+      </h6>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "90%" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="outlined-multiline-static"
+          label="Type your text here....."
+          multiline
+          required
+          rows={4}
+          value={wishJoin}
+          onChange={(e) => setWishJoin(e.target.value)}
+        />
+      </Box>
+      <h6>How did you find out about the Program?</h6>
       <Box
         component="form"
         sx={{
@@ -520,30 +768,23 @@ const Application = () => {
   );
   const address = () => (
     <div className="form">
-      <h6>Where are you from?</h6>
-      <Box
-        component="form"
-        sx={{
-          "& .MuiTextField-root": { m: 1, width: "90%" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <TextField
-          id="outlined-select-occupation"
-          select
-          label="Where are you from?"
-          value={district}
-          onChange={(e) => setDistrict(e.target.value)}
+      <FormControl>
+        <h6> Ubudehe Class</h6>
+
+        <RadioGroup
+          aria-labelledby="demo-controlled-radio-buttons-group"
+          row
+          name="controlled-radio-buttons-group"
+          value={ubudehe}
+          onChange={(e) => setUbudehe(e.target.value)}
         >
-          {locations.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-      </Box>{" "}
-      <br />
+          <FormControlLabel value="A" control={<Radio />} label="A" />
+          <FormControlLabel value="B" control={<Radio />} label="B" />
+          <FormControlLabel value="C" control={<Radio />} label="C" />
+          <FormControlLabel value="D" control={<Radio />} label="D" />
+          <FormControlLabel value="E" control={<Radio />} label="E" />
+        </RadioGroup>
+      </FormControl>
       <h6>Location(Sector)</h6>
       <Box
         className="form__box"
@@ -562,6 +803,60 @@ const Application = () => {
           onChange={(e) => setSector(e.target.value)}
         />
       </Box>
+      <h6>District</h6>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "90%" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="outlined-basic"
+          label="District"
+          variant="outlined"
+          value={district}
+          onChange={(e) => setDistrict(e.target.value)}
+        ></TextField>
+      </Box>{" "}
+      <br />
+      <h6>Province</h6>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "90%" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          id="outlined-select-occupation"
+          select
+          label="Where are you from?"
+          value={province}
+          onChange={(e) => setProvince(e.target.value)}
+        >
+          {provinces.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+      </Box>{" "}
+      <br />
+      <h6>Your Origin Country</h6>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "90%" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <Select options={options} value={country} onChange={changeHandler} />
+      </Box>
+      <br />
     </div>
   );
   const FormComponent = [personal(), education(), question(), address()];
@@ -617,7 +912,14 @@ const Application = () => {
 
   const checkValidationsData = (stepIndex) => {
     if (stepIndex === 0) {
-      if (!firstName || !lastName || !email || !phone || gender === null) {
+      if (
+        !firstName ||
+        !lastName ||
+        !email ||
+        !phone ||
+        !age ||
+        gender === null
+      ) {
         notification.warn({ message: "Kindly fill the form correctly!" });
         return false;
       } else {
@@ -632,21 +934,41 @@ const Application = () => {
         return true;
       }
     } else if (stepIndex === 1) {
-      if (experience === null || laptop === null || !occupation) {
+      if (
+        education === null ||
+        experience === null ||
+        hours === null ||
+        github === null ||
+        competency === null ||
+        !occupation
+      ) {
         notification.warn({ message: "Kindly fill the form correctly!" });
         return false;
       } else {
         return true;
       }
     } else if (stepIndex === 2) {
-      if (commitment === null || hearsFrom === null || !scholarship || !dream) {
+      if (
+        laptop === null ||
+        commitment === null ||
+        wishJoin === null ||
+        hearsFrom === null ||
+        !scholarship ||
+        !dream
+      ) {
         notification.warn({ message: "Kindly fill the form correctly!" });
         return false;
       } else {
         return true;
       }
     } else {
-      if (district === null || !sector) {
+      if (
+        country === null ||
+        ubudehe === null ||
+        province === null ||
+        district === null ||
+        !sector
+      ) {
         notification.warn({ message: "Kindly fill the form correctly!" });
         return false;
       } else {
@@ -703,25 +1025,25 @@ const Application = () => {
   // style={{margin:"0",padding:"0",boxSizing:"border-box"}}
   return (
     <>
-      <Modal
-        // title={
-        //   <h2>
-        //     <img
-        //       className="logo"
-        //       src="https://www.shecancodeschool.org/uploads/logos1.png"
-        //     />
-        //     SheCan<span>CODE</span>
-        //   </h2>
-        // }
+      {/* <Modal
+        title={
+          <h2>
+            <img
+              className="logo"
+              src="https://www.shecancodeschool.org/uploads/logos1.png"
+            />
+            SheCan<span>CODE</span>
+          </h2>
+        }
         visible={isModalVisible}
         footer={null}
-        // onOk={handleOk}
-        // onOk={handleCancel}
-        // onCancel={handleCancel}
+        onOk={handleOk}
+        onOk={handleCancel}
+        onCancel={handleCancel}
         width="95%"
-        // bodyStyle={{ maxHeight: 300 }}
-        // okText="Accept"
-        // cancelText="Decline"
+        bodyStyle={{ maxHeight: 300 }}
+        okText="Accept"
+        cancelText="Decline"
       >
         <div className="shecancodeContent">
           <img src={studentImg} className="left-student-img" />
@@ -764,12 +1086,12 @@ const Application = () => {
                 color: "red",
               }}
             >
-              {/* <span className="shecancodeParagaph">
+              <span className="shecancodeParagaph">
                 SheCan<span>CODE</span>
-              </span>{" "} */}
-              The application process for the program has been closed.
+              </span>{" "}
+           
             </p>
-            {/* <p
+            <p
               style={{
                 fontWeight: "bold",
                 textAlign: "center",
@@ -797,13 +1119,13 @@ const Application = () => {
               program, you will attend Monday to Friday from 9: am to 3:30
               PM.You'll responsible for your own transportation, lunch and
               laptop.
-            </p> */}
+            </p>
           </div>
         </div>
-      </Modal>
+      </Modal> */}
       <div className="application-form">
         <h2 className="application-title">
-          SheCan<span>Code</span>&nbsp; Cohort 6 Application
+          SheCan<span>Code</span>&nbsp; Cohort 7 Application
         </h2>
 
         <FormControl fullWidth={true}>
@@ -829,7 +1151,7 @@ const Application = () => {
               {allStepsCompleted() ? (
                 <React.Fragment>
                   <Typography sx={{ mt: 2, mb: 1 }}>
-                    Thanks for Applying to SheCanCode Cohort 6. <br />
+                    Thanks for Applying to SheCanCode Cohort 7. <br />
                   </Typography>
                   <a
                     href="https://calendly.com/clairenkamushaba/shecancode-cohort-6-interviews"
