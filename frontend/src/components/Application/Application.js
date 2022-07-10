@@ -998,8 +998,15 @@ const Application = () => {
         setLoading(false);
         if (!loading) {
           handleComplete();
+          notification.success({message:response.data?.message})
         }
-      } else {
+      } else if(response.status ===202) {
+        // console.log("**********************",response);
+        // <Alert severity="error">{response.data?.message}</Alert>;
+        setLoading(false);
+        handleComplete();
+        notification.success({message:response.data?.message})
+      }else{
         <Alert severity="error">Failed to submit</Alert>;
         setLoading(false);
         handleReset();
