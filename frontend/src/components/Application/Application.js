@@ -508,7 +508,7 @@ const Application = () => {
           />
         </RadioGroup>
       </FormControl>
-      <h6>if so, please include your GitHub link.</h6>
+      <h6>if yes, please include your GitHub link.</h6>
       <Box
         className="form__box"
         component="form"
@@ -521,7 +521,7 @@ const Application = () => {
         <TextField
           disabled={!github}
           id="outlined-basic"
-          label="Sector"
+          label="github link"
           variant="outlined"
           value={githubLink}
           onChange={(e) => setGithubLink(e.target.value)}
@@ -1167,13 +1167,7 @@ const Application = () => {
                   <Typography sx={{ mt: 2, mb: 1 }}>
                     Thanks for Applying to SheCanCode Cohort 7. <br />
                   </Typography>
-                  <a
-                    href="https://calendly.com/clairenkamushaba/shecancode-cohort-6-interviews"
-                    target="_blank"
-                    style={{ fontSize: "20px" }}
-                  >
-                    {"=>> "}Click here to Schedule for interview
-                  </a>
+                  <p>Go to Your email to follow the Next step</p>
 
                   <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                     <Box sx={{ flex: "1 1 auto" }} />
