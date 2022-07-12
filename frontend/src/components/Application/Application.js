@@ -492,8 +492,20 @@ const Application = () => {
           value={github}
           onChange={(e) => setGithub(e.target.value)}
         >
-          <FormControlLabel value={true} control={<Radio />} label="Yes" />
-          <FormControlLabel value={false} control={<Radio />} label="No" />
+          <FormControlLabel
+            key="1"
+            value={true}
+            control={<Radio />}
+            label="Yes"
+            onClick={() => setGithub(true)}
+          />
+          <FormControlLabel
+            key="2"
+            value={false}
+            control={<Radio />}
+            label="No"
+            onClick={() => setGithub(false)}
+          />
         </RadioGroup>
       </FormControl>
       <h6>if so, please include your GitHub link.</h6>
@@ -507,6 +519,7 @@ const Application = () => {
         autoComplete="off"
       >
         <TextField
+          disabled={!github}
           id="outlined-basic"
           label="Sector"
           variant="outlined"
@@ -566,7 +579,7 @@ const Application = () => {
           ))}
         </TextField>
       </Box>
-      {occupation === "none" ? (
+      {occupation === "Unemployed" ? (
         <></>
       ) : (
         <>
@@ -659,8 +672,10 @@ const Application = () => {
       </Box>
       <FormControl>
         <h6>
-          Would you be able to participate in the SheCanCODE program for three
-          months full-time in person?(Monday - Friday; 08:00 AM - 05:00 PM)
+          SheCanCODE is a women's coding bootcamp that is situated in Kigali,
+          Rwanda, at Kacyiru sector, Road KG577st, House KG549St 36. Would you
+          be able to enroll in the program for the full three months in person?
+          (Monday through Friday, 8:00 AM to 5:00 PM)
         </h6>
         <RadioGroup
           row
@@ -937,7 +952,6 @@ const Application = () => {
       if (
         education === null ||
         experience === null ||
-        hours === null ||
         github === null ||
         competency === null ||
         !occupation
@@ -998,15 +1012,15 @@ const Application = () => {
         setLoading(false);
         if (!loading) {
           handleComplete();
-          notification.success({message:response.data?.message})
+          notification.success({ message: response.data?.message });
         }
-      } else if(response.status ===202) {
+      } else if (response.status === 202) {
         // console.log("**********************",response);
         // <Alert severity="error">{response.data?.message}</Alert>;
         setLoading(false);
         handleComplete();
-        notification.success({message:response.data?.message})
-      }else{
+        notification.success({ message: response.data?.message });
+      } else {
         <Alert severity="error">Failed to submit</Alert>;
         setLoading(false);
         handleReset();
