@@ -409,7 +409,7 @@ const Application = () => {
   //EducationForm
   const education = () => (
     <div className="form">
-      <h6>Education Qualification</h6>
+      <h6>Education Qualifications</h6>
       <Box
         component="form"
         sx={{
