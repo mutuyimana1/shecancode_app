@@ -264,9 +264,6 @@ const Application = () => {
     sector: sector,
     district: district,
     province: province,
-    country: country,
-
-    job: job,
   };
 
   // PersonalForm
@@ -637,7 +634,7 @@ const Application = () => {
     <div className="form">
       <div>
         <FormControl>
-          <h6>Do you own a laptop?</h6>
+          <h6>Do you own/have a laptop?</h6>
           <RadioGroup
             row
             required
@@ -859,7 +856,7 @@ const Application = () => {
           ))}
         </TextField>
       </Box>{" "}
-      <br />
+      {/* <br />
       <h6>Your Origin Country</h6>
       <Box
         component="form"
@@ -870,7 +867,7 @@ const Application = () => {
         autoComplete="off"
       >
         <Select options={options} value={country} onChange={changeHandler} />
-      </Box>
+      </Box> */}
       <br />
     </div>
   );
