@@ -1012,14 +1012,7 @@ const Application = () => {
         setLoading(false);
         if (!loading) {
           handleComplete();
-          notification.success({ message: response.data?.message });
         }
-      } else if (response.status === 202) {
-        // console.log("**********************",response);
-        // <Alert severity="error">{response.data?.message}</Alert>;
-        setLoading(false);
-        handleComplete();
-        notification.success({ message: response.data?.message });
       } else {
         <Alert severity="error">Failed to submit</Alert>;
         setLoading(false);
@@ -1167,7 +1160,13 @@ const Application = () => {
                   <Typography sx={{ mt: 2, mb: 1 }}>
                     Thanks for Applying to SheCanCode Cohort 7. <br />
                   </Typography>
-                  <p>Go to Your email to follow the Next step</p>
+                  <a
+                    href="https://calendly.com/clairenkamushaba/shecancode-cohort-6-interviews"
+                    target="_blank"
+                    style={{ fontSize: "20px" }}
+                  >
+                    {"=>> "}Click here to Schedule for interview
+                  </a>
 
                   <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                     <Box sx={{ flex: "1 1 auto" }} />
