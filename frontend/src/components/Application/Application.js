@@ -809,7 +809,7 @@ const Application = () => {
       >
         <TextField
           id="outlined-basic"
-          label="Sector"
+          label="location (Sector)"
           variant="outlined"
           value={sector}
           onChange={(e) => setSector(e.target.value)}
@@ -1157,13 +1157,10 @@ const Application = () => {
                   <Typography sx={{ mt: 2, mb: 1 }}>
                     Thanks for Applying to SheCanCode Cohort 7. <br />
                   </Typography>
-                  <a
-                    href="https://calendly.com/clairenkamushaba/shecancode-cohort-6-interviews"
-                    target="_blank"
-                    style={{ fontSize: "20px" }}
-                  >
-                    {"=>> "}Click here to Schedule for interview
-                  </a>
+                  <p>
+                    your application has been receive.We shall communicate the
+                    next step via email
+                  </p>
 
                   <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                     <Box sx={{ flex: "1 1 auto" }} />
