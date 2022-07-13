@@ -637,7 +637,7 @@ const Application = () => {
     <div className="form">
       <div>
         <FormControl>
-          <h6>Do you own/have laptop?</h6>
+          <h6>Do you own a laptop?</h6>
           <RadioGroup
             row
             required
