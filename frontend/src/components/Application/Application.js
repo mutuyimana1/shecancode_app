@@ -234,7 +234,7 @@ const Application = () => {
 
   // const [location, setLocation] = useState("Location");
   const studentApplictionData = {
-    fistName: firstName,
+    firstName: firstName,
     lastName: lastName,
     email: email,
     phone: phone,
