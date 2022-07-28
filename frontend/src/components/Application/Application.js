@@ -1159,8 +1159,12 @@ const Application = () => {
                   </Typography>
                   <p>
                     Your Application has been received. Check your email for the
-                    next steps. PLEASE CHECK YOUR SPAM, BULK FOLDER, JUNK FOLDER
-                    SO YOU DON’T MISS THE OPPORTUNITY
+                    next steps.[PLEASE CHECK YOUR SPAM, BULK FOLDER, JUNK FOLDER
+                    SO YOU DON’T MISS THE OPPORTUNITY].
+                  </p>
+                  <p>
+                    If you have any questions, please email
+                    igirerwanda@gmail.com
                   </p>
 
                   <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
