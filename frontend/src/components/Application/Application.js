@@ -1158,8 +1158,9 @@ const Application = () => {
                     Thanks for Applying to SheCanCode Cohort 7. <br />
                   </Typography>
                   <p>
-                    your application has been receive.We shall communicate the
-                    next step via email
+                    Your Application has been received. Check your email for the
+                    next steps. [PLEASE CHECK YOUR SPAM, BULK FOLDER, JUNK
+                    FOLDER SO YOU DON’T MISS THE OPPORTUNITY]
                   </p>
 
                   <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
