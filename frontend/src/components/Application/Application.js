@@ -26,7 +26,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import LoadingButton from "@mui/lab/LoadingButton";
-// import SendIcon from "@mui/icons-material/Send";
+
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import MenuItem from "@mui/material/MenuItem";
 import validator from "validator";
@@ -232,7 +232,6 @@ const Application = () => {
   const [job, setJob] = useState(null);
   const [hours, setHours] = useState(null);
 
-  // const [location, setLocation] = useState("Location");
   const studentApplictionData = {
     firstName: firstName,
     lastName: lastName,
@@ -266,7 +265,6 @@ const Application = () => {
     province: province,
   };
 
-  // PersonalForm
   const personal = () => (
     <div className="form">
       <form fullWidth={true}>
@@ -325,15 +323,6 @@ const Application = () => {
           noValidate={false}
           autoComplete="off"
         >
-          {/* <TextField
-            required
-            id="outlined-basic"
-            label="Phone Number"
-            variant="outlined"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          /> */}
-
           <PhoneInput
             country={"rw"}
             required
@@ -403,7 +392,6 @@ const Application = () => {
     </div>
   );
 
-  //EducationForm
   const education = () => (
     <div className="form">
       <h6>Education Qualifications</h6>
@@ -436,7 +424,6 @@ const Application = () => {
           required
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group-education"
-          // onChange={(e) => setExperience(e.target.value)}
           value={experience}
         >
           <FormControlLabel
@@ -562,7 +549,6 @@ const Application = () => {
           required
           label="Select occupation"
           value={occupation}
-          // onChange={(e) => setOccupation(e.target.value)}
           helperText="Please select your occupation"
         >
           {occupations.map((option) => (
@@ -886,7 +872,6 @@ const Application = () => {
 
   const handleCancel = () => {
     window.location.replace("https://www.shecancodeschool.org");
-    // setIsModalVisible(false);
   };
   const totalSteps = () => {
     return steps.length;
@@ -1004,7 +989,7 @@ const Application = () => {
         apiCall + "/application/apply",
         studentApplictionData
       );
-      // console.log("@@@@@@:", response.data);
+
       if (response.status === 200) {
         setLoading(false);
         if (!loading) {
@@ -1026,7 +1011,7 @@ const Application = () => {
     setActiveStep(0);
     setCompleted({});
   };
-  // style={{margin:"0",padding:"0",boxSizing:"border-box"}}
+
   return (
     <>
       {/* <Modal
@@ -1132,7 +1117,20 @@ const Application = () => {
           SheCan<span>Code</span>&nbsp; Cohort 7 Application
         </h2>
 
-        <FormControl fullWidth={true}>
+        <p style={{ fontSize: "18px" }}>
+          Thank you for showing interest in the{" "}
+          <span className="shecancodeParagaph">
+            SheCan<span>CODE</span>
+          </span>{" "}
+          program. The application process for the program has been closed on
+          August 1st 2022. If you would like to reach out to the{" "}
+          <span className="shecancodeParagaph">
+            SheCan<span>CODE</span>
+          </span>{" "}
+          team concerning your submitted application, please email us at
+          <a href="mailto: igirerwanda@gmail.com"> igirerwanda@gmail.com</a>.
+        </p>
+        {/* <FormControl fullWidth={true}>
           <Box sx={{ width: ["100%", "95%", "95%"] }} className="box">
             <Stepper
               nonLinear
@@ -1180,9 +1178,6 @@ const Application = () => {
 
                   <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
                     <Box sx={{ flex: "1 1 auto" }} />
-                    {/* <Button onClick={} sx={{ mr: 1 }}>
-                    Nextz
-                  </Button> */}
 
                     {activeStep !== steps.length &&
                       (completed[activeStep] ? (
@@ -1206,11 +1201,7 @@ const Application = () => {
                               Save
                             </Button>
                           )}
-                          {/* <Button onClick={handleComplete} htmlType="submit">
-                          {completedSteps() === totalSteps() - 1
-                            ? "Finish"
-                            : "NEXT"}
-                        </Button> */}
+                          {}
                         </>
                       ))}
                     <Button
@@ -1226,7 +1217,7 @@ const Application = () => {
               )}
             </div>
           </Box>
-        </FormControl>
+        </FormControl> */}
       </div>
     </>
   );
