@@ -7,11 +7,11 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import "antd/dist/antd.css";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-
+import { Checkbox } from "@mui/material";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-
+import { Modal, notification } from "antd";
 import MenuItem from "@mui/material/MenuItem";
 
 import apiCall from "../../helpers/apiCall";
@@ -37,6 +37,8 @@ const Classes = () => {
   const [phone, setPhone] = useState(null);
   const [gender, setGender] = useState(null);
   const [clas, setClas] = useState(null);
+  const [modalFullStack, setModalFullStack] = useState(false);
+  const [modalFrontend, setModalFrontEnd] = useState(false);
   const studentApplictionData = {
     firstName: firstName,
     lastName: lastName,
@@ -45,16 +47,32 @@ const Classes = () => {
     clas: clas,
     gender: gender,
   };
+  const showModal = () => {
+    setModalFrontEnd(true);
+  };
+  const handleOk = () => {
+    setModalFrontEnd(false);
+  };
+  const handleCancel = () => {
+    setModalFrontEnd(false);
+  };
+  const handleOkay = () => {
+    setModalFullStack(false);
+  };
+  const handleCancels = () => {
+    setModalFullStack(false);
+  };
 
   return (
     <div className="class-container">
       <div className="home-container">
         <div className="program-container">
           <h3>Professional Certificate in JavaScript:</h3>
-          <ul>
+          <ul type="square" className="ul_links">
             <li>Full Stack Software Engineer</li>
             <li>Frontend Web Development </li>
           </ul>
+          <p>Gain hands-on coding skills, for a competitive market edge.</p>
         </div>
         <div className="applied-form">
           <div className="form form-class">
@@ -187,12 +205,45 @@ const Classes = () => {
                   disabled
                 /> */}
               </RadioGroup>
-              <LoadingButton variant="contained">
+              <FormControlLabel
+                onClick={() => {
+                  if (clas == "Frontend Web Development") {
+                    setModalFrontEnd(true);
+                  } else if (clas == "Full-Stack Software Engineers") {
+                    setModalFullStack(true);
+                  } else {
+                    notification.warn({
+                      message: "please select program you want to attend",
+                    });
+                  }
+                }}
+                control={<Checkbox />}
+                label="By clicking on this you agree to follow the following conditions"
+              />
+              <LoadingButton variant="contained" fullWidth size="large">
                 Send Application
               </LoadingButton>
             </form>
           </div>
         </div>
+        <Modal
+          visible={modalFrontend}
+          // footer={null}
+          onOk={handleOk}
+          // onOk={handleCancel}
+          onCancel={handleCancel}
+        >
+          Hahiye
+        </Modal>
+        <Modal
+          visible={modalFullStack}
+          // footer={null}
+          onOk={handleOkay}
+          // onOk={handleCancel}
+          onCancel={handleCancels}
+        >
+          Hahiye hose
+        </Modal>
       </div>
     </div>
   );
