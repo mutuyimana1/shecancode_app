@@ -6,6 +6,7 @@ import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import Footer from "./components/Footer/Footer";
 import Cats from "./components/Cats/Cats";
+import Classes from "./components/classes/classes";
 import Application from "./components/Application/Application";
 
 import { BrowserRouter as Router, Route, Switch, link } from "react-router-dom";
@@ -15,7 +16,10 @@ import { Context } from "./context/Context";
 function App() {
   const { user } = useContext(Context);
   return (
-    <div className="App" style={{margin:"0",padding:"0",boxSizing:"border-box"}}>
+    <div
+      className="App"
+      style={{ margin: "0", padding: "0", boxSizing: "border-box" }}
+    >
       {/* ShecanCode Blog */}
       <Router>
         <Header />
@@ -40,8 +44,14 @@ function App() {
             <Cats />
           </Route>
 
-          <Route path="/Application">
-            <Application />
+          <Route path="/Apply/frontend">
+            <Application program="Frontend Web Development" />
+          </Route>
+          <Route path="/Apply/fullstack">
+            <Application program=" Full-Stack Software Engineers" />
+          </Route>
+          <Route path="/program">
+            <Classes />
           </Route>
         </Switch>
         {/* <Home/> */}

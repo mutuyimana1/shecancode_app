@@ -42,6 +42,16 @@ const steps = [
   "Carreer Questions",
   "Interview",
 ];
+const classez = [
+  {
+    value: "Frontend Web Development",
+    label: "Frontend Web Development",
+  },
+  {
+    value: "Full-Stack Software Engineers",
+    label: "Full-Stack Software Engineers",
+  },
+];
 const educations = [
   {
     value: "Secondary",
@@ -191,7 +201,7 @@ const competencies = [
   },
 ];
 
-const Application = () => {
+const Application = (props) => {
   const [country, setCountry] = useState("");
   const options = useMemo(() => countryList().getData(), []);
 
@@ -219,7 +229,7 @@ const Application = () => {
   const [commitment, setCommitment] = useState(null);
   const [github, setGithub] = useState(null);
   const [githubLink, setGithubLink] = useState(null);
-
+  const [clas, setClas] = useState(props.program);
   const [district, setDistrict] = useState(null);
   const [province, setProvince] = useState("none");
   const [loading, setLoading] = useState(false);
@@ -237,6 +247,7 @@ const Application = () => {
     lastName: lastName,
     email: email,
     phone: phone,
+    clas: clas,
     gender: gender,
     age: age,
 
@@ -338,6 +349,29 @@ const Application = () => {
             placeholder="+250 78* 000 000"
           />
         </Box>
+        <h6>Select Class</h6>
+        {/* <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "90%" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            id="outlined-select-occupation"
+            select
+            label="Select your choice Class"
+            value={clas}
+            onChange={(e) => setClas(e.target.value)}
+          >
+            {classez.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </Box>{" "} */}
         <h6>Gender</h6>
         <RadioGroup
           className="form__box"
@@ -353,8 +387,8 @@ const Application = () => {
           <FormControlLabel
             value="male"
             control={<Radio />}
+            disabled={clas == "Frontend Web Development"}
             label="Male"
-            disabled
           />
 
           <FormControlLabel
@@ -364,7 +398,6 @@ const Application = () => {
             disabled
           />
         </RadioGroup>
-
         <FormControl>
           <h6> Your Age</h6>
 
@@ -658,7 +691,7 @@ const Application = () => {
           SheCanCODE is a women's coding bootcamp that is situated in Kigali,
           Rwanda, at Kacyiru sector, Road KG577st, House KG549St 36. Would you
           be able to enroll in the program for the full three months in person?
-          (Monday through Friday, 8:00 AM to 5:00 PM)
+          (Monday through Friday, 9:00 AM to 5:00 PM)
         </h6>
         <RadioGroup
           row
@@ -720,8 +753,9 @@ const Application = () => {
         <br />
       </Box>
       <h6>
-        SheCanCode provides a scholarship. Please explain how this scholarship
-        would help you to achieve your career gaols
+        SheCanCode provides a scholarship for the frontend web development.
+        Please explain how this scholarship would help you to achieve your
+        career gaols
       </h6>
 
       <Box
@@ -740,6 +774,7 @@ const Application = () => {
           rows={4}
           value={scholarship}
           onChange={(e) => setScholarship(e.target.value)}
+          disabled={clas == "Full-Stack Software Engineers"}
         />
       </Box>
       <br />
@@ -1025,12 +1060,12 @@ const Application = () => {
           </h2>
         }
         visible={isModalVisible}
-        footer={null}
+        // footer={null}
         onOk={handleOk}
-        onOk={handleCancel}
+        // onOk={handleCancel}
         onCancel={handleCancel}
         width="95%"
-        bodyStyle={{ maxHeight: 300 }}
+        // bodyStyle={{ maxHeight: 300 }}
         okText="Accept"
         cancelText="Decline"
       >
@@ -1078,7 +1113,6 @@ const Application = () => {
               <span className="shecancodeParagaph">
                 SheCan<span>CODE</span>
               </span>{" "}
-           
             </p>
             <p
               style={{
@@ -1102,22 +1136,23 @@ const Application = () => {
               <span className="shecancodeParagaph">
                 SheCan<span>CODE</span>
               </span>{" "}
-              offers a full-time intensive coding Bootcamp for women in Rwanda
+             <span className="content"> offers a full-time intensive coding Bootcamp for women in Rwanda
               and supports graduates search for job placement after graduation.
               Before you apply, understand that when you are admitted to the
               program, you will attend Monday to Friday from 9: am to 3:30
               PM.You'll responsible for your own transportation, lunch and
-              laptop.
+              laptop.</span>
             </p>
           </div>
         </div>
       </Modal> */}
       <div className="application-form">
         <h2 className="application-title">
-          SheCan<span>Code</span>&nbsp; Cohort 7 Application
+          SheCan<span>Code</span>&nbsp; Cohort 8 Application <br />{" "}
+          {props.program}
         </h2>
 
-        <p style={{ fontSize: "18px" }}>
+        {/* <p style={{ fontSize: "18px" }}>
           Thank you for showing interest in the{" "}
           <span className="shecancodeParagaph">
             SheCan<span>CODE</span>
@@ -1129,8 +1164,8 @@ const Application = () => {
           </span>{" "}
           team concerning your submitted application, please email us at
           <a href="mailto: igirerwanda@gmail.com"> igirerwanda@gmail.com</a>.
-        </p>
-        {/* <FormControl fullWidth={true}>
+        </p> */}
+        <FormControl fullWidth={true}>
           <Box sx={{ width: ["100%", "95%", "95%"] }} className="box">
             <Stepper
               nonLinear
@@ -1153,7 +1188,7 @@ const Application = () => {
               {allStepsCompleted() ? (
                 <React.Fragment>
                   <Typography sx={{ mt: 2, mb: 1 }}>
-                    Thanks for Applying to SheCanCode Cohort 7. <br />
+                    Thanks for Applying to SheCanCode Cohort 8. <br />
                   </Typography>
                   <p>
                     Your Application has been received. Check your email for the
@@ -1217,7 +1252,7 @@ const Application = () => {
               )}
             </div>
           </Box>
-        </FormControl> */}
+        </FormControl>
       </div>
     </>
   );

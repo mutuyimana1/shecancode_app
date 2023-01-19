@@ -130,3 +130,10 @@
     display: block;
   }
 }
+.content {
+  /* background: #000; */
+  column-count: 2;
+  column-gap: 4rem;
+  column-rule: 1px solid gray;
+  /* hyphens: auto; */
+}
