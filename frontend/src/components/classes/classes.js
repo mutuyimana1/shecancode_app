@@ -234,7 +234,11 @@ const Classes = () => {
           // onOk={handleCancel}
           onCancel={handleCancel}
         >
-          <h2>Frontend Developer</h2>
+          <h2 style={{ textAlign: "center", padding: "10px" }}>
+            SheCanCODE-
+            <spa style={{ color: "#61dafb" }}>Web Development</spa>{" "}
+            Certification Program.
+          </h2>
           <div className="full-container">
             <div className="col-3">
               <h5>Start On</h5>
