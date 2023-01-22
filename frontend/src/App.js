@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer";
 import Cats from "./components/Cats/Cats";
 import Classes from "./components/classes/classes";
 import Application from "./components/Application/Application";
+import Navbar from "./components/navbar/navbar";
 
 import { BrowserRouter as Router, Route, Switch, link } from "react-router-dom";
 import { useContext } from "react";
@@ -22,7 +23,9 @@ function App() {
     >
       {/* ShecanCode Blog */}
       <Router>
-        <Header />
+        {/* <Header />
+         */}
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <Home />
