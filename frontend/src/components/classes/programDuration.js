@@ -1,5 +1,6 @@
 import React from "react";
 import "./duration.css";
+import certificate from "../../assets/img/certificate.jpg";
 import LoadingButton from "@mui/lab/LoadingButton";
 const Duration = () => {
   return (
@@ -146,6 +147,11 @@ const Duration = () => {
       </div>
       <div className="app_details">
         <h2 className="developTitle">Application Details</h2>
+        <p className="leftered marginBottom">
+          The total cost of the program is 600 USD and Igire Rwanda is Paying
+          75% to all selected applicants. The applicant will pay 150 USD(150K
+          RWF) for three months. Here are the details of the program fee.
+        </p>
         <div className="front_details">
           <h3>Full-Stack Web Engineer</h3>
           <div className="fees_front">
@@ -216,7 +222,7 @@ const Duration = () => {
               <p className="centered">
                 The average salary for a full stack developer in the US
               </p>
-              <p className="source marginTop">SOURCE:TALENT</p>
+              <p className="source">SOURCE:TALENT</p>
             </div>
             <div className="evans_source">
               <h2>28.7 Million</h2>
@@ -231,8 +237,8 @@ const Duration = () => {
               <h2>#2</h2>
 
               <p>
-                Projected worldwide population of professional developers by
-                2024, an increase of 4.8 million from 2019
+                PRanking of full stack engineer among the 50 Best Jobs in
+                America in 2022
               </p>
               <p className="source">SOURCE: GLASSDOOR</p>
             </div>
@@ -240,6 +246,152 @@ const Duration = () => {
           <LoadingButton variant="contained" size="large">
             Send Application
           </LoadingButton>
+        </div>
+      </div>
+      <div className="program_for">
+        <div className="programs_for">
+          <h2 className="developTitle">Who Is This Program For?</h2>
+          <ul>
+            <li>
+              <span>Career Launchers: </span>early career professionals wanting
+              to start a career in a high-growth field and gain exposure to the
+              full development lifecycle as the launch point.
+            </li>
+            <li>
+              <span>Career Builders: </span>professionals ready to build on
+              existing skills in coding, to formalize training, and earn a
+              valued certificate.
+            </li>
+            <li>
+              <span>Career Switchers: </span>mid- or later career professionals
+              looking to switch into software development from another field,
+              such as marketing, sales, operations, or any othe
+            </li>
+          </ul>
+          <div className="togetInto">
+            <div className="togetInto_frontend">
+              <h2>To Get Into Front-end Program</h2>
+              <ul>
+                <li>Apply and pass the application test.</li>
+                <li>Pass the simple Math and english text</li>
+                <li>Demonstrate interest in software engineering field.</li>
+              </ul>
+            </div>
+            <div className="togetInto_fullStack">
+              <h2>To Get Into Full-Stack Program</h2>
+              <ul>
+                <li>Have basic skills in coding.</li>
+                <li>Apply and pass the application test.</li>
+                <li>Pass the simple/ basic coding challenge </li>
+                <li>Demonstrate interest in software engineering field.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="keyTake">
+        <div className="keyTake-ways">
+          <h2 className="developTitle">Key Takeaways</h2>
+          <div className="take">
+            <ul>
+              <li>Build, test and deploy application </li>
+              <li>Build test, and deploy APIs</li>
+              <li>Build, test, deploy full stack application using react</li>
+              <li>
+                Setup continuous integration (CI) and Continous Delivery (CD)
+                pipeline to deploy react application{" "}
+              </li>
+              <li>Able to use GitHub. </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className="programTopic">
+        <div className="programTopicCont">
+          <h2 className="developTitle">Program Topics</h2>
+          <p className="leftered marginBottom">
+            This program is organized into four modules: UI/UX Design, Web
+            development, Front-End Development/React, and Back-End
+            Development.Each module builds on the next, and is designed to
+            prepare you to enter the job market as an entry-level full-stack
+            developer, or to specialize in one of these areas with further skill
+            development. The first three modules (UI/UX Design) are meant for
+            people who will attend front-end web development, while other
+            modules are geared for those who will attend full-stack software
+            engineer.
+          </p>
+          <div className="module-container">
+            <div className="module-column-1">
+              <div className="module-1">
+                <h2>Module 1: UI/UX Design</h2>
+                <p>
+                  In this course, we’ll cover the theory and methodologies
+                  behind UI and UX design. You’ll also design your own
+                  wireframes and interactive prototypes using Figma. Learning UI
+                  and UX basics can help you collaborate better on team projects
+                  and create new career opportunities.
+                </p>
+              </div>
+              <div className="module-2">
+                <h2>Module 2: Web Development</h2>
+                <p>
+                  You will develop foundational skills in web development using
+                  Javascript, HTML, and CSS. You’ll also create your own
+                  personal portfolio in GitHub, which you will add to as you
+                  progress through the program.
+                </p>
+              </div>
+              <div className="module-3">
+                <h2>Module 3: Front-End Development and React</h2>
+                <p>
+                  You will dive deep into front-end development using one of the
+                  most popular frameworks, React. You will write clean, concise
+                  code with Javascript ES6 and use these skills to work with web
+                  components in React. You will learn how to build React
+                  applications and how to test and deploy them.
+                </p>
+              </div>
+              <div className="module-4">
+                <h2>Module 4: Back-End Development</h2>
+                <p>
+                  You will work with MongoDB, ExpressJS, and NodeJS to become
+                  confident in Full-Stack Software. You will learn the
+                  essentials for working in the cloud, automated testing, and
+                  deployment for a solid foundation in DevOps
+                </p>
+              </div>
+            </div>
+          </div>
+          <LoadingButton variant="contained" size="large">
+            Send Application
+          </LoadingButton>
+        </div>
+      </div>
+      <div className="highlight">
+        <div className="highlight-pro">
+          <h2 className="developTitle marginBottom">Program Highlights</h2>
+          <div className="high-container">
+            <div className="high-column-1">
+              <img src={certificate} className="high-img" />
+              <p>Earn a Certification to recognize your skills and success</p>
+            </div>
+            <div className="high-column-2">
+              <img src={certificate} className="high-img" />
+              <p>Earn a Certification to recognize your skills and success</p>
+            </div>
+            <div className="high-column-1">
+              <img src={certificate} className="high-img" />
+              <p>Earn a Certification to recognize your skills and success</p>
+            </div>
+            <div className="high-column-1">
+              <img src={certificate} className="high-img" />
+              <p>Earn a Certification to recognize your skills and success</p>
+            </div>
+            <div className="high-column-1">
+              <img src={certificate} className="high-img" />
+              <p>Earn a Certification to recognize your skills and success</p>
+            </div>
+          </div>
         </div>
       </div>
     </>
