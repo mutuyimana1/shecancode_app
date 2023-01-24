@@ -8,7 +8,7 @@ import Footer from "./components/Footer/Footer";
 import Cats from "./components/Cats/Cats";
 import Classes from "./components/classes/classes";
 import Application from "./components/Application/Application";
-
+import LoginPage from "./components/login";
 import { BrowserRouter as Router, Route, Switch, link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
@@ -16,6 +16,7 @@ import DashboardLayout from "./components/dashboard/dashboardLayout";
 import Sidebar from "./components/dashboard/sideBar";
 import Applicants from "./components/dashboard/applicants";
 import DashboardHome from "./components/dashboard/dashboardHome";
+import SignUpPage from "./components/signUp";
 
 function App() {
   const { user } = useContext(Context);
@@ -38,8 +39,11 @@ function App() {
           <Route path="/Publish">
             <Publish />
           </Route>
-          <Route path="/Login">
-            <Login />
+          <Route path="/signin">
+            <LoginPage />
+          </Route>
+          <Route path="/signup">
+            <SignUpPage />
           </Route>
           <Route path="/Register">
             <Register />
@@ -75,6 +79,10 @@ function App() {
         <Route path="/dashhome">
           {" "}
           <DashboardHome />
+        </Route>
+        <Route path="/login">
+          {" "}
+          <Login />
         </Route>
       </Router>
     </div>

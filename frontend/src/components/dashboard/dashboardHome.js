@@ -3,6 +3,26 @@ import axios from "axios";
 import Sidebar from "./sideBar";
 
 function DashboardHome() {
+  const FirstName = "Alice";
+  const [applicants, setApplicants] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
+  const fetchApplicants = () => {
+    setIsFetching(true);
+    axios
+      .get("http://localhost:4040/apply/all")
+      .then((res) => {
+        setApplicants(res.data.data);
+        console.log(res);
+        setIsFetching(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsFetching(false);
+      });
+  };
+  useEffect(() => {
+    fetchApplicants();
+  }, []);
   return (
     <div>
       <div className="main-wrapper">
@@ -10,6 +30,7 @@ function DashboardHome() {
           <Sidebar />
           <div className="page-wrapper">
             <div className="content">
+              <h2>Welcome Dear {FirstName}</h2>
               <div className="row">
                 <div className="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                   <div
@@ -43,7 +64,7 @@ function DashboardHome() {
                       <i className="fa fa-child" />
                     </span>
                     <div className="dash-widget-info text-right">
-                      <h3>....</h3>
+                      <h3>{applicants.length}</h3>
                       <span className="widget-title2">
                         <a href="registeredbabies" style={{ color: "black" }}>
                           Applicants
@@ -91,6 +112,10 @@ function DashboardHome() {
                 </div>
               </div>
               {/*FIXME FIXME FIXME*/}
+              <div className="dash-container">
+                <h2>platform status summary</h2>
+                <hr />
+              </div>
             </div>
           </div>
         </div>

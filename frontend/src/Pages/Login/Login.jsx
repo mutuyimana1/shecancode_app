@@ -49,7 +49,7 @@ export default function Login()
               <h1 className="loginTitle">Login</h1>
               <label>Username</label>
               <input type="text" className="loginInput" placeholder="Please enter your username..."
-                 placeholder="Enter your username..."
+               
                  ref={userRef}
                
                 />
