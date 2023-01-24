@@ -1,4 +1,4 @@
-.header {
+.header_nav {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -58,7 +58,7 @@
 }
 
 @media (max-width: 600px) {
-  .header {
+  .header_nav {
     padding: 1rem;
     justify-content: space-between;
   }
