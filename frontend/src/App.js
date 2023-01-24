@@ -67,7 +67,7 @@ function App() {
           </Route>
         </Switch>
         {/* <Home/> */}
-        <Footer />
+
         <Route path="/dashboard">
           {" "}
           <DashboardLayout />
@@ -88,6 +88,7 @@ function App() {
           {" "}
           <Login />
         </Route>
+        <Footer />
       </Router>
     </div>
   );
