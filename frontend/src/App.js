@@ -9,6 +9,8 @@ import Cats from "./components/Cats/Cats";
 import Classes from "./components/classes/classes";
 import Application from "./components/Application/Application";
 import LoginPage from "./components/login";
+import Navbar from "./components/navbar/navbar";
+
 import { BrowserRouter as Router, Route, Switch, link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
@@ -27,7 +29,9 @@ function App() {
     >
       {/* ShecanCode Blog */}
       <Router>
-        {/* <Header /> */}
+        {/* <Header />
+         */}
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <Home />
@@ -63,7 +67,7 @@ function App() {
           </Route>
         </Switch>
         {/* <Home/> */}
-        {/* <Footer /> */}
+        <Footer />
         <Route path="/dashboard">
           {" "}
           <DashboardLayout />

@@ -1,0 +1,456 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+.information--condensed .box__graphic:not(.box__graphic--info),
+.information-bar-component--condensed .box__graphic:not(.box__graphic--info) {
+  height: 3.8rem;
+  width: 3.8rem;
+}
+
+li .fee {
+  font-weight: 600;
+  display: inline-block;
+}
+.take {
+  text-align: left;
+}
+.take ul li {
+  margin-bottom: 1.25rem;
+}
+.price {
+  display: flex;
+  align-items: flex-start;
+  /* background-color: black; */
+  justify-content: center;
+  /* height: 8rem; */
+  padding: 0rem 2rem;
+  gap: 1rem;
+}
+.column-1,
+.column-2,
+.column-3,
+.frontend_fees {
+  /* background-color: red; */
+  padding: 0rem 1rem;
+}
+
+.column-1,
+.column-2,
+.frontend_fees {
+  border-right: 1px solid white;
+  height: 100%;
+}
+.program_fees {
+  display: flex;
+  gap: 1rem;
+}
+.start-time {
+  display: flex;
+
+  gap: 1rem;
+}
+.program_fees h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.program_fees ul li {
+  font-size: 1rem;
+}
+
+.start-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+.start-container p {
+  font-size: 1.4rem;
+}
+.start-container span {
+  display: block;
+}
+.program_fees span {
+  display: inline;
+}
+
+.talent_source h2,
+.evans_source h2,
+.glassdoor_source h2 {
+  color: #29abe2;
+  font-size: 2.938rem;
+  font-weight: 700;
+  line-height: 1.16;
+  margin-bottom: 0.625rem;
+}
+
+.develp {
+  background: #f3f3f3;
+  padding: 3rem;
+}
+.app_details,
+.program_for,
+.programTopic,
+.highlight {
+  background-color: white;
+  padding: 3rem;
+}
+.developFuture,
+.app_details,
+.launch-career,
+.programs_for,
+.keyTake-ways,
+.programTopicCont,
+.highlight-pro {
+  max-width: 1140px;
+  margin: 0 auto;
+  text-align: center;
+}
+.developTitle {
+  font-size: 2.1rem;
+  display: block;
+  font-weight: 700;
+  line-height: normal !important;
+  margin-bottom: 1.6rem;
+  /* margin-bottom: 1.5rem; */
+}
+.developFuture p,
+.launch-career p,
+.career-price p,
+.app_details p,
+.programTopicCont,
+.high-container {
+  font-size: 1.125rem;
+  font-family: "Roboto", arial, sans-serif;
+  color: #333;
+  /* background-color: red; */
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.leftered {
+  text-align: left;
+}
+.marginBottom {
+  margin-bottom: 1.5rem;
+}
+/* .launch-career p {
+  text-align: left;
+} */
+
+.career-price .source {
+  color: #999;
+  font-size: 0.8rem;
+}
+.marginTop {
+  margin: 1.5rem;
+}
+
+.launch,
+.keyTake {
+  padding: 3rem;
+  background-color: #f3f3f3;
+}
+.front_details {
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  /* #29abe2 */
+  position: relative;
+  background-color: #29aae23b;
+}
+.back_details {
+  padding: 1.5rem;
+  /* #29abe2 */
+  position: relative;
+  background-color: #f3f3f3;
+}
+.front_details::before {
+  content: "Save 25%";
+  position: absolute;
+  top: 25%;
+  left: -4%;
+  color: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.303);
+  background-color: #29abe2;
+  padding: 0.6rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+.back_details::before {
+  content: "Save 100%";
+  position: absolute;
+  top: 25%;
+  right: -4%;
+  color: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.303);
+  background-color: red;
+  padding: 0.6rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
+.front_details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: right;
+}
+.back_details h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  text-align: left;
+}
+.fee-p {
+  color: #777879 !important;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+}
+.fees-p {
+  color: #333 !important;
+  font-size: 1rem !important;
+  text-align: center;
+  font-weight: 400;
+}
+.fees_front {
+  display: flex;
+  /* background-color: green; */
+  align-items: center;
+  gap: 3rem;
+  justify-content: flex-end;
+}
+.fees-back {
+  display: flex;
+  /* background-color: green; */
+  align-items: center;
+  gap: 3rem;
+  justify-content: flex-start;
+}
+.fees_front h4,
+.fees-back h4 {
+  font-weight: 700;
+  /* color: red; */
+  margin-bottom: 0.5rem;
+}
+
+strike {
+  font-size: 1rem !important;
+  color: #555 !important;
+}
+.fronts {
+  background-color: #f3f3f3;
+}
+.career-price {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+}
+.talent_source,
+.evans_source {
+  border-right: 1px solid #ccc;
+}
+.margin-bottom {
+  margin-bottom: 1.875rem !important;
+}
+
+.talent_source,
+.evans_source,
+.glassdoor_source {
+  padding: 0 1.563rem;
+  width: 100%;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
+.programs_for ul li {
+  margin-bottom: 1.25rem;
+  font-size: 1.125rem;
+  line-height: 1.45;
+  font-weight: 400;
+  text-align: left;
+}
+.programs_for span {
+  font-weight: bold;
+}
+.togetInto {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  grid-gap: 0rem;
+  gap: 0rem;
+  /* padding: 0rem 4rem; */
+}
+.togetInto ul {
+  list-style-type: square;
+}
+.togetInto ul li {
+  margin-bottom: 1rem;
+}
+.togetInto_frontend {
+  padding: 0 1.563rem;
+}
+.programs_for .carr li:last-child {
+  margin-bottom: 1.875rem;
+}
+.togetInto_frontend h2,
+.togetInto_fullStack h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+.togetInto_fullStack {
+  border-right: 1px solid #ccc;
+  padding: 0 1.563rem;
+}
+.module-column-1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: left;
+  gap: 1.875rem;
+}
+.module-4 {
+  margin-bottom: 1.875rem;
+}
+.module-column-1 p {
+  margin-bottom: 0;
+}
+.module-column-1 h2 {
+  font-size: 1.2rem;
+}
+.high-img {
+  width: 5.2rem;
+  margin-bottom: 1.5rem;
+}
+.high-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 992px) {
+  .career-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .togetInto {
+    padding: 0;
+  }
+  .talent_source,
+  .evans_source {
+    border-right: none;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+}
+@media (max-width: 900px) {
+  .fees_front,
+  .fees-back {
+    margin-top: 15%;
+    gap: 0.8rem;
+  }
+
+  .column-1,
+  .column-2,
+  .column-3 {
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .launch,
+  .keyTake,
+  .app_details,
+  .program_for,
+  .programTopic,
+  .highlight,
+  .develp {
+    padding: 3rem 1rem;
+  }
+  .module-column-1 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+  .togetInto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0;
+  }
+  .togetInto_fullStack {
+    border-left: none;
+  }
+  .togetInto_frontend {
+    border-bottom: 1px solid #ccc;
+  }
+  .price {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0;
+  }
+  .column-1,
+  .column-2,
+  .column-3 {
+    padding: 0 1rem;
+  }
+  .column-1,
+  .column-2 {
+    width: 100%;
+
+    border-right: none;
+    display: block;
+    border-bottom: 1px solid white;
+    height: 100%;
+  }
+}
+@media (max-width: 570px) {
+  .app_details {
+    padding: 0.8rem;
+  }
+}
+@media (max-width: 500px) {
+  .developFuture {
+    text-align: left;
+  }
+  .front_details::before {
+    top: 18%;
+    padding: 0.4rem 2rem;
+  }
+  .back_details::before {
+    top: 18%;
+    padding: 0.4rem 2rem;
+  }
+  .program_fees {
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+  }
+  .frontend_fees {
+    border-right: none;
+  }
+}
+@media (max-width: 370px) {
+  .front_details::before {
+    top: 12%;
+    padding: 0.4rem 2rem;
+  }
+  .fees_front {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .back_details::before {
+    top: 10%;
+    padding: 0.4rem 2rem;
+  }
+  .fees-back {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
