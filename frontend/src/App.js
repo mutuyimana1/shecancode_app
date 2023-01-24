@@ -12,6 +12,10 @@ import Application from "./components/Application/Application";
 import { BrowserRouter as Router, Route, Switch, link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
+import DashboardLayout from "./components/dashboard/dashboardLayout";
+import Sidebar from "./components/dashboard/sideBar";
+import Applicants from "./components/dashboard/applicants";
+import DashboardHome from "./components/dashboard/dashboardHome";
 
 function App() {
   const { user } = useContext(Context);
@@ -22,7 +26,7 @@ function App() {
     >
       {/* ShecanCode Blog */}
       <Router>
-        <Header />
+        {/* <Header /> */}
         <Switch>
           <Route exact path="/">
             <Home />
@@ -55,7 +59,23 @@ function App() {
           </Route>
         </Switch>
         {/* <Home/> */}
-        <Footer />
+        {/* <Footer /> */}
+        <Route path="/dashboard">
+          {" "}
+          <DashboardLayout />
+        </Route>
+        <Route path="/applicants">
+          {" "}
+          <Applicants />
+        </Route>
+        <Route path="/side">
+          {" "}
+          <Sidebar />
+        </Route>
+        <Route path="/dashhome">
+          {" "}
+          <DashboardHome />
+        </Route>
       </Router>
     </div>
   );

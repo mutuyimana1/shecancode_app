@@ -233,6 +233,7 @@ const Classes = () => {
           onOk={handleOk}
           // onOk={handleCancel}
           onCancel={handleCancel}
+          cancelButtonProps={{ style: { display: "none" } }}
         >
           <h2 style={{ textAlign: "center", padding: "10px" }}>
             SheCanCODE-
@@ -275,7 +276,7 @@ const Classes = () => {
               </ul>
             </div>
             <div>
-              <h6>why This Program? </h6>
+              <h6>Why This Program? </h6>
               <p>
                 Individuals who choose to join our program are <br />
                 looking to become developers.
@@ -306,12 +307,6 @@ const Classes = () => {
               </ul>
             </div>
           </div>
-          <div className="button">
-            <Button variant="contained"> Disagree</Button>
-            <Button variant="contained" style={{ marginLeft: "50px" }}>
-              Agree
-            </Button>
-          </div>
         </Modal>
         <Modal
           visible={modalFullStack}
@@ -320,7 +315,8 @@ const Classes = () => {
           onOk={handleOkay}
           onClose={handleCancel}
           // onOk={handleCancel}
-          onCancel={handleCancels}
+          onCancel={handleCancel}
+          cancelButtonProps={{ style: { display: "none" } }}
         >
           <h2 style={{ textAlign: "center", padding: "10px" }}>
             Full stack <spa style={{ color: "#61dafb" }}>developer</spa>
@@ -390,12 +386,6 @@ const Classes = () => {
                 </li>
               </ul>
             </div>
-          </div>
-          <div className="button">
-            <Button variant="contained"> Disagree</Button>
-            <Button variant="contained" style={{ marginLeft: "50px" }}>
-              Agree
-            </Button>
           </div>
         </Modal>
       </div>
