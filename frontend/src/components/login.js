@@ -36,14 +36,17 @@ function LoginPage() {
           <div className="col-sm-6 part-login">
             <h2>SignUp</h2>
             <p>
-              To register a new NUCLEUS account. Note: Once you have created a
-              NUCLEUS Account, you cannot change your username or email address
+              To register a new shecancode account. Note: Once you have created
+              a shecancode Account, you cannot change your username or email
+              address
             </p>
             <Button
               variant="outlined"
-              sx={{ color: "white", borderColor: "white", marginLeft: "120px" }}
+              sx={{ borderColor: "white", marginLeft: "120px" }}
             >
-              Sign-Up
+              <a href="/signup" style={{ color: "white" }}>
+                Sign-Up
+              </a>
             </Button>
           </div>
         </div>

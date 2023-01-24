@@ -51,9 +51,15 @@ function SignUpPage() {
             </p>
             <Button
               variant="outlined"
-              sx={{ color: "white", borderColor: "white", marginLeft: "120px" }}
+              sx={{
+                borderColor: "white",
+                marginLeft: "120px",
+                marginTop: "60px",
+              }}
             >
-              SignIn
+              <a href="/signin" style={{ color: "white" }}>
+                SignIn
+              </a>
             </Button>
           </div>
         </div>
