@@ -147,7 +147,7 @@ const Duration = () => {
       </div>
       <div className="app_details">
         <h2 className="developTitle">Application Details</h2>
-        <p className="leftered marginBottom">
+        <p className="leftered">
           The total cost of the program is 600 USD and Igire Rwanda is Paying
           75% to all selected applicants. The applicant will pay 150 USD(150K
           RWF) for three months. Here are the details of the program fee.
@@ -156,21 +156,21 @@ const Duration = () => {
           <h3>Full-Stack Web Engineer</h3>
           <div className="fees_front">
             <div className="fee-column1">
-              <p className="fee-p">Registration FEE</p>
+              <p className="fee-p">Registration fee</p>
               <h4>US$25</h4>
-              <p className="fees-p">Paid when you're admitted</p>
+              <p className="fees-p">Pay after being admitted</p>
             </div>
             <div className="fee-column2">
-              <p className="fee-p">Examen Certificate FEE</p>
+              <p className="fee-p">Examination certificate fee</p>
               <h4>US$40</h4>
-              <p className="fees-p">Paid before graduating</p>
+              <p className="fees-p">Pay before graduating</p>
             </div>
             <div className="fee-column3">
               <p className="fee-p">PROGRAM FEE</p>
               <h4>
                 <strike>US$ 600 </strike> <span>US$150</span>
               </h4>
-              <p className="fees-p">Paid in trash</p>
+              <p className="fees-p">Pay in trash</p>
             </div>
           </div>
         </div>
@@ -179,14 +179,14 @@ const Duration = () => {
           <h3>Front-end Web Dev</h3>
           <div className="fees-back">
             <div className="fee-column1">
-              <p className="fee-p">Registration FEE</p>
+              <p className="fee-p">Registration fee</p>
               <h4>US$25</h4>
-              <p className="fees-p">Paid when you're admitted</p>
+              <p className="fees-p">Pay after being admitted</p>
             </div>
             <div className="fee-column2">
-              <p className="fee-p">Examen Certificate FEE</p>
+              <p className="fee-p">Examination certificate fee</p>
               <h4>US$40</h4>
-              <p className="fees-p">Paid before graduating</p>
+              <p className="fees-p">Pay before graduating</p>
             </div>
             <div className="fee-column3">
               <p className="fee-p">PROGRAM FEE</p>
@@ -201,13 +201,13 @@ const Duration = () => {
           <h2 className="developTitle">
             We Help You Launch Your Coding Career{" "}
           </h2>
-          <p className="leftered">
+          <p className="leftered  margin-bottom">
             A growing number of companies are hiring web developers, software
             engineers, and other technology workers who use technical skills to
             streamline their operations and leverage the power of technology
             within their organizations.
-          </p>
-          <p className="leftered">
+            <br />
+            <br />
             Businesses around the globe are searching for the very best talent
             when it comes to programming experts and computer experts. Enrolling
             in a coding boot camp is an excellent option if you’re looking to
@@ -217,12 +217,13 @@ const Duration = () => {
 
           <div className="career-price">
             <div className="talent_source">
-              <h2>$111,499</h2>
+              <h2>RWF 667,000</h2>
 
-              <p className="centered">
-                The average salary for a full stack developer in the US
+              <p>
+                A person working as a Full Stack Developer in Rwanda typically
+                earns around 667,000 RWF per month.
               </p>
-              <p className="source">SOURCE:TALENT</p>
+              <p className="source">SOURCE:SALARY EXPLORER</p>
             </div>
             <div className="evans_source">
               <h2>28.7 Million</h2>
@@ -237,10 +238,10 @@ const Duration = () => {
               <h2>#2</h2>
 
               <p>
-                PRanking of full stack engineer among the 50 Best Jobs in
-                America in 2022
+                Software engineers is one of the highest paying jobs in the
+                world and they work in almost all sectors.
               </p>
-              <p className="source">SOURCE: GLASSDOOR</p>
+              <p className="source">SOURCE: GREAT LEARNING</p>
             </div>
           </div>
           <LoadingButton variant="contained" size="large">
@@ -251,38 +252,37 @@ const Duration = () => {
       <div className="program_for">
         <div className="programs_for">
           <h2 className="developTitle">Who Is This Program For?</h2>
-          <ul>
+          <ul className="carr">
             <li>
-              <span>Career Launchers: </span>early career professionals wanting
-              to start a career in a high-growth field and gain exposure to the
-              full development lifecycle as the launch point.
+              Career Launchers: early career professionals wanting to start a
+              career in a high-growth field and gain exposure to the full
+              development lifecycle as the launch point.
             </li>
             <li>
-              <span>Career Builders: </span>professionals ready to build on
-              existing skills in coding, to formalize training, and earn a
-              valued certificate.
+              Career Builders: professionals ready to build on existing skills
+              in coding, to formalize training, and earn a valued certificate.
             </li>
             <li>
-              <span>Career Switchers: </span>mid- or later career professionals
-              looking to switch into software development from another field,
-              such as marketing, sales, operations, or any othe
+              Career Switchers: mid- or later career professionals looking to
+              switch into software development from another field, such as
+              marketing, sales, operations, or any othe
             </li>
           </ul>
           <div className="togetInto">
-            <div className="togetInto_frontend">
-              <h2>To Get Into Front-end Program</h2>
-              <ul>
-                <li>Apply and pass the application test.</li>
-                <li>Pass the simple Math and english text</li>
-                <li>Demonstrate interest in software engineering field.</li>
-              </ul>
-            </div>
             <div className="togetInto_fullStack">
               <h2>To Get Into Full-Stack Program</h2>
               <ul>
                 <li>Have basic skills in coding.</li>
                 <li>Apply and pass the application test.</li>
                 <li>Pass the simple/ basic coding challenge </li>
+                <li>Demonstrate interest in software engineering field.</li>
+              </ul>
+            </div>
+            <div className="togetInto_frontend">
+              <h2>To Get Into Front-end Program</h2>
+              <ul>
+                <li>Apply and pass the application test.</li>
+                <li>Pass the simple Math and english text</li>
                 <li>Demonstrate interest in software engineering field.</li>
               </ul>
             </div>
@@ -293,7 +293,7 @@ const Duration = () => {
         <div className="keyTake-ways">
           <h2 className="developTitle">Key Takeaways</h2>
           <div className="take">
-            <ul>
+            <ul type="circle">
               <li>Build, test and deploy application </li>
               <li>Build test, and deploy APIs</li>
               <li>Build, test, deploy full stack application using react</li>
@@ -309,7 +309,7 @@ const Duration = () => {
       <div className="programTopic">
         <div className="programTopicCont">
           <h2 className="developTitle">Program Topics</h2>
-          <p className="leftered marginBottom">
+          <p className="leftered margin-bottom">
             This program is organized into four modules: UI/UX Design, Web
             development, Front-End Development/React, and Back-End
             Development.Each module builds on the next, and is designed to
