@@ -387,10 +387,6 @@ const Duration = () => {
               <img src={certificate} className="high-img" />
               <p>Earn a Certification to recognize your skills and success</p>
             </div>
-            <div className="high-column-1">
-              <img src={certificate} className="high-img" />
-              <p>Earn a Certification to recognize your skills and success</p>
-            </div>
           </div>
         </div>
       </div>
