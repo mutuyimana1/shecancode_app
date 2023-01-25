@@ -185,7 +185,7 @@ const Classes = () => {
     }
   };
   return (
-    <div className="class-container">
+    <div className="class-container" id="apply">
       <div className="home-container">
         <div className="home-content">
           <div className="program-container">

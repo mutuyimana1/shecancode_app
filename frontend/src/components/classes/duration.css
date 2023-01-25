@@ -321,11 +321,18 @@ strike {
 }
 .high-img {
   width: 5.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 .high-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.875rem;
+  justify-content: space-around;
+}
+.high-column-4 {
+  width: 30%;
 }
 @media (max-width: 992px) {
   .career-price {
@@ -365,13 +372,17 @@ strike {
   .program_for,
   .programTopic,
   .highlight,
-  .develp {
+  .develp,
+  .highlight {
     padding: 3rem 1rem;
   }
   .module-column-1 {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
+  }
+  .developTitle {
+    font-size: 1.5rem;
   }
   .togetInto {
     display: flex;
