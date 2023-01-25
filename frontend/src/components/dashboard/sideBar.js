@@ -42,10 +42,10 @@ function Sidebar() {
                 </a>
                 <ul style={{ display: "none" }}>
                   <li>
-                    <a href="/registeredbabies">web development</a>
+                    <a href="/frontend">web development</a>
                   </li>
                   <li>
-                    <a href="/addbaby">Full stack</a>
+                    <a href="/fullstack">Full stack</a>
                   </li>
                 </ul>
               </li>

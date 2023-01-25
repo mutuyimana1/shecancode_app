@@ -46,6 +46,11 @@ const Navbar = () => {
             Apply
           </a>
         </li>
+        <li>
+          <a href="/signin" className="nav_link">
+            Login
+          </a>
+        </li>
       </ul>
     </div>
   );

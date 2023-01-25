@@ -85,7 +85,7 @@ function DashboardHome() {
                       <h3>....</h3>
                       <span className="widget-title3">
                         <a href="/parents" style={{ color: "black" }}>
-                          Applicant history
+                          Web Development Applicants
                         </a>{" "}
                       </span>
                     </div>
@@ -104,7 +104,7 @@ function DashboardHome() {
                       <span className="widget-title4">
                         {" "}
                         <a href="/hospitals" style={{ color: "black" }}>
-                          Report
+                          FullStack Applicants
                         </a>{" "}
                       </span>
                     </div>

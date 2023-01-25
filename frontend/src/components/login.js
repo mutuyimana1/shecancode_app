@@ -28,7 +28,10 @@ function LoginPage() {
               sx={{ marginBottom: "30px" }}
             />{" "}
             <div className="buttons">
-              <Button variant="contained">Login</Button>
+              <Button variant="contained">
+                {" "}
+                <a href="/dashHome">Login</a>
+              </Button>
 
               <a>Forget password?</a>
             </div>

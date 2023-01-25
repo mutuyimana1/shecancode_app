@@ -120,14 +120,20 @@ function Applicants() {
       <Sidebar />
       <div className="page-wrapper">
         <div className="content">
-          <Table
-            columns={columns}
-            dataSource={applicants}
-            scroll={{
-              x: 1500,
-              y: 300,
-            }}
-          />
+          {isFetching ? (
+            <CircularProgress
+              style={{ marginTop: "100px", marginLeft: "120px" }}
+            />
+          ) : (
+            <Table
+              columns={columns}
+              dataSource={applicants}
+              scroll={{
+                x: 1500,
+                y: 300,
+              }}
+            />
+          )}
         </div>
       </div>
     </div>

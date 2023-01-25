@@ -19,6 +19,8 @@ import Sidebar from "./components/dashboard/sideBar";
 import Applicants from "./components/dashboard/applicants";
 import DashboardHome from "./components/dashboard/dashboardHome";
 import SignUpPage from "./components/signUp";
+import FrontendApplicant from "./components/dashboard/frontendApplicants";
+import FullStackApplicants from "./components/dashboard/fullStackApplicants";
 
 function App() {
   const { user } = useContext(Context);
@@ -31,7 +33,7 @@ function App() {
       <Router>
         {/* <Header />
          */}
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
           <Route exact path="/">
             <Home />
@@ -76,6 +78,10 @@ function App() {
           {" "}
           <Applicants />
         </Route>
+        <Route path="/fullstack">
+          {" "}
+          <FullStackApplicants />
+        </Route>
         <Route path="/side">
           {" "}
           <Sidebar />
@@ -84,11 +90,15 @@ function App() {
           {" "}
           <DashboardHome />
         </Route>
+        <Route path="/frontend">
+          {" "}
+          <FrontendApplicant />
+        </Route>
         <Route path="/login">
           {" "}
           <Login />
         </Route>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );

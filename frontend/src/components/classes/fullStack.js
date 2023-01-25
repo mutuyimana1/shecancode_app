@@ -1,30 +1,31 @@
 import React from "react";
+import "./classes.css";
 const FullStack = () => {
   return (
     <div className="fullStack-container">
       <h2 style={{ textAlign: "center", padding: "10px" }}>
         Full stack <spa style={{ color: "#61dafb" }}>developer</spa>
       </h2>
-      <div className="full-container">
-        <div className="col-3">
-          <h5>Start On</h5>
+      <div className="row">
+        <div className="col-sm-3">
+          <h4>Start On</h4>
           <p>February 05</p>
         </div>
-        <div className="col-3">
-          <h5>Duration</h5>
+        <div className="col-sm-3">
+          <h4>Duration</h4>
           <p>16 weeks</p>
         </div>
-        <div className="col-3">
-          <h5>Program Fees</h5>
+        <div className="col-sm-3">
+          <h4>Program Fees</h4>
           <p>600 USD</p>
         </div>
-        <div className="col-3">
-          <h5>Scholarship</h5>
+        <div className="col-sm-3">
+          <h4>Scholarship</h4>
           <p>70%</p>
         </div>
       </div>
       <div className="all-container">
-        <div style={{ width: "25%" }} className="content-container">
+        <div className="content-container">
           <h6>Program Topics</h6>
           <ul>
             <li>Module One</li>
@@ -43,7 +44,7 @@ const FullStack = () => {
             <li>Demonstrate interest in software engineering field.</li>
           </ul>
         </div>
-        <div>
+        <div className="why-program">
           <h6>Program fee and Payment plan. </h6>
           <p>
             The total cost of the program is 600 USD and <br />
@@ -53,7 +54,7 @@ const FullStack = () => {
             <br /> details of the program fee.
           </p>
         </div>
-        <div>
+        <div className="why-program">
           <h6>Here is detail for program fee</h6>
           <ul>
             <li>

@@ -23,6 +23,8 @@ import imagesOne from "../../assets/img/IMG-20221210-WA0003.jpg";
 import imageTwo from "../../assets/img/IMG-20221210-WA0013.jpg";
 import MuiAlert from "@mui/material/Alert";
 import Duration from "./programDuration";
+import Navbar from "../navbar/navbar";
+import Footer from "../Footer/Footer";
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -185,239 +187,244 @@ const Classes = () => {
     }
   };
   return (
-    <div className="class-container">
-      <div className="home-container">
-        <div className="home-content">
-          <div className="program-container">
-            <h1>Professional Certificate in Coding:</h1>
-            <ul className="ul_links">
-              <li>Full Stack Software Engineer</li>
-              <li>Frontend Web Development </li>
-            </ul>
-            <p className="paragraph">
-              Gain hands-on coding skills, for a competitive market edge.
-            </p>
-          </div>
-          <div className="applied-form">
-            <div className="form form-class">
-              <p className="apply-for">Apply For </p>
-              <form fullWidth={true}>
-                <Box
-                  className="form__box"
-                  sx={{
-                    "& > :not(style)": { m: 1, width: "100%" },
-                  }}
-                  noValidate={false}
-                  autoComplete="off"
-                >
-                  <TextField
-                    required
-                    value={firstName}
-                    id="outlined-basic"
-                    label="FirstName"
-                    variant="outlined"
-                    InputProps={{ style: { fontSize: 18 } }}
-                    InputLabelProps={{ style: { fontSize: 18 } }}
-                    onChange={(e) => setFirstName(e.target.value)}
-                  />
-                </Box>
-                <Box
-                  className="form__box"
-                  sx={{
-                    "& > :not(style)": { m: 1, width: "100%" },
-                  }}
-                  noValidate
-                  autoComplete="off"
-                >
-                  <TextField
-                    required
-                    id="outlined-basic"
-                    label="LastName"
-                    variant="outlined"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                  />
-                </Box>
-                <Box
-                  className="form__box"
-                  sx={{
-                    "& > :not(style)": { m: 1, width: "100%" },
-                  }}
-                  noValidate
-                  autoComplete="off"
-                >
-                  <TextField
-                    required
-                    id="outlined-basic"
-                    label="Email"
-                    variant="outlined"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </Box>
-                <Box
-                  component="form"
-                  sx={{
-                    "& .MuiTextField-root": { m: 1, width: "100%" },
-                  }}
-                  noValidate
-                  autoComplete="off"
-                >
-                  <TextField
-                    id="outlined-select-occupation"
-                    select
-                    label="Select Your Education level"
-                    value={education}
-                    onChange={(e) => setEducation(e.target.value)}
-                  >
-                    {educations.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                </Box>{" "}
-                <Box
-                  className="form__box"
-                  sx={{
-                    "& > :not(style)": { m: 1, width: "100%" },
-                  }}
-                  noValidate={false}
-                  autoComplete="off"
-                >
-                  <PhoneInput
-                    country={"rw"}
-                    required
-                    containerClass="phone-container"
-                    inputStyle={{
-                      width: "100%",
-                      height: "40px",
-                      borderRadius: "2px",
-                      border: "1px solid #dedede",
-                    }}
-                    value={phone}
-                    onChange={(e) => setPhone(e)}
-                    placeholder="+250 78* 000 000"
-                  />
-                </Box>
-                <Box
-                  component="form"
-                  sx={{
-                    "& .MuiTextField-root": { m: 1, width: "100%" },
-                  }}
-                  noValidate
-                  autoComplete="off"
-                >
-                  <TextField
-                    id="outlined-select-occupation"
-                    select
-                    label="Select your choice Class"
-                    value={clas}
-                    onChange={(e) => setClas(e.target.value)}
-                  >
-                    {classez.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                </Box>{" "}
-                <RadioGroup
-                  className="form__box"
-                  row
-                  required
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
-                  defaultValue="female"
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
-                >
-                  <FormControlLabel
-                    value="female"
-                    control={<Radio />}
-                    label="Female"
-                  />
-                  <FormControlLabel
-                    value="male"
-                    control={<Radio />}
-                    disabled={clas == "Frontend Web Development"}
-                    label="Male"
-                  />
+    <>
+      <Navbar />
 
-                  {/* <FormControlLabel
+      <div className="class-container">
+        <div className="home-container">
+          <div className="home-content">
+            <div className="program-container">
+              <h1>Professional Certificate in Coding:</h1>
+              <ul className="ul_links">
+                <li>Full Stack Software Engineer</li>
+                <li>Frontend Web Development </li>
+              </ul>
+              <p className="paragraph">
+                Gain hands-on coding skills, for a competitive market edge.
+              </p>
+            </div>
+            <div className="applied-form">
+              <div className="form form-class">
+                <p className="apply-for">Apply For </p>
+                <form fullWidth={true}>
+                  <Box
+                    className="form__box"
+                    sx={{
+                      "& > :not(style)": { m: 1, width: "100%" },
+                    }}
+                    noValidate={false}
+                    autoComplete="off"
+                  >
+                    <TextField
+                      required
+                      value={firstName}
+                      id="outlined-basic"
+                      label="FirstName"
+                      variant="outlined"
+                      InputProps={{ style: { fontSize: 18 } }}
+                      InputLabelProps={{ style: { fontSize: 18 } }}
+                      onChange={(e) => setFirstName(e.target.value)}
+                    />
+                  </Box>
+                  <Box
+                    className="form__box"
+                    sx={{
+                      "& > :not(style)": { m: 1, width: "100%" },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                  >
+                    <TextField
+                      required
+                      id="outlined-basic"
+                      label="LastName"
+                      variant="outlined"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
+                    />
+                  </Box>
+                  <Box
+                    className="form__box"
+                    sx={{
+                      "& > :not(style)": { m: 1, width: "100%" },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                  >
+                    <TextField
+                      required
+                      id="outlined-basic"
+                      label="Email"
+                      variant="outlined"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </Box>
+                  <Box
+                    component="form"
+                    sx={{
+                      "& .MuiTextField-root": { m: 1, width: "100%" },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                  >
+                    <TextField
+                      id="outlined-select-occupation"
+                      select
+                      label="Select Your Education level"
+                      value={education}
+                      onChange={(e) => setEducation(e.target.value)}
+                    >
+                      {educations.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                  </Box>{" "}
+                  <Box
+                    className="form__box"
+                    sx={{
+                      "& > :not(style)": { m: 1, width: "100%" },
+                    }}
+                    noValidate={false}
+                    autoComplete="off"
+                  >
+                    <PhoneInput
+                      country={"rw"}
+                      required
+                      containerClass="phone-container"
+                      inputStyle={{
+                        width: "100%",
+                        height: "40px",
+                        borderRadius: "2px",
+                        border: "1px solid #dedede",
+                      }}
+                      value={phone}
+                      onChange={(e) => setPhone(e)}
+                      placeholder="+250 78* 000 000"
+                    />
+                  </Box>
+                  <Box
+                    component="form"
+                    sx={{
+                      "& .MuiTextField-root": { m: 1, width: "100%" },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                  >
+                    <TextField
+                      id="outlined-select-occupation"
+                      select
+                      label="Select your choice Class"
+                      value={clas}
+                      onChange={(e) => setClas(e.target.value)}
+                    >
+                      {classez.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                  </Box>{" "}
+                  <RadioGroup
+                    className="form__box"
+                    row
+                    required
+                    aria-labelledby="demo-row-radio-buttons-group-label"
+                    name="row-radio-buttons-group"
+                    defaultValue="female"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
+                  >
+                    <FormControlLabel
+                      value="female"
+                      control={<Radio />}
+                      label="Female"
+                    />
+                    <FormControlLabel
+                      value="male"
+                      control={<Radio />}
+                      disabled={clas == "Frontend Web Development"}
+                      label="Male"
+                    />
+
+                    {/* <FormControlLabel
                   value="other"
                   control={<Radio />}
                   label="Other"
                   disabled
                 /> */}
-                </RadioGroup>
-                <Box
-                  component="form"
-                  sx={{
-                    "& .MuiTextField-root": { m: 1, width: "100%" },
-                  }}
-                  noValidate
-                  autoComplete="off"
-                >
-                  <TextField
-                    id="outlined-select-occupation"
-                    select
-                    label="When is the best time to study?"
-                    value={day}
-                    onChange={(e) => setDay(e.target.value)}
+                  </RadioGroup>
+                  <Box
+                    component="form"
+                    sx={{
+                      "& .MuiTextField-root": { m: 1, width: "100%" },
+                    }}
+                    noValidate
+                    autoComplete="off"
                   >
-                    {program.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                </Box>{" "}
-                <FormControlLabel
-                  disabled={!clas}
-                  onClick={() => {}}
-                  control={<Checkbox onChange={handleChange} />}
-                  label="By clicking on this you agree to follow the following conditions"
-                />
-                <LoadingButton
-                  loading={loading}
-                  variant="contained"
-                  fullWidth
-                  size="large"
-                  disabled={!checked}
-                  onClick={handleSubmitApplication}
-                >
-                  Send Application
-                </LoadingButton>
-              </form>
+                    <TextField
+                      id="outlined-select-occupation"
+                      select
+                      label="When is the best time to study?"
+                      value={day}
+                      onChange={(e) => setDay(e.target.value)}
+                    >
+                      {program.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                  </Box>{" "}
+                  <FormControlLabel
+                    disabled={!clas}
+                    onClick={() => {}}
+                    control={<Checkbox onChange={handleChange} />}
+                    label="By clicking on this you agree to follow the following conditions"
+                  />
+                  <LoadingButton
+                    loading={loading}
+                    variant="contained"
+                    fullWidth
+                    size="large"
+                    disabled={!checked}
+                    onClick={handleSubmitApplication}
+                  >
+                    Send Application
+                  </LoadingButton>
+                </form>
+              </div>
             </div>
           </div>
         </div>
+        <Duration />
+        <Modal
+          visible={modalFrontend}
+          width="95%"
+          // footer={null}
+          onOk={handleOk}
+          // onOk={handleCancel}
+          onCancel={handleCancel}
+          cancelButtonProps={{ style: { display: "none" } }}
+        >
+          <Frontend />
+        </Modal>
+        <Modal
+          visible={modalFullStack}
+          width="95%"
+          // footer={null}
+          onOk={handleOkay}
+          // onOk={handleCancel}
+          onCancel={handleCancels}
+          cancelButtonProps={{ style: { display: "none" } }}
+        >
+          <FullStack />
+        </Modal>
       </div>
-      <Duration />
-      <Modal
-        visible={modalFrontend}
-        width="95%"
-        // footer={null}
-        onOk={handleOk}
-        // onOk={handleCancel}
-        onCancel={handleCancel}
-        cancelButtonProps={{ style: { display: "none" } }}
-      >
-        <Frontend />
-      </Modal>
-      <Modal
-        visible={modalFullStack}
-        width="95%"
-        // footer={null}
-        onOk={handleOkay}
-        // onOk={handleCancel}
-        onCancel={handleCancels}
-        cancelButtonProps={{ style: { display: "none" } }}
-      >
-        <FullStack />
-      </Modal>
-    </div>
+      <Footer />
+    </>
   );
 };
 export default Classes;
