@@ -27,9 +27,9 @@ function App() {
          */}
         <Navbar />
         <Switch>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Home />
-          </Route>
+          </Route> */}
           <Route path="/Single">
             {" "}
             <Single />
@@ -53,7 +53,7 @@ function App() {
           <Route path="/Apply/fullstack">
             <Application program=" Full-Stack Software Engineers" />
           </Route>
-          <Route path="/program">
+          <Route path="/">
             <Classes />
           </Route>
         </Switch>
