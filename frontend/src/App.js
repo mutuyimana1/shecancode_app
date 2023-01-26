@@ -4,7 +4,7 @@ import Single from "./Pages/Single/Single";
 import Publish from "./Pages/Publish/Publish";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/footerLayer/footerLayer";
 import Cats from "./components/Cats/Cats";
 import Classes from "./components/classes/classes";
 import Application from "./components/Application/Application";

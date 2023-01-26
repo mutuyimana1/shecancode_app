@@ -32,6 +32,10 @@ li .fee {
   /* background-color: red; */
   padding: 0rem 1rem;
 }
+.rwf {
+  color: #777879;
+  font-size: 1rem;
+}
 
 .column-1,
 .column-2,
@@ -437,6 +441,10 @@ strike {
     top: 18%;
     padding: 0.4rem 2rem;
   }
+  .front_details::before {
+    top: 10%;
+    padding: 0.4rem 2rem;
+  }
   .program_fees {
     display: flex;
     gap: 0;
@@ -445,16 +453,10 @@ strike {
   .frontend_fees {
     border-right: none;
   }
-}
-@media (max-width: 370px) {
-  .front_details::before {
-    top: 12%;
-    padding: 0.4rem 2rem;
-  }
   .fees_front {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    /* gap: 2rem; */
   }
   .back_details::before {
     top: 10%;
@@ -463,6 +465,15 @@ strike {
   .fees-back {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    /* gap: 2rem; */
+  }
+}
+@media (max-width: 340px) {
+  .front_details::before {
+    top: 10%;
+    padding: 0.2rem 2rem;
+  }
+  .back_details::before {
+    padding: 0.2rem 2rem;
   }
 }

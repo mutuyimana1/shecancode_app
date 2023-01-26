@@ -47,7 +47,7 @@ const Navbar = () => {
         </li>
         <li>
           <a
-            href="#"
+            href="#contact"
             className="nav_link"
             onClick={() => {
               setShowNavbar(false);
