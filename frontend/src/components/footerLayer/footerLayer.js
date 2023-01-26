@@ -218,7 +218,7 @@ const FooterLayer = () => {
         </div>
       </div>
       <div className="sub-foot">
-        <p>©{year} Copyright: &lt;shecancode/&gt;</p>
+        <p>©{year} copyright: &lt;shecancode/&gt;</p>
       </div>
     </div>
   );
