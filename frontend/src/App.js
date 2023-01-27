@@ -55,9 +55,9 @@ function App() {
           <Route path="/Apply/fullstack">
             <Application program=" Full-Stack Software Engineers" />
           </Route>
-          <Route path="/">
+          {/* <Route path="/">
             <Classes />
-          </Route>
+          </Route> */}
           <Route path="/applicant/:id">
             <Schedule />
           </Route>
