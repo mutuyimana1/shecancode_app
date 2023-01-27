@@ -6,6 +6,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import market from "../../assets/img/net.jpg";
 import portfolio from "../../assets/img/last.jpg";
 import facilitator from "../../assets/img/mentor.svg";
+import FooterLayer from "../footerLayer/footerLayer";
 const Duration = () => {
   return (
     <>
@@ -161,18 +162,25 @@ const Duration = () => {
           <div className="fees_front">
             <div className="fee-column1">
               <p className="fee-p">Registration fee</p>
-              <h4>US$25</h4>
+              <h4>
+                25,000<span className="rwf">rwf</span>
+              </h4>
               <p className="fees-p">Pay after being admitted</p>
             </div>
             <div className="fee-column2">
               <p className="fee-p">Examination certificate fee</p>
-              <h4>US$40</h4>
+              <h4>
+                40,000<span className="rwf">rwf</span>
+              </h4>
               <p className="fees-p">Pay before graduating</p>
             </div>
             <div className="fee-column3">
               <p className="fee-p">PROGRAM FEE</p>
               <h4>
-                <strike>US$ 600 </strike> <span>US$150</span>
+                <strike>600,000rwf</strike>{" "}
+                <span>
+                  150,000<span className="rwf">rwf</span>
+                </span>
               </h4>
               <p className="fees-p">Pay in trash</p>
             </div>
@@ -184,18 +192,22 @@ const Duration = () => {
           <div className="fees-back">
             <div className="fee-column1">
               <p className="fee-p">Registration fee</p>
-              <h4>US$25</h4>
+              <h4>
+                25,000<span className="rwf">rwf</span>
+              </h4>
               <p className="fees-p">Pay after being admitted</p>
             </div>
             <div className="fee-column2">
               <p className="fee-p">Examination certificate fee</p>
-              <h4>US$40</h4>
+              <h4>
+                40,000<span className="rwf">rwf</span>
+              </h4>
               <p className="fees-p">Pay before graduating</p>
             </div>
             <div className="fee-column3">
               <p className="fee-p">PROGRAM FEE</p>
-              <h4>US$ 00</h4>
-              <p className="fees-p">Free</p>
+              <h4>100%</h4>
+              <p className="fees-p">Scholarship</p>
             </div>
           </div>
         </div>

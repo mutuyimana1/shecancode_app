@@ -5,9 +5,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(false);
-  const handleShowNavbar = () => {
-    setShowNavbar(!showNavbar);
-  };
 
   return (
     <div className="header_nav">
@@ -16,33 +13,68 @@ const Navbar = () => {
           <img src={logo} className="logo" />
         </a>
       </div>
-      <div className="menu-icon" onClick={handleShowNavbar}>
+      <div
+        className="menu-icon"
+        onClick={() => {
+          setShowNavbar(!showNavbar);
+        }}
+      >
         <MenuIcon />
       </div>
-      <ul className={`nav_links  ${showNavbar && "active"}`}>
+      <ul className={showNavbar ? "nav_links active" : "nav_links"}>
         <li>
-          <a href="#" className="nav_link">
+          <a
+            href="#"
+            className="nav_link"
+            onClick={() => {
+              setShowNavbar(false);
+            }}
+          >
             Home
           </a>
         </li>
 
         <li>
-          <a href="#" className="nav_link">
+          <a
+            href="#"
+            className="nav_link"
+            onClick={() => {
+              setShowNavbar(false);
+            }}
+          >
             About-Us
           </a>
         </li>
         <li>
-          <a href="#" className="nav_link">
+          <a
+            href="#contact"
+            className="nav_link"
+            onClick={() => {
+              setShowNavbar(false);
+            }}
+          >
             Contact-Us
           </a>
         </li>
         <li>
-          <a href="#program" className="nav_link">
+          <a
+            href="#program"
+            className="nav_link"
+            onClick={() => {
+              setShowNavbar(false);
+            }}
+          >
             Program
           </a>
         </li>
         <li>
-          <a href="#" className="nav_link">
+          <a
+            href="#"
+            className="nav_link"
+            onClick={() => {
+              setShowNavbar(false);
+            }}
+          >
             Apply
           </a>
         </li>
