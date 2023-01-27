@@ -7,7 +7,7 @@ const registerPost = async(data) => {
 // console.log("XXXXXXXXXXXXXXXXXXXXXXXXXX")
 var config = {
   method: "post",
-  url: "http://localhost:4048/api/posts",
+  url: "http://localhost:3030/api/posts",
   headers: {
     "Content-Type": "application/json",
   },

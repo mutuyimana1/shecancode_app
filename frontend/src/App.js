@@ -6,6 +6,7 @@ import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import Footer from "./components/Footer/Footer";
 import Cats from "./components/Cats/Cats";
+import Schedule from "./Pages/Schedule"
 import Classes from "./components/classes/classes";
 import Application from "./components/Application/Application";
 import Navbar from "./components/navbar/navbar";
@@ -28,7 +29,8 @@ function App() {
         <Navbar />
         <Switch>
           <Route exact path="/">
-            <Home />
+            {/* <Home /> */}
+            <Classes />
           </Route>
           <Route path="/Single">
             {" "}
@@ -55,6 +57,9 @@ function App() {
           </Route>
           <Route path="/program">
             <Classes />
+          </Route>
+          <Route path="/applicant/:id">
+            <Schedule />
           </Route>
         </Switch>
         {/* <Home/> */}
