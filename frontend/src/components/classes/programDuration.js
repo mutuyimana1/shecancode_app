@@ -2,6 +2,7 @@ import React from "react";
 import "./duration.css";
 import certificate from "../../assets/img/certificate.jpg";
 import LoadingButton from "@mui/lab/LoadingButton";
+import AboutUs from "./aboutUs";
 const Duration = () => {
   return (
     <>
@@ -196,6 +197,7 @@ const Duration = () => {
           </div>
         </div>
       </div>
+
       <div className="launch">
         <div className="launch-career">
           <h2 className="developTitle">
@@ -367,6 +369,7 @@ const Duration = () => {
           </LoadingButton>
         </div>
       </div>
+      <AboutUs />
       <div className="highlight">
         <div className="highlight-pro">
           <h2 className="developTitle marginBottom">Program Highlights</h2>
