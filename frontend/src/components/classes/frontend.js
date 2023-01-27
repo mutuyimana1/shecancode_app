@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./classes.css";
 const Frontend = () => {
   return (
     <div className="frontend-container">
@@ -8,26 +8,28 @@ const Frontend = () => {
         <spa style={{ color: "#61dafb" }}>Web Development</spa> Certification
         Program.
       </h2>
-      <div className="full-container">
-        <div className="col-3">
-          <h5>Start On</h5>
+      <div className="row">
+        <div className="col-sm-3">
+          <h4>Start On</h4>
           <p>February 05</p>
         </div>
-        <div className="col-3">
-          <h5>Duration</h5>
+        <div className="col-sm-3">
+          <h4>Duration</h4>
           <p>16 weeks</p>
         </div>
-        <div className="col-3">
-          <h5>Program Fees</h5>
-          <p>....</p>
+
+        <div className="col-sm-3">
+          <h4>Program Fees</h4>
+          <p>600 USD</p>
         </div>
-        <div className="col-3">
-          <h5>Scholarship</h5>
-          <p>full</p>
+        <div className="col-sm-3">
+          <h4>Scholarship</h4>
+          <p>100%</p>
         </div>
       </div>
+
       <div className="all-container">
-        <div style={{ width: "25%" }} className="content-container">
+        <div className="content-container">
           <h6>Program Topics</h6>
           <ul>
             <li>Module One</li>
@@ -43,7 +45,7 @@ const Frontend = () => {
             <li>Demonstrate interest in software engineering field.</li>
           </ul>
         </div>
-        <div>
+        <div className="why-program">
           <h6>why This Program? </h6>
           <p>
             Individuals who choose to join our program are <br />
@@ -56,7 +58,7 @@ const Frontend = () => {
             <br /> We understand having skills and getting a job is one thing.
           </p>
         </div>
-        <div>
+        <div className="why-program">
           <h6>Here is detail for program fee</h6>
           <ul>
             <li>
@@ -66,10 +68,6 @@ const Frontend = () => {
             <li>
               Certification exam and certificate fee 40000 rwf ( No payment
               plan, paid before start of the program)
-            </li>
-            <li>
-              25% of program fee = 150, 000 rwf. ( Payment plan available +
-              refund based on refund policy).
             </li>
           </ul>
         </div>

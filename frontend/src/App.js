@@ -9,11 +9,21 @@ import Cats from "./components/Cats/Cats";
 import Schedule from "./Pages/Schedule";
 import Classes from "./components/classes/classes";
 import Application from "./components/Application/Application";
+import LoginPage from "./components/login";
 import Navbar from "./components/navbar/navbar";
 
 import { BrowserRouter as Router, Route, Switch, link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
+import DashboardLayout from "./components/dashboard/dashboardLayout";
+import Sidebar from "./components/dashboard/sideBar";
+import Applicants from "./components/dashboard/applicants";
+import DashboardHome from "./components/dashboard/dashboardHome";
+import SignUpPage from "./components/signUp";
+import FrontendApplicant from "./components/dashboard/frontendApplicants";
+import FullStackApplicants from "./components/dashboard/fullStackApplicants";
+import DayClassApplicants from "./components/dashboard/dayClass";
+import EveningClassApplicants from "./components/dashboard/eveningClass";
 
 function App() {
   const { user } = useContext(Context);
@@ -26,7 +36,7 @@ function App() {
       <Router>
         {/* <Header />
          */}
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
           <Route exact path="/">
             {/* <Home /> */}
@@ -39,8 +49,11 @@ function App() {
           <Route path="/Publish">
             <Publish />
           </Route>
-          <Route path="/Login">
-            <Login />
+          <Route path="/signin">
+            <LoginPage />
+          </Route>
+          <Route path="/signup">
+            <SignUpPage />
           </Route>
           <Route path="/Register">
             <Register />
@@ -63,7 +76,44 @@ function App() {
           </Route>
         </Switch>
         {/* <Home/> */}
-        <Footer />
+
+        <Route path="/dashboard">
+          {" "}
+          <DashboardLayout />
+        </Route>
+        <Route path="/applicants">
+          {" "}
+          <Applicants />
+        </Route>
+        <Route path="/fullstack">
+          {" "}
+          <FullStackApplicants />
+        </Route>
+        <Route path="/day">
+          {" "}
+          <DayClassApplicants />
+        </Route>
+        <Route path="/evening">
+          {" "}
+          <EveningClassApplicants />
+        </Route>
+        <Route path="/side">
+          {" "}
+          <Sidebar />
+        </Route>
+        <Route path="/dashhome">
+          {" "}
+          <DashboardHome />
+        </Route>
+        <Route path="/frontend">
+          {" "}
+          <FrontendApplicant />
+        </Route>
+        <Route path="/login">
+          {" "}
+          <Login />
+        </Route>
+        {/* <Footer /> */}
       </Router>
     </div>
   );

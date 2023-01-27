@@ -76,6 +76,9 @@
 .form__btn {
   float: right;
 }
+.content {
+  column-count: 1;
+}
 
 @media (min-width: 768px) and (max-width: 991px) {
   .application-form {
@@ -132,7 +135,7 @@
 }
 .content {
   /* background: #000; */
-  column-count: 2;
+  column-count: 1;
   column-gap: 4rem;
   column-rule: 1px solid gray;
   /* hyphens: auto; */

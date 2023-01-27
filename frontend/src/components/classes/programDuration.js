@@ -3,6 +3,7 @@ import "./duration.css";
 import certificate from "../../assets/img/certificate.jpg";
 import resume from "../../assets/img/resume.jpg";
 import LoadingButton from "@mui/lab/LoadingButton";
+import AboutUs from "./aboutUs";
 import market from "../../assets/img/net.jpg";
 import portfolio from "../../assets/img/last.jpg";
 import facilitator from "../../assets/img/mentor.svg";
@@ -212,6 +213,7 @@ const Duration = () => {
           </div>
         </div>
       </div>
+
       <div className="launch">
         <div className="launch-career">
           <h2 className="developTitle">
@@ -383,6 +385,7 @@ const Duration = () => {
           </LoadingButton>
         </div>
       </div>
+      <AboutUs />
       <div className="highlight">
         <div className="highlight-pro">
           <h2 className="developTitle">Program Highlights</h2>
