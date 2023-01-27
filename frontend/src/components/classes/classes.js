@@ -183,7 +183,7 @@ const Classes = () => {
         );
       }
 
-      if (response.status === 200) {
+      if (response?.status === 200) {
         setLoading(false);
         // if (!loading) {
           

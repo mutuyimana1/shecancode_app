@@ -24,7 +24,7 @@ const Navbar = () => {
       <ul className={showNavbar ? "nav_links active" : "nav_links"}>
         <li>
           <a
-            href="#"
+            href="/"
             className="nav_link"
             onClick={() => {
               setShowNavbar(false);

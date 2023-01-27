@@ -6,6 +6,7 @@ import webPIc from "../assets/img/web.jpg";
 import fullPIc from "../assets/img/full.jpg";
 import yesPIc from "../assets/img/yes.png";
 import axios from "axios";
+import { notification } from "antd";
 import BASE_URL from "../helpers/apiCall";
 
 const frontSchedule = [
@@ -48,21 +49,29 @@ const SchedulerCard = (props) => {
 
 const Component = (props) => {
   const [selectTimeIndex, setSelectTimeIndex] = React.useState(null);
-  const [selectedSchedule, setSelectedSchedule] = React.useState({
-    date: "Monday, February 20 2023",
-  });
+
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [applicant, setApplicant] = useState();
-
+  const [selectedSchedule, setSelectedSchedule] = React.useState({});
   const handleSchedule = async () => {
     console.log(selectedSchedule);
-    const resp = await axios.patch(`${BASE_URL}/apply/update/${id}`, {
-      calendar: selectedSchedule,
-      status: "scheduled",
-    });
-    if (resp?.status === 200) {
-      setApplicant(resp?.data.data);
+    if (!selectedSchedule?.date) {
+      return notification.warning({message:"Please! Select Day."})
+    } else {
+      const resp = await axios.patch(`${BASE_URL}/apply/update/${id}`, {
+        calendar: selectedSchedule,
+        status: "scheduled",
+      });
+      if (resp?.status === 200) {
+        setApplicant(resp?.data.data);
+        setSelectedSchedule({
+          date:
+            resp?.data.data.programName === "frontend_developer"
+              ? "Monday, February 20 2023"
+              : "Tuesday, February 21 2023",
+        });
+      }
     }
     // console.log(">>> response:", resp);
   };
@@ -178,11 +187,13 @@ const Component = (props) => {
                   id="standard-select-currency-native"
                   select
                   width="60%"
+                  required
                   label="Choose Day"
-                  defaultValue="Monday, February 20 2023"
-                  SelectProps={{
-                    native: true,
-                  }}
+                  sx={{ minWidth: "15rem" }}
+                  // SelectProps={{
+                  //   native: true,
+                  // }}
+                  // default={null}
                   onChange={(e) =>
                     setSelectedSchedule({
                       ...selectedSchedule,
@@ -193,22 +204,22 @@ const Component = (props) => {
                   variant="standard"
                 >
                   {applicant?.programName === "frontend_developer" && (
-                    <option key={1} value={"Monday, February 20 2023"}>
+                    <option key={1} value={"Monday, February 20 2023"} sx={{padding:"1rem"}}>
                       Monday, February 20 2023
                     </option>
                   )}
                   {applicant?.programName === "fullStack_developer" && (
-                    <option key={2} value={"Tuesday, February 21 2023"}>
+                    <option key={2} value={"Tuesday, February 21 2023"} sx={{padding:"1rem"}}>
                       Tuesday, February 21 2023
                     </option>
                   )}
                   {applicant?.programName === "frontend_developer" && (
-                    <option key={3} value={"Wednesday, February 22 2023"}>
+                    <option key={3} value={"Wednesday, February 22 2023"} sx={{padding:"1rem"}}>
                       Wednesday, February 22 2023
                     </option>
                   )}
                   {applicant?.programName === "fullStack_developer" && (
-                    <option key={4} value={"Thursday, February 23 2023"}>
+                    <option key={4} value={"Thursday, February 23 2023"} sx={{padding:"1rem"}}>
                       Thursday, February 23 2023
                     </option>
                   )}
