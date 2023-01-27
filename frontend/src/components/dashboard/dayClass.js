@@ -82,19 +82,15 @@ const columns = [
     width: 150,
   },
 ];
-// const data = loading
-//     ? []
-//     : state.map(row => ({ Name: row.name, Email: row.email }));
-
-function Applicants() {
+function DayClassApplicants() {
   const [applicants, setApplicants] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const fetchApplicants = () => {
     setIsFetching(true);
     axios
-      .get("http://localhost:4040/api/apply/all")
+      .get("http://localhost:4040/api/apply/day")
       .then((res) => {
-        setApplicants(res.data.data);
+        setApplicants(res.data.applicationClass);
         console.log(res);
         setIsFetching(false);
       })
@@ -121,9 +117,7 @@ function Applicants() {
       <div className="page-wrapper">
         <div className="content">
           {isFetching ? (
-            <CircularProgress
-              style={{ marginTop: "100px", marginLeft: "120px" }}
-            />
+            <CircularProgress />
           ) : (
             <Table
               columns={columns}
@@ -140,4 +134,4 @@ function Applicants() {
   );
 }
 
-export default Applicants;
+export default DayClassApplicants;

@@ -21,6 +21,8 @@ import DashboardHome from "./components/dashboard/dashboardHome";
 import SignUpPage from "./components/signUp";
 import FrontendApplicant from "./components/dashboard/frontendApplicants";
 import FullStackApplicants from "./components/dashboard/fullStackApplicants";
+import DayClassApplicants from "./components/dashboard/dayClass";
+import EveningClassApplicants from "./components/dashboard/eveningClass";
 
 function App() {
   const { user } = useContext(Context);
@@ -81,6 +83,14 @@ function App() {
         <Route path="/fullstack">
           {" "}
           <FullStackApplicants />
+        </Route>
+        <Route path="/day">
+          {" "}
+          <DayClassApplicants />
+        </Route>
+        <Route path="/evening">
+          {" "}
+          <EveningClassApplicants />
         </Route>
         <Route path="/side">
           {" "}

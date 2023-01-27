@@ -88,9 +88,9 @@ function FullStackApplicants() {
   const fetchApplicants = () => {
     setIsFetching(true);
     axios
-      .get("http://localhost:4040/apply/applicant/fullStack_developer")
+      .get("http://localhost:4040/api/apply/applicant/fullStack_developer")
       .then((res) => {
-        setApplicants(res.data);
+        setApplicants(res?.data?.application);
         console.log(res);
         setIsFetching(false);
       })
@@ -105,7 +105,7 @@ function FullStackApplicants() {
 
   const data = isFetching
     ? []
-    : applicants.map((row, index) => ({
+    : applicants?.map((row, index) => ({
         key: index,
         name: row.firstName,
         age: row.age,
@@ -123,8 +123,8 @@ function FullStackApplicants() {
               columns={columns}
               dataSource={applicants}
               scroll={{
-                x: 1500,
-                y: 300,
+                x: 1700,
+                y: 1300,
               }}
             />
           )}

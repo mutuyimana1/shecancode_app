@@ -5,9 +5,9 @@ function Sidebar() {
     <div>
       <div className="header">
         <div className="header-left">
-          <a href="/" className="logo">
-            <span>ShecanCode</span>
-          </a>
+          {/* <a href="#" className="logo"> */}
+          <span style={{ fontSize: "17px" }}>ShecanCode</span>
+          {/* </a> */}
         </div>
         <a id="toggle_btn" href="javascript:void(0);">
           <i className="fa fa-bars" />
@@ -23,7 +23,11 @@ function Sidebar() {
         <div className="sidebar-inner slimscroll">
           <div id="sidebar-menu" className="sidebar-menu">
             <ul>
-              <li className="menu-title">Main</li>
+              <li>
+                <a href="/">
+                  <i className="fa fa-logout" /> <span>Logout</span>
+                </a>
+              </li>
               <li className="active">
                 <a href="/dashHome">
                   <i className="fa fa-dashboard" /> <span>Dashboard</span>
@@ -56,10 +60,10 @@ function Sidebar() {
                 </a>
                 <ul style={{ display: "none" }}>
                   <li>
-                    <a href="/parents">Frontend</a>
+                    <a href="/day">Day Class</a>
                   </li>
                   <li>
-                    <a href="/addparent">fullstack</a>
+                    <a href="/evening">Evening Class</a>
                   </li>
                 </ul>
               </li>

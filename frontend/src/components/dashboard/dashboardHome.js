@@ -9,7 +9,7 @@ function DashboardHome() {
   const fetchApplicants = () => {
     setIsFetching(true);
     axios
-      .get("http://localhost:4040/apply/all")
+      .get("http://localhost:4040/api/apply/all")
       .then((res) => {
         setApplicants(res.data.data);
         console.log(res);
@@ -66,7 +66,7 @@ function DashboardHome() {
                     <div className="dash-widget-info text-right">
                       <h3>{applicants.length}</h3>
                       <span className="widget-title2">
-                        <a href="registeredbabies" style={{ color: "black" }}>
+                        <a href="/applicants" style={{ color: "black" }}>
                           Applicants
                         </a>{" "}
                       </span>
@@ -84,8 +84,8 @@ function DashboardHome() {
                     <div className="dash-widget-info text-right">
                       <h3>....</h3>
                       <span className="widget-title3">
-                        <a href="/parents" style={{ color: "black" }}>
-                          Web Development Applicants
+                        <a href="/frontend" style={{ color: "black" }}>
+                          Web Development
                         </a>{" "}
                       </span>
                     </div>
@@ -103,8 +103,8 @@ function DashboardHome() {
                       <h3>....</h3>
                       <span className="widget-title4">
                         {" "}
-                        <a href="/hospitals" style={{ color: "black" }}>
-                          FullStack Applicants
+                        <a href="/fullstack" style={{ color: "black" }}>
+                          FullStack
                         </a>{" "}
                       </span>
                     </div>

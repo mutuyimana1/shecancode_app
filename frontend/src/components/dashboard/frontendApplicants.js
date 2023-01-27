@@ -88,9 +88,9 @@ function FrontendApplicants() {
   const fetchApplicants = () => {
     setIsFetching(true);
     axios
-      .get("http://localhost:4040/apply/applicant/frontend_developer")
+      .get("http://localhost:4040/api/apply/applicant/frontend_developer")
       .then((res) => {
-        setApplicants(res.data);
+        setApplicants(res?.data?.application);
         console.log(res);
         setIsFetching(false);
       })
@@ -123,8 +123,8 @@ function FrontendApplicants() {
               columns={columns}
               dataSource={applicants}
               scroll={{
-                x: 1500,
-                y: 300,
+                x: 1700,
+                y: 1300,
               }}
             />
           )}
