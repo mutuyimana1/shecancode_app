@@ -10,7 +10,7 @@ import { notification } from "antd";
 import BASE_URL from "../helpers/apiCall";
 
 const frontSchedule = [
-  { time: "09h:30 Am - 11h:00 Pm" },
+  { time: "09h:30 Am - 11h:00 Am" },
   { time: "11h:30 Am - 01h:00 Pm" },
   { time: "02h:00 Pm - 03h:30 Pm" },
 ];
@@ -83,6 +83,12 @@ const Component = (props) => {
         console.log(res);
         res.status === 200 && setApplicant(res.data.data);
         res.status === 200 && setLoading(false);
+        res.status === 200 &&setSelectedSchedule({
+          date:
+            res?.data.data.programName === "frontend_developer"
+              ? "Monday, February 20 2023"
+              : "Tuesday, February 21 2023",
+        });
       })
       .catch((err) => {
         console.log("Error: ", err);
@@ -190,11 +196,17 @@ const Component = (props) => {
                   required
                   label="Choose Day"
                   sx={{ minWidth: "15rem" }}
-                  // SelectProps={{
-                  //   native: true,
-                  // }}
+                  SelectProps={{
+                    native: true,
+                  }}
                   // default={null}
                   onChange={(e) =>
+                    setSelectedSchedule({
+                      ...selectedSchedule,
+                      date: e.target.value,
+                    })
+                  }
+                  onClick={(e) =>
                     setSelectedSchedule({
                       ...selectedSchedule,
                       date: e.target.value,
