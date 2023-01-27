@@ -4,8 +4,9 @@ import Single from "./Pages/Single/Single";
 import Publish from "./Pages/Publish/Publish";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/footerLayer/footerLayer";
 import Cats from "./components/Cats/Cats";
+import Schedule from "./Pages/Schedule";
 import Classes from "./components/classes/classes";
 import Application from "./components/Application/Application";
 import LoginPage from "./components/login";
@@ -38,7 +39,8 @@ function App() {
         {/* <Navbar /> */}
         <Switch>
           <Route exact path="/">
-            <Home />
+            {/* <Home /> */}
+            <Classes />
           </Route>
           <Route path="/Single">
             {" "}
@@ -66,8 +68,11 @@ function App() {
           <Route path="/Apply/fullstack">
             <Application program=" Full-Stack Software Engineers" />
           </Route>
-          <Route path="/program">
+          {/* <Route path="/">
             <Classes />
+          </Route> */}
+          <Route path="/applicant/:id">
+            <Schedule />
           </Route>
         </Switch>
         {/* <Home/> */}

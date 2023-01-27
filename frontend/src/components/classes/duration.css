@@ -32,6 +32,10 @@ li .fee {
   /* background-color: red; */
   padding: 0rem 1rem;
 }
+.rwf {
+  color: #777879;
+  font-size: 1rem;
+}
 
 .column-1,
 .column-2,
@@ -256,7 +260,7 @@ strike {
 .talent_source,
 .evans_source,
 .glassdoor_source {
-  padding: 0 1.563rem;
+  padding: 1.563rem;
   width: 100%;
   /* display: flex;
   flex-direction: column;
@@ -288,7 +292,7 @@ strike {
   margin-bottom: 1rem;
 }
 .togetInto_frontend {
-  padding: 0 1.563rem;
+  padding: 1.563rem;
 }
 .programs_for .carr li:last-child {
   margin-bottom: 1.875rem;
@@ -302,7 +306,7 @@ strike {
 }
 .togetInto_fullStack {
   border-right: 1px solid #ccc;
-  padding: 0 1.563rem;
+  padding: 1.563rem;
 }
 .module-column-1 {
   display: grid;
@@ -321,11 +325,18 @@ strike {
 }
 .high-img {
   width: 5.2rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 .high-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.875rem;
+  justify-content: space-around;
+}
+.high-column-4 {
+  width: 30%;
 }
 @media (max-width: 992px) {
   .career-price {
@@ -365,13 +376,17 @@ strike {
   .program_for,
   .programTopic,
   .highlight,
-  .develp {
+  .develp,
+  .highlight {
     padding: 3rem 1rem;
   }
   .module-column-1 {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
+  }
+  .developTitle {
+    font-size: 1.5rem;
   }
   .togetInto {
     display: flex;
@@ -382,11 +397,12 @@ strike {
     gap: 0;
   }
   .togetInto_fullStack {
-    border-left: none;
-  }
-  .togetInto_frontend {
+    border-right: none;
     border-bottom: 1px solid #ccc;
   }
+  /* .togetInto_frontend {
+    border-bottom: 1px solid #ccc;
+  } */
   .price {
     display: flex;
     flex-direction: column;
@@ -425,6 +441,10 @@ strike {
     top: 18%;
     padding: 0.4rem 2rem;
   }
+  .front_details::before {
+    top: 10%;
+    padding: 0.4rem 2rem;
+  }
   .program_fees {
     display: flex;
     gap: 0;
@@ -433,16 +453,10 @@ strike {
   .frontend_fees {
     border-right: none;
   }
-}
-@media (max-width: 370px) {
-  .front_details::before {
-    top: 12%;
-    padding: 0.4rem 2rem;
-  }
   .fees_front {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    /* gap: 2rem; */
   }
   .back_details::before {
     top: 10%;
@@ -451,6 +465,15 @@ strike {
   .fees-back {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    /* gap: 2rem; */
+  }
+}
+@media (max-width: 340px) {
+  .front_details::before {
+    top: 10%;
+    padding: 0.2rem 2rem;
+  }
+  .back_details::before {
+    padding: 0.2rem 2rem;
   }
 }

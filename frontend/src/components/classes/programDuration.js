@@ -1,8 +1,13 @@
 import React from "react";
 import "./duration.css";
 import certificate from "../../assets/img/certificate.jpg";
+import resume from "../../assets/img/resume.jpg";
 import LoadingButton from "@mui/lab/LoadingButton";
 import AboutUs from "./aboutUs";
+import market from "../../assets/img/net.jpg";
+import portfolio from "../../assets/img/last.jpg";
+import facilitator from "../../assets/img/mentor.svg";
+import FooterLayer from "../footerLayer/footerLayer";
 const Duration = () => {
   return (
     <>
@@ -158,18 +163,25 @@ const Duration = () => {
           <div className="fees_front">
             <div className="fee-column1">
               <p className="fee-p">Registration fee</p>
-              <h4>US$25</h4>
+              <h4>
+                25,000<span className="rwf">rwf</span>
+              </h4>
               <p className="fees-p">Pay after being admitted</p>
             </div>
             <div className="fee-column2">
               <p className="fee-p">Examination certificate fee</p>
-              <h4>US$40</h4>
+              <h4>
+                40,000<span className="rwf">rwf</span>
+              </h4>
               <p className="fees-p">Pay before graduating</p>
             </div>
             <div className="fee-column3">
               <p className="fee-p">PROGRAM FEE</p>
               <h4>
-                <strike>US$ 600 </strike> <span>US$150</span>
+                <strike>600,000rwf</strike>{" "}
+                <span>
+                  150,000<span className="rwf">rwf</span>
+                </span>
               </h4>
               <p className="fees-p">Pay in trash</p>
             </div>
@@ -181,18 +193,22 @@ const Duration = () => {
           <div className="fees-back">
             <div className="fee-column1">
               <p className="fee-p">Registration fee</p>
-              <h4>US$25</h4>
+              <h4>
+                25,000<span className="rwf">rwf</span>
+              </h4>
               <p className="fees-p">Pay after being admitted</p>
             </div>
             <div className="fee-column2">
               <p className="fee-p">Examination certificate fee</p>
-              <h4>US$40</h4>
+              <h4>
+                40,000<span className="rwf">rwf</span>
+              </h4>
               <p className="fees-p">Pay before graduating</p>
             </div>
             <div className="fee-column3">
               <p className="fee-p">PROGRAM FEE</p>
-              <h4>US$ 00</h4>
-              <p className="fees-p">Free</p>
+              <h4>100%</h4>
+              <p className="fees-p">Scholarship</p>
             </div>
           </div>
         </div>
@@ -308,7 +324,7 @@ const Duration = () => {
           </div>
         </div>
       </div>
-      <div className="programTopic">
+      <div className="programTopic" id="program">
         <div className="programTopicCont">
           <h2 className="developTitle">Program Topics</h2>
           <p className="leftered margin-bottom">
@@ -372,23 +388,30 @@ const Duration = () => {
       <AboutUs />
       <div className="highlight">
         <div className="highlight-pro">
-          <h2 className="developTitle marginBottom">Program Highlights</h2>
+          <h2 className="developTitle">Program Highlights</h2>
           <div className="high-container">
-            <div className="high-column-1">
+            <div className="high-column-4">
               <img src={certificate} className="high-img" />
               <p>Earn a Certification to recognize your skills and success</p>
             </div>
-            <div className="high-column-2">
-              <img src={certificate} className="high-img" />
-              <p>Earn a Certification to recognize your skills and success</p>
+
+            <div className="high-column-4">
+              <img src={portfolio} className="high-img" />
+              <p>GitHub portfolio to share with potential employers</p>
             </div>
-            <div className="high-column-1">
-              <img src={certificate} className="high-img" />
-              <p>Earn a Certification to recognize your skills and success</p>
+
+            <div className="high-column-4">
+              <img src={market} className="high-img" />
+              <p>Market-ready coding skills in a high-growth market</p>
             </div>
-            <div className="high-column-1">
-              <img src={certificate} className="high-img" />
-              <p>Earn a Certification to recognize your skills and success</p>
+            <div className="high-column-4">
+              <img src={resume} className="high-img" />
+              <p>Professional Technical Resume</p>
+            </div>
+
+            <div className="high-column-4">
+              <img src={facilitator} className="high-img" />
+              <p>Daily coding help with Learning Facilitators</p>
             </div>
           </div>
         </div>
