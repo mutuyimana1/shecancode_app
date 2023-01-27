@@ -36,7 +36,7 @@ const SchedulerCard = (props) => {
           color: props.selected ? "#f7ffff" : "#000000",
           fontSize: "1.2rem",
           fontWeight: "600",
-          padding:"1rem"
+          padding: "1rem",
         }}
       >
         {props.schedule}
@@ -48,7 +48,9 @@ const SchedulerCard = (props) => {
 
 const Component = (props) => {
   const [selectTimeIndex, setSelectTimeIndex] = React.useState(null);
-  const [selectedSchedule, setSelectedSchedule] = React.useState({});
+  const [selectedSchedule, setSelectedSchedule] = React.useState({
+    date: "Monday, February 20 2023",
+  });
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [applicant, setApplicant] = useState();
@@ -177,7 +179,7 @@ const Component = (props) => {
                   select
                   width="60%"
                   label="Choose Day"
-                  // defaultValue="Tuesday, January 24 2023"
+                  defaultValue="Monday, February 20 2023"
                   SelectProps={{
                     native: true,
                   }}
@@ -240,17 +242,17 @@ const Component = (props) => {
                       />
                     </Box>
                   ))}
-                <Button
-                  variant="contained"
-                  sx={{ width: "100%" }}
-                  endIcon={<SendIcon />}
-                  disabled={!selectTimeIndex}
-                  onClick={() => {
-                    handleSchedule();
-                  }}
-                >
-                  Submit Schedule
-                </Button>
+                  <Button
+                    variant="contained"
+                    sx={{ width: "100%" }}
+                    endIcon={<SendIcon />}
+                    disabled={!selectTimeIndex}
+                    onClick={() => {
+                      handleSchedule();
+                    }}
+                  >
+                    Submit Schedule
+                  </Button>
                 </Paper>
               </>
             )}
