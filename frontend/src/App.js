@@ -6,6 +6,7 @@ import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import Footer from "./components/footerLayer/footerLayer";
 import Cats from "./components/Cats/Cats";
+import Schedule from "./Pages/Schedule"
 import Classes from "./components/classes/classes";
 import Application from "./components/Application/Application";
 import Navbar from "./components/navbar/navbar";
@@ -27,9 +28,16 @@ function App() {
          */}
         <Navbar />
         <Switch>
+<<<<<<< HEAD
+          <Route exact path="/">
+            {/* <Home /> */}
+            <Classes />
+          </Route>
+=======
           {/* <Route exact path="/">
             <Home />
           </Route> */}
+>>>>>>> 614214d9005e585ef3195faae993eb23357e3dd2
           <Route path="/Single">
             {" "}
             <Single />
@@ -55,6 +63,9 @@ function App() {
           </Route>
           <Route path="/">
             <Classes />
+          </Route>
+          <Route path="/applicant/:id">
+            <Schedule />
           </Route>
         </Switch>
         {/* <Home/> */}

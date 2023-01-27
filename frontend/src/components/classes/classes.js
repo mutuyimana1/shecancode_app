@@ -28,21 +28,21 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 const classez = [
   {
-    value: "Frontend Web Development",
+    value: "frontend_developer",
     label: "Frontend Web Development",
   },
   {
-    value: "Full-Stack Software Engineers",
+    value: "fullStack_developer",
     label: "Full-Stack Software Engineers",
   },
 ];
 const program = [
   {
-    value: "Evening",
+    value: "evening",
     label: "Evenig",
   },
   {
-    value: "Day",
+    value: "day",
     label: "Day",
   },
 ];
@@ -77,23 +77,37 @@ const Classes = () => {
   const [firstName, setFirstName] = useState(null);
   const [lastName, setLastName] = useState(null);
   const [email, setEmail] = useState(null);
-  const [phone, setPhone] = useState(null);
+  const [telephone, setTelephone] = useState(null);
   const [gender, setGender] = useState(null);
-  const [clas, setClas] = useState(null);
-  const [day, setDay] = useState(null);
-  const [education, setEducation] = useState(null);
+  const [programName, setProgramName] = useState(null);
+  const [programTime, setProgramTime] = useState(null);
+  const [educationLevel, setEducationLevel] = useState(null);
   const [modalFullStack, setModalFullStack] = useState(false);
   const [modalFrontend, setModalFrontEnd] = useState(false);
   const [checked, setChecked] = React.useState(false);
   const [loading, setLoading] = useState(false);
 
+  const handleReset =()=>{
+    setFirstName(null);
+    setLastName(null);
+    setEmail(null);
+    setTelephone(null);
+    setTelephone(null);
+    setGender(null);
+    setProgramName(null);
+    setProgramTime(null);
+    setEducationLevel(null);
+    setChecked(false);
+
+
+  }
   const handleChange = (event) => {
     setChecked(event.target.checked);
-    if (event.target.checked && clas == "Frontend Web Development") {
+    if (event.target.checked && programName == "Frontend Web Development") {
       setModalFrontEnd(true);
     } else if (
       event.target.checked &&
-      clas == "Full-Stack Software Engineers"
+      programName == "Full-Stack Software Engineers"
     ) {
       setModalFullStack(true);
     } else {
@@ -106,11 +120,11 @@ const Classes = () => {
     firstName: firstName,
     lastName: lastName,
     email: email,
-    education: education,
-    phone: phone,
-    clas: clas,
+    educationLevel: educationLevel,
+    telephone: telephone,
+    programName: programName,
     gender: gender,
-    day: day,
+    programTime: programTime,
   };
   const showModal = () => {
     setModalFrontEnd(true);
@@ -132,10 +146,10 @@ const Classes = () => {
       !firstName ||
       !lastName ||
       !email ||
-      !phone ||
-      !education ||
-      !clas ||
-      !day ||
+      !telephone ||
+      !educationLevel ||
+      !programName ||
+      !programTime ||
       gender === null
     ) {
       notification.warn({ message: "Kindly fill the form correctly!" });
@@ -145,8 +159,8 @@ const Classes = () => {
         notification.warn({ message: "Your email should be valid!" });
         return false;
       }
-      if (phone.length !== 12) {
-        notification.warn({ message: "Your Phone should be valid!" });
+      if (telephone.length !== 12) {
+        notification.warn({ message: "Your telephone should be valid!" });
         return false;
       }
       return true;
@@ -160,23 +174,28 @@ const Classes = () => {
 
   const handleSubmitApplication = async () => {
     setLoading(true);
+    let response;
     try {
-      const response = await axios.post(
-        apiCall + "/application/apply",
-        studentApplictionData
-      );
+      if (checkValidationsData()) {
+        response = await axios.post(
+          apiCall + "/apply/create",
+          studentApplictionData
+        );
+      }
 
       if (response.status === 200) {
         setLoading(false);
-        if (!loading) {
-          handleComplete();
-        }
+        // if (!loading) {
+          
+        // }
+        handleReset();
+        notification.success({message:"Thanks for submitting your application!"})
       }
-      // else {
-      //   <Alert severity="error">Failed to submit</Alert>;
-      //   setLoading(false);
-      //   handleReset();
-      // }
+      else {
+        <Alert severity="error">Failed to submit</Alert>;
+        setLoading(false);
+        // handleReset();
+      }
     } catch (e) {
       setLoading(false);
       <Alert severity="error">Failed to submit</Alert>;
@@ -184,6 +203,7 @@ const Classes = () => {
       console.log("error:", e);
     }
   };
+
   return (
     <div className="class-container" id="apply">
       <div className="home-container">
@@ -267,8 +287,8 @@ const Classes = () => {
                     id="outlined-select-occupation"
                     select
                     label="Select Your Education level"
-                    value={education}
-                    onChange={(e) => setEducation(e.target.value)}
+                    value={educationLevel}
+                    onChange={(e) => setEducationLevel(e.target.value)}
                   >
                     {educations.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
@@ -295,8 +315,8 @@ const Classes = () => {
                       borderRadius: "2px",
                       border: "1px solid #dedede",
                     }}
-                    value={phone}
-                    onChange={(e) => setPhone(e)}
+                    value={telephone}
+                    onChange={(e) => setTelephone(e)}
                     placeholder="+250 78* 000 000"
                   />
                 </Box>
@@ -312,8 +332,8 @@ const Classes = () => {
                     id="outlined-select-occupation"
                     select
                     label="Select your choice Class"
-                    value={clas}
-                    onChange={(e) => setClas(e.target.value)}
+                    value={programName}
+                    onChange={(e) => setProgramName(e.target.value)}
                   >
                     {classez.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
@@ -340,7 +360,7 @@ const Classes = () => {
                   <FormControlLabel
                     value="male"
                     control={<Radio />}
-                    disabled={clas == "Frontend Web Development"}
+                    disabled={programName == "Frontend Web Development"}
                     label="Male"
                   />
 
@@ -363,8 +383,8 @@ const Classes = () => {
                     id="outlined-select-occupation"
                     select
                     label="When is the best time to study?"
-                    value={day}
-                    onChange={(e) => setDay(e.target.value)}
+                    value={programTime}
+                    onChange={(e) => setProgramTime(e.target.value)}
                   >
                     {program.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
@@ -374,7 +394,7 @@ const Classes = () => {
                   </TextField>
                 </Box>{" "}
                 <FormControlLabel
-                  disabled={!clas}
+                  disabled={!programName}
                   onClick={() => {}}
                   control={<Checkbox onChange={handleChange} />}
                   label="By clicking on this you agree to follow the following conditions"
