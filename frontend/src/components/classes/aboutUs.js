@@ -7,28 +7,28 @@ import connect from "../../assets/img/undraw_The_world_is_mine_re_j5cr.png";
 function AboutUs() {
   return (
     <div>
-      <div className="aboutus-container">
+      <div className="aboutus-container" id="aboutUs">
         <h2>About Us </h2>
         <div className="aboutUs-flex">
           <div className="cards">
             <div className="row">
-              <div className="col-sm-5">
+              <div className="col-sm-5 ">
                 <img src={developer} />
                 <h4>Teach && Learn</h4>
               </div>
               <div className="col-sm-1"></div>
-              <div className="col-sm-5">
+              <div className="col-sm-5 spmargin">
                 <img src={design} />
                 <h4>Design</h4>
               </div>
             </div>
-            <div className="row" style={{ marginTop: "10px" }}>
+            <div className="row " style={{ marginTop: "10px" }}>
               <div className="col-sm-5">
                 <img src={code} />
                 <h4 style={{ paddingTop: "20px" }}>Develop</h4>
               </div>
               <div className="col-sm-1"></div>
-              <div className="col-sm-5">
+              <div className="col-sm-5 spmargin">
                 <img src={connect} />
                 <h4>Connect</h4>
               </div>
