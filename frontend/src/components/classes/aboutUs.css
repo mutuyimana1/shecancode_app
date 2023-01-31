@@ -1,3 +1,7 @@
+.aboutus-container {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
 .aboutUs-flex {
   display: flex;
   justify-content: space-between;
@@ -10,10 +14,7 @@
 .about-paragraph p {
   font-size: 18px;
 }
-.cards {
-}
-.row {
-}
+
 .col-sm-5 {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   width: 300px;
@@ -26,4 +27,25 @@
 .col-sm-5 h4 {
   text-align: center;
   padding-top: 10px;
+}
+
+@media (max-width: 992px) {
+  .aboutUs-flex {
+    display: block;
+  }
+  .about-paragraph {
+    width: 100%;
+  }
+  .col-sm-5 {
+    width: 100%;
+  }
+  .col-sm-5 img {
+    margin-left: 0;
+  }
+  .col-sm-5 h4 {
+    font-size: 16px;
+  }
+  .spmargin {
+    margin-top: 10px;
+  }
 }
