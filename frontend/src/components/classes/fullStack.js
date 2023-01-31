@@ -6,7 +6,7 @@ const FullStack = () => {
       <h2 style={{ textAlign: "center", padding: "10px" }}>
         Full stack <spa style={{ color: "#61dafb" }}>developer</spa>
       </h2>
-      <div className="row">
+      <div className="row row-class">
         <div className="col-sm-3">
           <h4>Start On</h4>
           <p>February 05</p>

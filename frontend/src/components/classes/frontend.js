@@ -8,7 +8,7 @@ const Frontend = () => {
         <spa style={{ color: "#61dafb" }}>Web Development</spa> Certification
         Program.
       </h2>
-      <div className="row">
+      <div className="row row-class">
         <div className="col-sm-3">
           <h4>Start On</h4>
           <p>February 05</p>
