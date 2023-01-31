@@ -24,7 +24,7 @@ import imageTwo from "../../assets/img/IMG-20221210-WA0013.jpg";
 import MuiAlert from "@mui/material/Alert";
 import Duration from "./programDuration";
 import Navbar from "../navbar/navbar";
-import Footer from "../Footer/Footer";
+import Footer from "../footerLayer/footerLayer";
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });

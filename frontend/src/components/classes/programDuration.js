@@ -102,14 +102,15 @@ const Duration = () => {
                       <h3>Frontend Web Dev</h3>
                       <ul>
                         <li>
-                          Program Fees: <span className="fee">$00</span>{" "}
+                          Program Fees: <span className="fee">Scholarship</span>{" "}
                         </li>
                         <li>
-                          Registration Fees: <span className="fee">$25</span>
+                          Registration Fees:{" "}
+                          <span className="fee">25000Rwf</span>
                         </li>
                         <li>
                           Exam Certificate Fees:{" "}
-                          <span className="fee">$40</span>
+                          <span className="fee">40000Rwf</span>
                         </li>
                       </ul>
                     </div>
@@ -118,14 +119,15 @@ const Duration = () => {
                       <ul>
                         <li>
                           Program Fees:<strike>$600</strike>
-                          <span className="fee">$150</span>
+                          <span className="fee">150000Rwf</span>
                         </li>
                         <li>
-                          Registration Fees: <span className="fee">$25</span>
+                          Registration Fees:{" "}
+                          <span className="fee">25000Rwf</span>
                         </li>
                         <li>
                           Exam Certificate Fees:{" "}
-                          <span className="fee">$40</span>
+                          <span className="fee">40000Rwf</span>
                         </li>
                       </ul>
                     </div>

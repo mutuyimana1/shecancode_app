@@ -10,7 +10,14 @@ const Navbar = () => {
     <div className="header_nav">
       <div className="logo_container">
         <a href="/home" className="logo-link">
-          <img src={logo} className="logo" />
+          <div className="logo-container">
+            <img src={logo} className="logo" />
+            <div className="tekContainer">
+              <h3 className="tekCode">
+                <span>&lt;</span> Tek-code /<span>&gt;</span>
+              </h3>
+            </div>
+          </div>
         </a>
       </div>
       <div
