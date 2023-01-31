@@ -17,10 +17,57 @@
 }
 .logo-link {
   cursor: pointer;
+  display: block;
 }
 .logo {
   height: 4.2rem;
   /* width: 10rem; */
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.tekCode {
+  color: transparent;
+  background-image: linear-gradient(to right, #29abe2, black);
+  -webkit-background-clip: text;
+  /* border-left: 3px solid #000; */
+  align-self: center;
+  width: 100%;
+  padding: 0 0 0 1.5rem;
+  line-height: 1.2;
+  font-size: 1.6rem;
+}
+.tekContainer {
+  width: 100%;
+  /* background-color: red; */
+  position: relative;
+}
+.tekContainer::before {
+  content: "";
+  width: 3px;
+  height: 100%;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.tekContainer::after {
+  content: "male & female";
+  position: absolute;
+  bottom: 0;
+  left: 28%;
+  font-size: 0.8rem;
+  background-image: linear-gradient(
+    to right top,
+    rgb(0, 179, 255),
+    rgb(255, 0, 234),
+    rgb(6, 226, 255)
+  );
+  color: transparent;
+  -webkit-background-clip: text;
 }
 .nav_links {
   display: flex;
@@ -57,7 +104,7 @@
   background-color: #574c4c;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
   .header_nav {
     padding: 1rem;
     justify-content: space-between;
@@ -116,5 +163,11 @@
   }
   .nav_links .nav_link:hover {
     background-position: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .logo_container {
+    /* background-color: #29abe2; */
+    width: 100%;
   }
 }

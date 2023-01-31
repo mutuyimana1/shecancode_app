@@ -164,26 +164,6 @@ const FooterLayer = () => {
             </a>
           </p>
         </div>
-        <div className="programs-offer">
-          <h6>Program</h6>
-          <ul>
-            <li>
-              <a href="#">UI/UX Design</a>
-            </li>
-            <li>
-              <a href="#">html & css</a>
-            </li>
-            <li>
-              <a href="#">React JS</a>
-            </li>
-            <li>
-              <a href="#">Node JS</a>
-            </li>
-            <li>
-              <a href="#">Hackton</a>
-            </li>
-          </ul>
-        </div>
 
         <div className="programs-offer">
           <h6>Company</h6>
@@ -213,6 +193,26 @@ const FooterLayer = () => {
             </li>
             <li>
               <a href="#">Privacy & Terms</a>
+            </li>
+          </ul>
+        </div>
+        <div className="programs-offer">
+          <h6>Program</h6>
+          <ul>
+            <li>
+              <a href="#">UI/UX Design</a>
+            </li>
+            <li>
+              <a href="#">html & css</a>
+            </li>
+            <li>
+              <a href="#">React JS</a>
+            </li>
+            <li>
+              <a href="#">Node JS</a>
+            </li>
+            <li>
+              <a href="#">Hackton</a>
             </li>
           </ul>
         </div>
