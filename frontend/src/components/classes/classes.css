@@ -137,7 +137,7 @@ ul li {
 }
 .all-container {
   display: flex;
-
+  margin-top: 30px;
   width: 100%;
 }
 .all-container div {
@@ -161,7 +161,20 @@ ul li {
   font-size: 17px;
   font-family: "Inter", sans-serif;
 }
-
+.row-class {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  padding-left: 100px;
+  padding-top: 10px;
+}
+.col-sm-3 h4 {
+  padding-top: 10px;
+  /* padding-left: 40px; */
+}
+.col-sm-3 p {
+  padding-left: 15px;
+  font-size: 20px;
+}
 @media (max-width: 992px) {
   .home-container {
     padding: 0rem 0rem 3rem;
