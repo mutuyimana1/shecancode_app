@@ -196,8 +196,8 @@ const Classes = () => {
             <div className="program-container">
               <h1>Professional Certificate in Coding:</h1>
               <ul className="ul_links">
-                <li>Full Stack Software Engineer</li>
-                <li>Frontend Web Development </li>
+                <li>TekCode Full-Stack Engineering</li>
+                <li>SheCanCODE Web Development</li>
               </ul>
               <p className="paragraph">
                 Gain hands-on coding skills, for a competitive market edge.

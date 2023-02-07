@@ -92,7 +92,7 @@ function Applicants() {
   const fetchApplicants = () => {
     setIsFetching(true);
     axios
-      .get("http://localhost:4040/api/apply/all")
+      .get("https://api.shecancodeschool.org/api/apply/all")
       .then((res) => {
         setApplicants(res.data.data);
         console.log(res);

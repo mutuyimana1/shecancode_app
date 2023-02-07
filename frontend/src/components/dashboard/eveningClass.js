@@ -88,7 +88,7 @@ function EveningClassApplicants() {
   const fetchApplicants = () => {
     setIsFetching(true);
     axios
-      .get("http://localhost:4040/api/apply/evening")
+      .get("https://api.shecancodeschool.org/api/apply/evening")
       .then((res) => {
         setApplicants(res.data.applicationClass);
         console.log(res);

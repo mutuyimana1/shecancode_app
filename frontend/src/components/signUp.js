@@ -16,7 +16,7 @@ function SignUpPage() {
     e.preventDefault();
     console.log(firstName, lastName, userName, password, retypePassword);
     axios
-      .post("http://localhost:4040/api/auth/register", {
+      .post("https://api.shecancodeschool.org/api/auth/register", {
         firstName,
         lastName,
         userName,

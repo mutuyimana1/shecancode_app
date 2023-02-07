@@ -88,7 +88,9 @@ function FullStackApplicants() {
   const fetchApplicants = () => {
     setIsFetching(true);
     axios
-      .get("http://localhost:4040/api/apply/applicant/fullStack_developer")
+      .get(
+        "https://api.shecancodeschool.org/api/apply/applicant/fullStack_developer"
+      )
       .then((res) => {
         setApplicants(res?.data?.application);
         console.log(res);

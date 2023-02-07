@@ -88,7 +88,7 @@ function DayClassApplicants() {
   const fetchApplicants = () => {
     setIsFetching(true);
     axios
-      .get("http://localhost:4040/api/apply/day")
+      .get("https://api.shecancodeschool.org/api/apply/day")
       .then((res) => {
         setApplicants(res.data.applicationClass);
         console.log(res);
