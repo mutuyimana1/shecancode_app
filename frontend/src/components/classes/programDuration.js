@@ -41,7 +41,7 @@ const Duration = () => {
               </svg>
               <div className="start-container">
                 <h3 className="start-title">Start On</h3>
-                <p>February 20,2023</p>
+                <p>February 27,2023</p>
               </div>
             </div>
           </div>
@@ -328,7 +328,7 @@ const Duration = () => {
       </div>
       <div className="programTopic" id="program">
         <div className="programTopicCont">
-          <h2 className="developTitle">Program Topics</h2>
+          <h2 className="developTitle ">Program Topics</h2>
           <p className="leftered margin-bottom">
             This program is organized into four modules: UI/UX Design, Web
             development, Front-End Development/React, and Back-End
@@ -340,7 +340,10 @@ const Duration = () => {
             modules are geared for those who will attend full-stack software
             engineer.
           </p>
-          <div className="module-container">
+          <div className="module-container marginBottom tekcode">
+            <h2 className="developTitle text-left ft-size">
+              TekCode Full-Stack Engineering Certification Program
+            </h2>
             <div className="module-column-1">
               <div className="module-1">
                 <h2>Module 1: UI/UX Design</h2>
@@ -382,6 +385,43 @@ const Duration = () => {
               </div>
             </div>
           </div>
+          <div className="module-container marginBottom web">
+            <h2 className="developTitle  text-left ft-size">
+              SheCanCODE Web Development Certification Program
+            </h2>
+            <div className="module-column-1">
+              <div className="module-1">
+                <h2>Module 1: UI/UX Design</h2>
+                <p>
+                  In this course, we’ll cover the theory and methodologies
+                  behind UI and UX design. You’ll also design your own
+                  wireframes and interactive prototypes using Figma. Learning UI
+                  and UX basics can help you collaborate better on team projects
+                  and create new career opportunities.
+                </p>
+              </div>
+              <div className="module-2">
+                <h2>Module 2: Web Development</h2>
+                <p>
+                  You will develop foundational skills in web development using
+                  Javascript, HTML, and CSS. You’ll also create your own
+                  personal portfolio in GitHub, which you will add to as you
+                  progress through the program.
+                </p>
+              </div>
+              <div className="module-3">
+                <h2>Module 3: Front-End Development and React</h2>
+                <p>
+                  You will dive deep into front-end development using one of the
+                  most popular frameworks, React. You will write clean, concise
+                  code with Javascript ES6 and use these skills to work with web
+                  components in React. You will learn how to build React
+                  applications and how to test and deploy them.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <LoadingButton variant="contained" size="large">
             Send Application
           </LoadingButton>
