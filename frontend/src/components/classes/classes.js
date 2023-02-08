@@ -79,7 +79,7 @@ const Classes = () => {
   const [firstName, setFirstName] = useState(null);
   const [lastName, setLastName] = useState(null);
   const [email, setEmail] = useState(null);
-  const [phone, setPhone] = useState(null);
+  const [telephone, setPhone] = useState(null);
   const [gender, setGender] = useState(null);
   const [clas, setClas] = useState(null);
   const [day, setDay] = useState(null);
@@ -109,7 +109,7 @@ const Classes = () => {
     lastName: lastName,
     email: email,
     education: education,
-    phone: phone,
+    telephone: telephone,
     clas: clas,
     gender: gender,
     day: day,
@@ -134,7 +134,7 @@ const Classes = () => {
       !firstName ||
       !lastName ||
       !email ||
-      !phone ||
+      !telephone ||
       !education ||
       !clas ||
       !day ||
@@ -147,8 +147,8 @@ const Classes = () => {
         notification.warn({ message: "Your email should be valid!" });
         return false;
       }
-      if (phone.length !== 12) {
-        notification.warn({ message: "Your Phone should be valid!" });
+      if (telephone.length !== 12) {
+        notification.warn({ message: "Your telephone should be valid!" });
         return false;
       }
       return true;
@@ -164,7 +164,7 @@ const Classes = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        apiCall + "/application/apply",
+        apiCall + "/apply/create",
         studentApplictionData
       );
 
@@ -300,7 +300,7 @@ const Classes = () => {
                         borderRadius: "2px",
                         border: "1px solid #dedede",
                       }}
-                      value={phone}
+                      value={telephone}
                       onChange={(e) => setPhone(e)}
                       placeholder="+250 78* 000 000"
                     />

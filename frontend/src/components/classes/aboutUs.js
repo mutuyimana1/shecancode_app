@@ -18,7 +18,7 @@ function AboutUs() {
                   <h4>Teach && Learn</h4>
                 </div>
                 <div className="col-sm-1"></div>
-                <div className="col-sm-5 spmargin">
+                <div className="col-sm-5 ">
                   <img src={design} />
                   <h4>Design</h4>
                 </div>
@@ -29,7 +29,7 @@ function AboutUs() {
                   <h4 style={{ paddingTop: "20px" }}>Develop</h4>
                 </div>
                 <div className="col-sm-1"></div>
-                <div className="col-sm-5 spmargin">
+                <div className="col-sm-5 ">
                   <img src={connect} />
                   <h4>Connect</h4>
                 </div>
@@ -44,11 +44,14 @@ function AboutUs() {
                 you need to help you land a high-paying job in the tech
                 industry. You spend time during the course with the career
                 service team to help you reach your job search and job
-                preparation guidance. Attending this program, you can expect to
-                work hard, pre-work(homeworks), assignments, real-life projects
-                and project presentations, code review with technical
-                facilitators, daily coding seminars, mentors, inspiration from
-                experts, interview preparation and 1 on 1 with the career team.
+                preparation guidance.
+                <br />
+                <br />
+                Attending this program, you can expect to work hard,
+                pre-work(homeworks), assignments, real-life projects and project
+                presentations, code review with technical facilitators, daily
+                coding seminars, mentors, inspiration from experts, interview
+                preparation and 1 on 1 with the career team.
               </p>
             </div>
           </div>
