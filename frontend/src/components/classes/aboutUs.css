@@ -9,7 +9,7 @@
 .aboutus-container {
   max-width: 1140px;
   margin: 0 auto;
-  text-align: center;
+  /* text-align: center; */
 }
 .aboutus-container h2 {
   font-size: 2.1rem;
