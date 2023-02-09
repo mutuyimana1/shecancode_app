@@ -114,7 +114,7 @@ function Applicants() {
         name: row.firstName,
         age: row.age,
         address: row.email,
-        timeSchedule: row.calendar?.date,
+        timeSchedule: row.timeSchedule,
       }));
   return (
     <div>
