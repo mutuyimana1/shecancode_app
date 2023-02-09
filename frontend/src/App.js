@@ -11,7 +11,8 @@ import Classes from "./components/classes/classes";
 import Application from "./components/Application/Application";
 import LoginPage from "./components/login";
 import Navbar from "./components/navbar/navbar";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Route, Switch, link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
@@ -113,6 +114,7 @@ function App() {
           {" "}
           <Login />
         </Route>
+        {/* <ToastContainer /> */}
         {/* <Footer /> */}
       </Router>
     </div>

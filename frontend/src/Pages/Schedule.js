@@ -15,6 +15,13 @@ const frontSchedule = [
   { time: "02h:00 Pm - 03h:30 Pm" },
 ];
 
+const scheduleDate = [
+  { date: "Monday, February 20 2023", type: "frontend_developer" },
+  { date: "Tuesday, February 21 2023", type: "fullStack_developer" },
+  { date: "Wednesday, February 22 2023", type: "frontend_developer" },
+  { date: "Thursday, February 23 2023", type: "fullStack_developer" },
+];
+
 const SchedulerCard = (props) => {
   return (
     <Paper
@@ -216,42 +223,21 @@ const Component = (props) => {
                   // helperText="Please select your Available Day"
                   variant="standard"
                 >
-                  {applicant?.programName === "frontend_developer" && (
-                    <option
-                      key={1}
-                      value={"Monday, February 20 2023"}
-                      sx={{ padding: "1rem" }}
-                    >
-                      Monday, February 20 2023
-                    </option>
-                  )}
-                  {applicant?.programName === "fullStack_developer" && (
-                    <option
-                      key={2}
-                      value={"Tuesday, February 21 2023"}
-                      sx={{ padding: "1rem" }}
-                    >
-                      Tuesday, February 21 2023
-                    </option>
-                  )}
-                  {applicant?.programName === "frontend_developer" && (
-                    <option
-                      key={3}
-                      value={"Wednesday, February 22 2023"}
-                      sx={{ padding: "1rem" }}
-                    >
-                      Wednesday, February 22 2023
-                    </option>
-                  )}
-                  {applicant?.programName === "fullStack_developer" && (
-                    <option
-                      key={4}
-                      value={"Thursday, February 23 2023"}
-                      sx={{ padding: "1rem" }}
-                    >
-                      Thursday, February 23 2023
-                    </option>
-                  )}
+                  {scheduleDate
+                    .filter(
+                      (schedule) => schedule.type == applicant?.programName
+                    )
+                    .map((dat, key) => {
+                      return (
+                        <option
+                          key={key}
+                          value={dat.date}
+                          sx={{ padding: "1rem" }}
+                        >
+                          {dat.date}
+                        </option>
+                      );
+                    })}
                 </TextField>
                 <Paper
                   elevation={1}
@@ -272,7 +258,7 @@ const Component = (props) => {
                       sx={{ width: "50%" }}
                       onClick={() => {
                         setSelectTimeIndex(index + 1);
-                        setSelectedSchedule(e);
+                        setSelectedSchedule({ ...selectedSchedule, ...e });
                       }}
                     >
                       {" "}

@@ -15,6 +15,7 @@ import { Modal, notification } from "antd";
 import MenuItem from "@mui/material/MenuItem";
 import FullStack from "./fullStack";
 import validator from "validator";
+// import { notification } from "antd";
 import axios from "axios";
 import Frontend from "./frontend";
 import apiCall from "../../helpers/apiCall";
@@ -24,6 +25,9 @@ import imageTwo from "../../assets/img/IMG-20221210-WA0013.jpg";
 import MuiAlert from "@mui/material/Alert";
 import Duration from "./programDuration";
 import Navbar from "../navbar/navbar";
+
+import { ToastContainer, toast } from "react-toastify";
+
 import Footer from "../footerLayer/footerLayer";
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -170,7 +174,9 @@ const Classes = () => {
         if (!loading) {
           handleComplete();
         }
+        toast.success("your application has successfully sent");
       }
+
       // else {
       //   <Alert severity="error">Failed to submit</Alert>;
       //   setLoading(false);
@@ -181,10 +187,12 @@ const Classes = () => {
       <Alert severity="error">Failed to submit</Alert>;
       // handleReset();
       console.log("error:", e);
+      toast.error("application failed");
     }
   };
   return (
     <>
+      <ToastContainer style={{ zIndex: "9999" }} />
       <Navbar />
 
       <div className="class-container">

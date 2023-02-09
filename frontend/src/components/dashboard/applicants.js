@@ -57,8 +57,8 @@ const columns = [
   },
   {
     title: "Schedured date",
-    dataIndex: "timeSchedule",
-    key: "timeSchedule",
+    dataIndex: "calendar",
+    key: "7",
     width: 200,
   },
 
@@ -94,7 +94,12 @@ function Applicants() {
     axios
       .get("https://api.shecancodeschool.org/api/apply/all")
       .then((res) => {
-        setApplicants(res.data.data);
+        setApplicants(
+          res.data.data.map((applicant) => {
+            console.log(applicant);
+            return { ...applicant, calendar: applicant?.calendar?.date };
+          })
+        );
         console.log(res);
         setIsFetching(false);
       })
@@ -114,7 +119,6 @@ function Applicants() {
         name: row.firstName,
         age: row.age,
         address: row.email,
-        timeSchedule: row.timeSchedule,
       }));
   return (
     <div>
