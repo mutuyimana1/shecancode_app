@@ -58,7 +58,7 @@ const columns = [
   {
     title: "Schedured date",
     dataIndex: "timeSchedule",
-    key: "7",
+    key: "timeSchedule",
     width: 200,
   },
 
@@ -114,6 +114,7 @@ function Applicants() {
         name: row.firstName,
         age: row.age,
         address: row.email,
+        timeSchedule: row.calendar?.date,
       }));
   return (
     <div>
