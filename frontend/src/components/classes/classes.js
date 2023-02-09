@@ -30,21 +30,21 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 const classez = [
   {
-    value: "Frontend Web Development",
+    value: "frontend_developer",
     label: "Frontend Web Development",
   },
   {
-    value: "Full-Stack Software Engineers",
+    value: "fullStack_developer",
     label: "Full-Stack Software Engineers",
   },
 ];
 const program = [
   {
-    value: "Evening",
+    value: "evening",
     label: "Evenig",
   },
   {
-    value: "Day",
+    value: "day",
     label: "Day",
   },
 ];
@@ -91,12 +91,9 @@ const Classes = () => {
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
-    if (event.target.checked && clas == "Frontend Web Development") {
+    if (event.target.checked && clas == "frontend_developer") {
       setModalFrontEnd(true);
-    } else if (
-      event.target.checked &&
-      clas == "Full-Stack Software Engineers"
-    ) {
+    } else if (event.target.checked && clas == "fullStack_developer") {
       setModalFullStack(true);
     } else {
       notification.warn({
@@ -108,11 +105,11 @@ const Classes = () => {
     firstName: firstName,
     lastName: lastName,
     email: email,
-    education: education,
+    educationLevel: education,
     telephone: telephone,
-    clas: clas,
+    programName: clas,
     gender: gender,
-    day: day,
+    programTime: day,
   };
   const showModal = () => {
     setModalFrontEnd(true);
@@ -345,7 +342,7 @@ const Classes = () => {
                     <FormControlLabel
                       value="male"
                       control={<Radio />}
-                      disabled={clas == "Frontend Web Development"}
+                      disabled={clas == "frontend_developer"}
                       label="Male"
                     />
 
