@@ -57,7 +57,7 @@ const Component = (props) => {
   const handleSchedule = async () => {
     console.log(selectedSchedule);
     if (!selectedSchedule?.date) {
-      return notification.warning({message:"Please! Select Day."})
+      return notification.warning({ message: "Please! Select Day." });
     } else {
       const resp = await axios.patch(`${BASE_URL}/apply/update/${id}`, {
         calendar: selectedSchedule,
@@ -83,12 +83,13 @@ const Component = (props) => {
         console.log(res);
         res.status === 200 && setApplicant(res.data.data);
         res.status === 200 && setLoading(false);
-        res.status === 200 &&setSelectedSchedule({
-          date:
-            res?.data.data.programName === "frontend_developer"
-              ? "Monday, February 20 2023"
-              : "Tuesday, February 21 2023",
-        });
+        res.status === 200 &&
+          setSelectedSchedule({
+            date:
+              res?.data.data.programName === "frontend_developer"
+                ? "Monday, February 20 2023"
+                : "Tuesday, February 21 2023",
+          });
       })
       .catch((err) => {
         console.log("Error: ", err);
@@ -216,22 +217,38 @@ const Component = (props) => {
                   variant="standard"
                 >
                   {applicant?.programName === "frontend_developer" && (
-                    <option key={1} value={"Monday, February 20 2023"} sx={{padding:"1rem"}}>
+                    <option
+                      key={1}
+                      value={"Monday, February 20 2023"}
+                      sx={{ padding: "1rem" }}
+                    >
                       Monday, February 20 2023
                     </option>
                   )}
                   {applicant?.programName === "fullStack_developer" && (
-                    <option key={2} value={"Tuesday, February 21 2023"} sx={{padding:"1rem"}}>
+                    <option
+                      key={2}
+                      value={"Tuesday, February 21 2023"}
+                      sx={{ padding: "1rem" }}
+                    >
                       Tuesday, February 21 2023
                     </option>
                   )}
                   {applicant?.programName === "frontend_developer" && (
-                    <option key={3} value={"Wednesday, February 22 2023"} sx={{padding:"1rem"}}>
+                    <option
+                      key={3}
+                      value={"Wednesday, February 22 2023"}
+                      sx={{ padding: "1rem" }}
+                    >
                       Wednesday, February 22 2023
                     </option>
                   )}
                   {applicant?.programName === "fullStack_developer" && (
-                    <option key={4} value={"Thursday, February 23 2023"} sx={{padding:"1rem"}}>
+                    <option
+                      key={4}
+                      value={"Thursday, February 23 2023"}
+                      sx={{ padding: "1rem" }}
+                    >
                       Thursday, February 23 2023
                     </option>
                   )}

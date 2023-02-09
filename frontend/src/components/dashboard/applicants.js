@@ -56,8 +56,8 @@ const columns = [
     width: 150,
   },
   {
-    title: "Comment",
-    dataIndex: "comment",
+    title: "Schedured date",
+    dataIndex: "timeSchedule",
     key: "7",
     width: 200,
   },
