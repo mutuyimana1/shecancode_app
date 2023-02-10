@@ -49,7 +49,7 @@ const SchedulerCard = (props) => {
       >
         {props.schedule}
       </h4>
-      <p>Remaing seats: 12</p>
+      {/* <p>Remaing seats: 12</p> */}
     </Paper>
   );
 };

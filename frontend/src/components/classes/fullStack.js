@@ -9,7 +9,7 @@ const FullStack = () => {
       <div className="row row-class">
         <div className="col-sm-3">
           <h4>Start On</h4>
-          <p>February 05</p>
+          <p>February 27</p>
         </div>
         <div className="col-sm-3">
           <h4>Duration</h4>
@@ -17,7 +17,9 @@ const FullStack = () => {
         </div>
         <div className="col-sm-3">
           <h4>Program Fees</h4>
-          <p>600 USD</p>
+          <p>
+            <s>600,000 Rwf</s> <br /> 150,000rwf
+          </p>
         </div>
         <div className="col-sm-3">
           <h4>Scholarship</h4>
@@ -26,10 +28,13 @@ const FullStack = () => {
       </div>
       <div className="all-container">
         <div className="content-container">
-          <h6>Program Topics</h6>
+          <h6>Program Modules</h6>
           <ul>
-            <li>Module One</li>
-            <li>Module Two</li>
+            <li>Node JS</li>
+            <li>SQL and Data Modeling for the Web</li>
+            <li>API Development</li>
+            <li> Identity Access Management</li>
+            <li> Server Deployment</li>
           </ul>
         </div>
         <div className="content-container">
@@ -47,9 +52,9 @@ const FullStack = () => {
         <div className="why-program">
           <h6>Program fee and Payment plan. </h6>
           <p>
-            The total cost of the program is 600 USD and <br />
+            The total cost of the program is <s>600,000 Rwf</s> and <br />
             Igire Rwanda is Paying 75% to all <br /> selected applicants. The
-            applicant will pay 150 USD(150K RWF)
+            applicant will pay 150,000 rwf
             <br /> for three months. Here are the
             <br /> details of the program fee.
           </p>

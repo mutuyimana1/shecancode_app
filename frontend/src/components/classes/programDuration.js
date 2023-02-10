@@ -156,9 +156,9 @@ const Duration = () => {
       <div className="app_details">
         <h2 className="developTitle">Application Details</h2>
         <p className="leftered">
-          The total cost of the program is 600 USD and Igire Rwanda is Paying
-          75% to all selected applicants. The applicant will pay 150 USD(150K
-          RWF) for three months. Here are the details of the program fee.
+          The total cost of the program is <s>600,000Rwf</s> and Igire Rwanda is
+          Paying 75% to all selected applicants. The applicant will pay 150,000
+          RWF for three months. Here are the details of the program fee.
         </p>
         <div className="front_details">
           <h3>Full-Stack Web Engineer</h3>
@@ -185,7 +185,7 @@ const Duration = () => {
                   150,000<span className="rwf">rwf</span>
                 </span>
               </h4>
-              <p className="fees-p">Pay in trash</p>
+              <p className="fees-p">Pay in installment</p>
             </div>
           </div>
         </div>

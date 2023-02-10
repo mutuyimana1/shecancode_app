@@ -43,7 +43,7 @@ const Navbar = () => {
 
         <li>
           <a
-            href="#"
+            href="#aboutUs"
             className="nav_link"
             onClick={() => {
               setShowNavbar(false);

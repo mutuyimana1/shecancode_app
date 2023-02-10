@@ -11,7 +11,7 @@ const Frontend = () => {
       <div className="row row-class">
         <div className="col-sm-3">
           <h4>Start On</h4>
-          <p>February 05</p>
+          <p>February 27</p>
         </div>
         <div className="col-sm-3">
           <h4>Duration</h4>
@@ -20,7 +20,15 @@ const Frontend = () => {
 
         <div className="col-sm-3">
           <h4>Program Fees</h4>
-          <p>600 USD</p>
+          <s>600,000 Rwf</s> <br />{" "}
+          <span
+            style={{
+              fontSize: "20px",
+              paddingLeft: "15px",
+            }}
+          >
+            free
+          </span>
         </div>
         <div className="col-sm-3">
           <h4>Scholarship</h4>
@@ -30,10 +38,12 @@ const Frontend = () => {
 
       <div className="all-container">
         <div className="content-container">
-          <h6>Program Topics</h6>
+          <h6>Program Modules</h6>
           <ul>
-            <li>Module One</li>
-            <li>Module Two</li>
+            <li>UI/UX Design</li>
+            <li>Web Development</li>
+            <li>Frontend Development with React</li>
+            <li>Deployment</li>
           </ul>
         </div>
         <div className="content-container">
