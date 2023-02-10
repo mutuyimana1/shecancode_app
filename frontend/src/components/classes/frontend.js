@@ -20,7 +20,7 @@ const Frontend = () => {
 
         <div className="col-sm-3">
           <h4>Program Fees</h4>
-          <s>600,000 Rwf</s> <br />{" "}
+          <s>500,000 Rwf</s> <br />{" "}
           <span
             style={{
               fontSize: "20px",

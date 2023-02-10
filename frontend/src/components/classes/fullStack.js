@@ -23,7 +23,7 @@ const FullStack = () => {
         </div>
         <div className="col-sm-3">
           <h4>Scholarship</h4>
-          <p>70%</p>
+          <p>75%</p>
         </div>
       </div>
       <div className="all-container">
