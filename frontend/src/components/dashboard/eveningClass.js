@@ -56,8 +56,8 @@ const columns = [
     width: 150,
   },
   {
-    title: "Comment",
-    dataIndex: "comment",
+    title: "Schedured date",
+    dataIndex: "calendar",
     key: "7",
     width: 200,
   },
@@ -90,7 +90,12 @@ function EveningClassApplicants() {
     axios
       .get("https://api.shecancodeschool.org/api/apply/evening")
       .then((res) => {
-        setApplicants(res.data.applicationClass);
+        setApplicants(
+          res.data.applicationClass.map((applicant) => {
+            console.log(applicant);
+            return { ...applicant, calendar: applicant?.calendar?.date };
+          })
+        );
         console.log(res);
         setIsFetching(false);
       })

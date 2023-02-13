@@ -56,8 +56,8 @@ const columns = [
     width: 150,
   },
   {
-    title: "Comment",
-    dataIndex: "comment",
+    title: "Schedured date",
+    dataIndex: "calendar",
     key: "7",
     width: 200,
   },
@@ -88,9 +88,16 @@ function FrontendApplicants() {
   const fetchApplicants = () => {
     setIsFetching(true);
     axios
-      .get("https://api.shecancodeschool.org/api/apply/applicant/frontend_developer")
+      .get(
+        "https://api.shecancodeschool.org/api/apply/applicant/frontend_developer"
+      )
       .then((res) => {
-        setApplicants(res?.data?.application);
+        setApplicants(
+          res?.data?.application.map((applicant) => {
+            console.log(applicant);
+            return { ...applicant, calendar: applicant?.calendar?.date };
+          })
+        );
         console.log(res);
         setIsFetching(false);
       })

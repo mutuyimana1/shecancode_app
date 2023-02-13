@@ -174,7 +174,7 @@ const Classes = () => {
         if (!loading) {
           handleComplete();
         }
-        toast.success("your application has successfully sent");
+        toast.success("Succcess!! check email to schedule Interview date ");
       }
 
       // else {
@@ -210,7 +210,7 @@ const Classes = () => {
             </div>
             <div className="applied-form">
               <div className="form form-class">
-                <p className="apply-for">Apply For </p>
+                <p className="apply-for">Apply</p>
                 <form fullWidth={true}>
                   <Box
                     className="form__box"
@@ -228,6 +228,7 @@ const Classes = () => {
                       variant="outlined"
                       InputProps={{ style: { fontSize: 18 } }}
                       InputLabelProps={{ style: { fontSize: 18 } }}
+                      name={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                     />
                   </Box>
@@ -244,6 +245,7 @@ const Classes = () => {
                       id="outlined-basic"
                       label="LastName"
                       variant="outlined"
+                      name={lastName}
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                     />

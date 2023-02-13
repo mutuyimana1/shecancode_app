@@ -5,6 +5,8 @@ import Sidebar from "./sideBar";
 function DashboardHome() {
   const FirstName = "Alice";
   const [applicants, setApplicants] = useState([]);
+  const [webDev, setWebDev] = useState([]);
+  const [fullStack, setFullStack] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const fetchApplicants = () => {
     setIsFetching(true);
@@ -20,8 +22,43 @@ function DashboardHome() {
         setIsFetching(false);
       });
   };
+
+  const fetchWebDev = () => {
+    setIsFetching(true);
+    axios
+      .get(
+        "https://api.shecancodeschool.org/api/apply/applicant/frontend_developer"
+      )
+      .then((res) => {
+        setWebDev(res.data?.application);
+        console.log(res);
+        setIsFetching(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsFetching(false);
+      });
+  };
+  const fetchFullStack = () => {
+    setIsFetching(true);
+    axios
+      .get(
+        "https://api.shecancodeschool.org/api/apply/applicant/fullStack_developer"
+      )
+      .then((res) => {
+        setFullStack(res.data?.application);
+        console.log(res);
+        setIsFetching(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsFetching(false);
+      });
+  };
   useEffect(() => {
     fetchApplicants();
+    fetchWebDev();
+    fetchFullStack();
   }, []);
   return (
     <div>
@@ -82,7 +119,7 @@ function DashboardHome() {
                       <i className="fa fa-female" aria-hidden="true" />
                     </span>
                     <div className="dash-widget-info text-right">
-                      <h3>....</h3>
+                      <h3>{webDev.length}</h3>
                       <span className="widget-title3">
                         <a href="/frontend" style={{ color: "black" }}>
                           Web Development
@@ -100,7 +137,7 @@ function DashboardHome() {
                       <i className="fa fa-hospital-o" aria-hidden="true" />
                     </span>
                     <div className="dash-widget-info text-right">
-                      <h3>....</h3>
+                      <h3>{fullStack.length}</h3>
                       <span className="widget-title4">
                         {" "}
                         <a href="/fullstack" style={{ color: "black" }}>
