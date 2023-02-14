@@ -61,6 +61,12 @@ const columns = [
     key: "7",
     width: 200,
   },
+  {
+    title: "Schedured time",
+    dataIndex: "time",
+    key: "7",
+    width: 200,
+  },
 
   {
     title: "Action",
@@ -93,7 +99,11 @@ function EveningClassApplicants() {
         setApplicants(
           res.data.applicationClass.map((applicant) => {
             console.log(applicant);
-            return { ...applicant, calendar: applicant?.calendar?.date };
+            return {
+              ...applicant,
+              calendar: applicant?.calendar?.date,
+              time: applicant?.calendar?.time,
+            };
           })
         );
         console.log(res);

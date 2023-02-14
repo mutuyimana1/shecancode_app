@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./dashstyle.css";
 import Sidebar from "./sideBar";
 import { Button, CircularProgress } from "@mui/material";
+import { CSVLink } from "react-csv";
 import { Table } from "antd";
 const columns = [
   {
@@ -61,11 +62,17 @@ const columns = [
     key: "7",
     width: 200,
   },
+  {
+    title: "Schedured time",
+    dataIndex: "time",
+    key: "8",
+    width: 200,
+  },
 
   {
     title: "Action",
     key: "operation",
-    key: "8",
+    key: "9",
     width: 170,
     render: () => (
       <>
@@ -97,7 +104,11 @@ function Applicants() {
         setApplicants(
           res.data.data.map((applicant) => {
             console.log(applicant);
-            return { ...applicant, calendar: applicant?.calendar?.date };
+            return {
+              ...applicant,
+              calendar: applicant?.calendar?.date,
+              time: applicant?.calendar?.time,
+            };
           })
         );
         console.log(res);
@@ -124,6 +135,18 @@ function Applicants() {
     <div>
       <Sidebar />
       <div className="page-wrapper">
+        <CSVLink
+          data={applicants}
+          style={{
+            background: "green",
+            padding: "20px",
+            marginLeft: "50px",
+            borderRadius: "5px",
+            color: "white",
+          }}
+        >
+          Export to excel
+        </CSVLink>
         <div className="content">
           {isFetching ? (
             <CircularProgress
