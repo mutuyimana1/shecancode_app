@@ -16,8 +16,8 @@ const frontSchedule = [
 ];
 
 const scheduleDate = [
-  { date: "Monday, February 20 2023", type: "frontend_developer" },
-  { date: "Tuesday, February 21 2023", type: "fullStack_developer" },
+  // { date: "Monday, February 20 2023", type: "frontend_developer" },
+  // { date: "Tuesday, February 21 2023", type: "fullStack_developer" },
   { date: "Wednesday, February 22 2023", type: "frontend_developer" },
   { date: "Thursday, February 23 2023", type: "fullStack_developer" },
 ];
