@@ -209,7 +209,8 @@ const Classes = () => {
               </p>
             </div>
             <div className="applied-form">
-              <div className="form form-class">
+              <h1 style={{ color: "white" }}>Application has closed</h1>
+              {/* <div className="form form-class">
                 <p className="apply-for">Apply</p>
                 <form fullWidth={true}>
                   <Box
@@ -356,12 +357,6 @@ const Classes = () => {
                       label="Male"
                     />
 
-                    {/* <FormControlLabel
-                  value="other"
-                  control={<Radio />}
-                  label="Other"
-                  disabled
-                /> */}
                   </RadioGroup>
                   <Box
                     component="form"
@@ -402,7 +397,7 @@ const Classes = () => {
                     Send Application
                   </LoadingButton>
                 </form>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
