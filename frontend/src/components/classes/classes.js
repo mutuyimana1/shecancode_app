@@ -209,7 +209,9 @@ const Classes = () => {
               </p>
             </div>
             <div className="applied-form">
-              <h1 style={{ color: "white" }}>Application has closed</h1>
+              <h1 style={{ color: "white", fontSize: "50px" }}>
+                Application has closed
+              </h1>
               {/* <div className="form form-class">
                 <p className="apply-for">Apply</p>
                 <form fullWidth={true}>
